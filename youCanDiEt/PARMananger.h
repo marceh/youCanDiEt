@@ -10,4 +10,9 @@
 
 @interface PARMananger : NSObject
 
+@property (nonatomic) NSMutableArray *products;
+@property (nonatomic) NSMutableArray *recipes;
+
++(id)getPARManager;
+
 @end

@@ -10,4 +10,14 @@
 
 @interface Recipe : NSObject
 
+@property (nonatomic) NSMutableArray *products;
+@property (nonatomic) NSString *howTo;
+//Categories = breakfast, lunch, snack, dinner, supper.
+@property (nonatomic) NSString *category;
+@property (nonatomic) NSNumber *portions;
+//WeekDay = 1-7.
+@property (nonatomic) NSNumber *weekDay;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

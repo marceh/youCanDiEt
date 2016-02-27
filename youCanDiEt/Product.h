@@ -10,4 +10,12 @@
 
 @interface Product : NSObject
 
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSNumber *kcal;
+@property (nonatomic) NSNumber *carbs;
+@property (nonatomic) NSNumber *protein;
+@property (nonatomic) NSNumber *fat;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -10,4 +10,9 @@
 
 @interface WeekPlanner : NSObject
 
+@property (nonatomic) NSMutableArray *recipes;
+@property (nonatomic) NSString *weekName;
+
+-(instancetype)initWithWeekName:(NSString *)weekName andRecipes:(NSMutableArray *)recipes;
+
 @end

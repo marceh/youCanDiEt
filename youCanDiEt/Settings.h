@@ -10,4 +10,8 @@
 
 @interface Settings : NSObject
 
+@property (nonatomic) NSNumber *kcalNeed;
+
++(id)getSetting;
+
 @end

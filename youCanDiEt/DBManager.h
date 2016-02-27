@@ -10,4 +10,8 @@
 
 @interface DBManager : NSObject
 
+@property (nonatomic) NSNumber *kcalNeed;
+
++(id)getDBManager;
+
 @end

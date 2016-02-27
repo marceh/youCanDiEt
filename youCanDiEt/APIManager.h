@@ -10,4 +10,8 @@
 
 @interface APIManager : NSObject
 
+@property (nonatomic) NSNumber *kcalNeed;
+
++(id)getAPIManager;
+
 @end

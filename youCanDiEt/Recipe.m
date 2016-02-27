@@ -10,4 +10,16 @@
 
 @implementation Recipe
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary{
+    self = [super init];
+    if (self) {
+        self.products = [dictionary valueForKey:@"products"];
+        self.howTo = [dictionary valueForKey:@"howTo"];
+        self.category = [dictionary valueForKey:@"category"];
+        self.portions = [dictionary valueForKey:@"portions"];
+        self.weekDay = nil;
+    }
+    return self;
+}
+
 @end

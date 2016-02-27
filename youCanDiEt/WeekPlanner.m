@@ -10,4 +10,13 @@
 
 @implementation WeekPlanner
 
+-(instancetype)initWithWeekName:(NSString *)weekName andRecipes:(NSMutableArray *)recipes{
+    self = [super init];
+    if (self) {
+        self.weekName = weekName;
+        self.recipes = recipes;
+    }
+    return self;
+}
+
 @end

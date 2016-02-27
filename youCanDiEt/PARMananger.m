@@ -10,4 +10,23 @@
 
 @implementation PARMananger
 
++(id)getPARManager{
+    static PARMananger *parManager = nil;
+    //Init only once for singleton.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        parManager = [[self alloc] init];
+    });
+    return parManager;
+}
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        self.products = [NSMutableArray new];
+        self.recipes = [NSMutableArray new];
+    }
+    return self;
+}
+
 @end

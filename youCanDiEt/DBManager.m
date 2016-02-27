@@ -10,4 +10,21 @@
 
 @implementation DBManager
 
++(id)getDBManager{
+    static DBManager *dbManager = nil;
+    //Init only once for singleton.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dbManager = [[self alloc] init];
+    });
+    return dbManager;
+}
+
+-(id)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 @end

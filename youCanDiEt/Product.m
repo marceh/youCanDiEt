@@ -10,4 +10,16 @@
 
 @implementation Product
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary{
+    self = [super init];
+    if (self) {
+        self.name = [dictionary valueForKey:@"name"];
+        self.kcal = [dictionary valueForKey:@"kcal"];
+        self.carbs = [dictionary valueForKey:@"carbs"];
+        self.protein = [dictionary valueForKey:@"protein"];
+        self.fat = [dictionary valueForKey:@"fat"];
+    }
+    return self;
+}
+
 @end
