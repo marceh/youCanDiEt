@@ -14,4 +14,9 @@
 
 +(id)getSetting;
 
+//Gender: write m for male and f for female.
+//Height: write in cm (integer).
+//Weight: write in kg (integer).
+-(double)calculateKcalNeedsUsingGender:(char)gender age:(int)age height:(int)height weight:(int)weight andDaysOfExercisePerWeek:(int)daysOfExercisePerWeek;
+
 @end
