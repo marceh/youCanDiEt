@@ -7,8 +7,12 @@
 //
 
 #import "ProductInfoTableViewController.h"
+#import "PARMananger.h"
+#import "APIManager.h"
 
 @interface ProductInfoTableViewController ()
+@property (nonatomic) PARMananger *parManager;
+@property (nonatomic) APIManager *apiManager;
 
 @end
 
@@ -17,11 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.searchBar.delegate = self;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //Getting the singleton that manages the arrays...
+    self.parManager = [PARMananger getPARManager];
+    self.apiManager = [APIManager getAPIManager];
+    
+    [self.parManager.products addObject:@"object 1"];
+    [self.parManager.products addObject:@"object 2"];
+    
+}
+
+- (void)searchedItemKlickedIsAddedToPARManagerProductArray {
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +45,22 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [[PARMananger getPARManager] products].count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+
+    static NSString *CellIdentifier = @"cellProduct";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.textLabel.text = self.parManager.products[indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

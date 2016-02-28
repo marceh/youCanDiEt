@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="517" y="293"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Week Planner Table View Controller-->
         <scene sceneID="Nwx-4I-j3B">
             <objects>
-                <tableViewController id="30S-Cj-5WH" sceneMemberID="viewController">
+                <tableViewController id="30S-Cj-5WH" customClass="WeekPlannerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s6l-W8-shf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="950" y="649"/>
         </scene>
-        <!--View Controller-->
+        <!--Week Planner Add View Controller-->
         <scene sceneID="wQx-gX-c7o">
             <objects>
-                <viewController id="KHm-uW-acM" sceneMemberID="viewController">
+                <viewController id="KHm-uW-acM" customClass="WeekPlannerAddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7jL-bk-Z35"/>
                         <viewControllerLayoutGuide type="bottom" id="WpO-pJ-Xsh"/>
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="1374" y="649"/>
         </scene>
-        <!--View Controller-->
+        <!--Week Planner Click View Controller-->
         <scene sceneID="qSn-Bt-1T2">
             <objects>
-                <viewController id="Myf-QH-koG" sceneMemberID="viewController">
+                <viewController id="Myf-QH-koG" customClass="WeekPlannerClickViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TJk-jn-66O"/>
                         <viewControllerLayoutGuide type="bottom" id="HoA-Nh-1Nn"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1374" y="1289"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="u2s-RO-zbM">
             <objects>
-                <viewController id="seH-mh-1I7" sceneMemberID="viewController">
+                <viewController id="seH-mh-1I7" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sqZ-q9-1kh"/>
                         <viewControllerLayoutGuide type="bottom" id="T4l-em-tlJ"/>
@@ -163,11 +163,11 @@
             </objects>
             <point key="canvasLocation" x="950" y="1289"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Product Info Table View Controller-->
         <scene sceneID="0tD-FI-cxh">
             <objects>
-                <tableViewController id="2Xk-33-QnO" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gm1-zQ-Af3">
+                <tableViewController id="2Xk-33-QnO" customClass="ProductInfoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gm1-zQ-Af3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -177,12 +177,44 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gfb-AM-6MG">
-                                <rect key="frame" x="0.0" y="136" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProduct" rowHeight="97" id="Gfb-AM-6MG">
+                                <rect key="frame" x="0.0" y="136" width="320" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gfb-AM-6MG" id="vKk-Ff-NKz">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellProduct" tableViewCell="Gfb-AM-6MG" id="vKk-Ff-NKz">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDa-uc-9Nd">
+                                            <rect key="frame" x="95" y="8" width="130" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Protein:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4b-3j-AKf">
+                                            <rect key="frame" x="131" y="37" width="59" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carbs: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-Fa-WJh">
+                                            <rect key="frame" x="8" y="67" width="143" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fat: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itv-GM-8mG">
+                                            <rect key="frame" x="144" y="67" width="33" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kcal: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mch-Yr-C41">
+                                            <rect key="frame" x="8" y="38" width="143" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="wo7-H2-fIs" kind="show" id="lzt-6q-bla"/>
@@ -193,15 +225,18 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="fKo-wP-tlB" id="ib0-M3-sA7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqo-83-pUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="950" y="-28"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Info Click View Controller-->
         <scene sceneID="h17-cg-s40">
             <objects>
-                <viewController id="wo7-H2-fIs" sceneMemberID="viewController">
+                <viewController id="wo7-H2-fIs" customClass="ProductInfoClickViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jKH-H5-Lqn"/>
                         <viewControllerLayoutGuide type="bottom" id="iU2-sL-xCq"/>
@@ -217,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="1374" y="-28"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipes Add View Controller-->
         <scene sceneID="373-rg-M9J">
             <objects>
-                <viewController id="dsT-n2-7pm" sceneMemberID="viewController">
+                <viewController id="dsT-n2-7pm" customClass="RecipesAddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jza-s2-oht"/>
                         <viewControllerLayoutGuide type="bottom" id="Tga-a9-JZ7"/>
@@ -236,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="1374" y="-668"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recipes Table View Controller-->
         <scene sceneID="MEm-69-WWU">
             <objects>
-                <tableViewController id="XDf-Mi-vtE" sceneMemberID="viewController">
+                <tableViewController id="XDf-Mi-vtE" customClass="RecipesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cnk-S3-Ind">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

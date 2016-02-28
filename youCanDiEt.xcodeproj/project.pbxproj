@@ -29,6 +29,8 @@
 		7F1635501C81CC0800D08CE7 /* WeekPlannerClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16354F1C81CC0800D08CE7 /* WeekPlannerClickViewController.m */; };
 		7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */; };
 		7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */; };
+		7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */; };
+		7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,9 @@
 		7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KcalNeedViewController.h; sourceTree = "<group>"; };
 		7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KcalNeedViewController.m; sourceTree = "<group>"; };
+		7F1635571C8342B300D08CE7 /* CustomProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProductTableViewCell.h; sourceTree = "<group>"; };
+		7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProductTableViewCell.m; sourceTree = "<group>"; };
+		7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomProductCellView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,21 +117,39 @@
 				7F1635161C8181FC00D08CE7 /* Assets.xcassets */,
 				7F1635181C8181FC00D08CE7 /* LaunchScreen.storyboard */,
 				7F16351B1C8181FC00D08CE7 /* Info.plist */,
+				7F16355A1C8342C300D08CE7 /* Classes */,
+				7F16355D1C8342E600D08CE7 /* Singletons */,
+				7F16355B1C8342D200D08CE7 /* Controllers */,
+				7F16355C1C8342D800D08CE7 /* Helpers */,
 				7F16350A1C8181FC00D08CE7 /* Supporting Files */,
+			);
+			path = youCanDiEt;
+			sourceTree = "<group>";
+		};
+		7F16350A1C8181FC00D08CE7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F16350B1C8181FC00D08CE7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F16355A1C8342C300D08CE7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
 				7F1635241C81BBD000D08CE7 /* Product.h */,
 				7F1635251C81BBD000D08CE7 /* Product.m */,
 				7F1635271C81C89E00D08CE7 /* Recipe.h */,
 				7F1635281C81C89E00D08CE7 /* Recipe.m */,
 				7F16352A1C81C8AB00D08CE7 /* WeekPlanner.h */,
 				7F16352B1C81C8AB00D08CE7 /* WeekPlanner.m */,
-				7F16352D1C81C8C100D08CE7 /* Settings.h */,
-				7F16352E1C81C8C100D08CE7 /* Settings.m */,
-				7F1635301C81C8D900D08CE7 /* PARMananger.h */,
-				7F1635311C81C8D900D08CE7 /* PARMananger.m */,
-				7F1635391C81C94000D08CE7 /* DBManager.h */,
-				7F16353A1C81C94000D08CE7 /* DBManager.m */,
-				7F1635331C81C91200D08CE7 /* APIManager.h */,
-				7F1635341C81C91200D08CE7 /* APIManager.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		7F16355B1C8342D200D08CE7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				7F1635101C8181FC00D08CE7 /* MenuViewController.h */,
 				7F1635111C8181FC00D08CE7 /* MenuViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
@@ -148,15 +171,32 @@
 				7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */,
 				7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */,
 			);
-			path = youCanDiEt;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		7F16350A1C8181FC00D08CE7 /* Supporting Files */ = {
+		7F16355C1C8342D800D08CE7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7F16350B1C8181FC00D08CE7 /* main.m */,
+				7F1635571C8342B300D08CE7 /* CustomProductTableViewCell.h */,
+				7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */,
+				7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */,
 			);
-			name = "Supporting Files";
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7F16355D1C8342E600D08CE7 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				7F16352D1C81C8C100D08CE7 /* Settings.h */,
+				7F16352E1C81C8C100D08CE7 /* Settings.m */,
+				7F1635301C81C8D900D08CE7 /* PARMananger.h */,
+				7F1635311C81C8D900D08CE7 /* PARMananger.m */,
+				7F1635391C81C94000D08CE7 /* DBManager.h */,
+				7F16353A1C81C94000D08CE7 /* DBManager.m */,
+				7F1635331C81C91200D08CE7 /* APIManager.h */,
+				7F1635341C81C91200D08CE7 /* APIManager.m */,
+			);
+			name = Singletons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F16351A1C8181FC00D08CE7 /* LaunchScreen.storyboard in Resources */,
+				7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */,
 				7F1635171C8181FC00D08CE7 /* Assets.xcassets in Resources */,
 				7F1635151C8181FC00D08CE7 /* Main.storyboard in Resources */,
 			);
@@ -248,6 +289,7 @@
 				7F16353B1C81C94000D08CE7 /* DBManager.m in Sources */,
 				7F16354D1C81CBE300D08CE7 /* WeekPlannerAddViewController.m in Sources */,
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
+				7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
