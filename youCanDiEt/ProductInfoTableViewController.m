@@ -9,6 +9,7 @@
 #import "ProductInfoTableViewController.h"
 #import "PARMananger.h"
 #import "APIManager.h"
+#import "Product.h"
 
 @interface ProductInfoTableViewController ()
 @property (nonatomic) PARMananger *parManager;
@@ -21,19 +22,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.searchBar.delegate = self;
-    
     //Getting the singleton that manages the arrays...
     self.parManager = [PARMananger getPARManager];
     self.apiManager = [APIManager getAPIManager];
     
-    [self.parManager.products addObject:@"object 1"];
-    [self.parManager.products addObject:@"object 2"];
-    
+    //Testing to create fake values...
+    Product *p1 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 1", @"kcal" : @120, @"carbs" : @54, @"protein" : @34, @"fat" : @3.2}];
+    Product *p2 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 2", @"kcal" : @220, @"carbs" : @64, @"protein" : @22, @"fat" : @54.2}];
+    Product *p3 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 3", @"kcal" : @666, @"carbs" : @84, @"protein" : @54, @"fat" : @43.45}];
+    [self.parManager.products addObject:p1];
+    [self.parManager.products addObject:p2];
+    [self.parManager.products addObject:p3];
+    [self searchedItemKlickedIsAddedToPARManagerProductArray];
 }
 
 - (void)searchedItemKlickedIsAddedToPARManagerProductArray {
-    
+
+    //Get the searchterm ex = fisk.
+    NSString *search = @"fiskpaj";
+    //Do all the programming for the JSON object...
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff?query=%@",search]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                NSError *parseError;
+                                                NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                                                dispatch_async(dispatch_get_main_queue(),
+                                                ^{
+                                                    //Collecting the number????
+                                                    NSLog(@"JSON-objectet json: %@",json[0]);
+                                                    NSLog(@"%@", [json[0] valueForKey:@"name"]);
+                                                });
+                                            }];
+    [task resume];
+
 
 }
 
@@ -57,7 +80,27 @@
 
     static NSString *CellIdentifier = @"cellProduct";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = self.parManager.products[indexPath.row];
+    
+    UILabel *label;
+    
+    label = (UILabel *) [cell viewWithTag:1];
+    label.text = [self.parManager.products[indexPath.row] valueForKey:@"name"];
+    
+    label = (UILabel *) [cell viewWithTag:2];
+    label.text = [NSString stringWithFormat:@"Kcal: %@",[self.parManager.products[indexPath.row] valueForKey:@"kcal"]];
+    
+    label = (UILabel *) [cell viewWithTag:3];
+    label.text = [NSString stringWithFormat:@"Carbs: %@",[self.parManager.products[indexPath.row] valueForKey:@"carbs"]];
+    
+    label = (UILabel *) [cell viewWithTag:4];
+    label.text = [NSString stringWithFormat:@"Protein: %@",[self.parManager.products[indexPath.row] valueForKey:@"protein"]];
+    
+    label = (UILabel *) [cell viewWithTag:5];
+    label.text = [NSString stringWithFormat:@"Fat: %@",[self.parManager.products[indexPath.row] valueForKey:@"fat"]];
+    
+    
+    
+    //cell.textLabel.text = self.parManager.products[indexPath.row];
     return cell;
 }
 
