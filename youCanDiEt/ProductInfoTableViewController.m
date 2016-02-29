@@ -14,6 +14,8 @@
 @interface ProductInfoTableViewController ()
 @property (nonatomic) PARMananger *parManager;
 @property (nonatomic) APIManager *apiManager;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
+@property (nonatomic) NSMutableArray *tempProducts;
 
 @end
 
@@ -25,23 +27,42 @@
     //Getting the singleton that manages the arrays...
     self.parManager = [PARMananger getPARManager];
     self.apiManager = [APIManager getAPIManager];
+    self.tempProducts = [NSMutableArray new];
+    [self.searchField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
     
-    //Testing to create fake values...
-    Product *p1 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 1", @"kcal" : @120, @"carbs" : @54, @"protein" : @34, @"fat" : @3.2}];
-    Product *p2 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 2", @"kcal" : @220, @"carbs" : @64, @"protein" : @22, @"fat" : @54.2}];
-    Product *p3 = [[Product alloc]initWithDictionary:@{@"name" : @"Product 3", @"kcal" : @666, @"carbs" : @84, @"protein" : @54, @"fat" : @43.45}];
-    [self.parManager.products addObject:p1];
-    [self.parManager.products addObject:p2];
-    [self.parManager.products addObject:p3];
-    [self searchedItemKlickedIsAddedToPARManagerProductArray];
+    [self updateTheTableWithItemsMatchingSearchItem:@"fisk"];
 }
 
-- (void)searchedItemKlickedIsAddedToPARManagerProductArray {
+- (void)textChanged:(id)sender {
+    NSLog(@"changing");
+    if (self.searchField.text.length < 2) {
+        NSLog(@"inte mer än 2");
+    } else {
+        [self updateTheTableWithItemsMatchingSearchItem:self.searchField.text];
+        [self.productTableView reloadData];
+        
+    }
+}
+     
+-(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
+    //claring the array...
+    [self.tempProducts removeAllObjects];
+    //getting the numbers of matching products...
+    [self searchedItemGetApiNumbers:item];
+    NSLog(@"ute");
+    //converting the array of numbers to a samesized array of corresponding dictionaries...
+    NSLog(@"self.tempProducts.count: %d",self.tempProducts.count);
+    //[self convertingArrayOfNumbersToArrayOfDictionaries:self.tempProducts];
+    
+}
 
-    //Get the searchterm ex = fisk.
-    NSString *search = @"fiskpaj";
+- (void)searchedItemGetApiNumbers:(NSString *)item {
+    NSLog(@"searchedItemGetApiNumbers med item: %@",item);
+    //Create array with numbers of fitted products...
+    NSMutableArray *tempArray = [NSMutableArray new];
+    
     //Do all the programming for the JSON object...
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff?query=%@",search]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff?query=%@",item]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
@@ -49,16 +70,60 @@
                                                 NSError *parseError;
                                                 NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
                                                 dispatch_async(dispatch_get_main_queue(),
-                                                ^{
-                                                    //Collecting the number????
-                                                    NSLog(@"JSON-objectet json: %@",json[0]);
-                                                    NSLog(@"%@", [json[0] valueForKey:@"name"]);
-                                                });
-                                            }];
+    ^{
+        //Collect the numbers of the products matching the search term.
+        for (id jsonObject in json) {
+            [tempArray addObject:[jsonObject valueForKey:@"number"]];
+        }
+        self.tempProducts = [tempArray copy];
+        NSLog(@"efter foreach-loopen och sätter tempProduct, där är nu self.tempProducts.count = %d", self.tempProducts.count);
+        NSLog(@"self.tempProducts.count: %d",self.tempProducts.count);
+        [self convertingArrayOfNumbersToArrayOfDictionaries:self.tempProducts];
+    });
+    }];
     [task resume];
-
-
 }
+
+
+- (void)convertingArrayOfNumbersToArrayOfDictionaries:(NSMutableArray *)arrayOfNumbers{
+    NSLog(@"inne i converitng arrraydjsdnandsa");
+    NSLog(@"arrayOfNumber.count: %d", arrayOfNumbers.count);
+    for(int i = 0; i<arrayOfNumbers.count; i++){
+        NSLog(@"inne i forloopen %d",i);
+        [self giveCorrespondingDictionaryBasedOnNumber:[arrayOfNumbers[i] stringValue] andIndex:i];
+    }
+}
+
+- (void)giveCorrespondingDictionaryBasedOnNumber:(NSString *)number andIndex:(int)index{
+    NSLog(@"inne i giveCorrespondingDictionaryBasedOnNumber: %@ andIndex: %d",number,index);
+    NSMutableDictionary *tempDictionary = [NSMutableDictionary new];
+    //Do all the programming for the JSON object...
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",number]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                NSError *parseError;
+                                                NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                                                dispatch_async(dispatch_get_main_queue(),
+    ^{
+        NSLog(@"inne för att byta number mot dictionary...");
+      NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
+        
+        [tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
+        [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
+        [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"carbohydrates"] stringValue] forKey:@"carbs"];
+        [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
+        [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
+        
+        [self.tempProducts replaceObjectAtIndex:index withObject:tempDictionary];
+        NSLog(@"hallå");
+    });
+    }];
+    [task resume];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -72,7 +137,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[PARMananger getPARManager] products].count;
+    return self.tempProducts.count;
 }
 
 
@@ -84,23 +149,20 @@
     UILabel *label;
     
     label = (UILabel *) [cell viewWithTag:1];
-    label.text = [self.parManager.products[indexPath.row] valueForKey:@"name"];
+    label.text = [self.tempProducts[indexPath.row] valueForKey:@"name"];
     
     label = (UILabel *) [cell viewWithTag:2];
-    label.text = [NSString stringWithFormat:@"Kcal: %@",[self.parManager.products[indexPath.row] valueForKey:@"kcal"]];
+    label.text = [NSString stringWithFormat:@"Kcal: %@",[self.tempProducts[indexPath.row] valueForKey:@"kcal"]];
     
     label = (UILabel *) [cell viewWithTag:3];
-    label.text = [NSString stringWithFormat:@"Carbs: %@",[self.parManager.products[indexPath.row] valueForKey:@"carbs"]];
+    label.text = [NSString stringWithFormat:@"Carbs: %@",[self.tempProducts[indexPath.row] valueForKey:@"carbs"]];
     
     label = (UILabel *) [cell viewWithTag:4];
-    label.text = [NSString stringWithFormat:@"Protein: %@",[self.parManager.products[indexPath.row] valueForKey:@"protein"]];
+    label.text = [NSString stringWithFormat:@"Protein: %@",[self.tempProducts[indexPath.row] valueForKey:@"protein"]];
     
     label = (UILabel *) [cell viewWithTag:5];
-    label.text = [NSString stringWithFormat:@"Fat: %@",[self.parManager.products[indexPath.row] valueForKey:@"fat"]];
+    label.text = [NSString stringWithFormat:@"Fat: %@",[self.tempProducts[indexPath.row] valueForKey:@"fat"]];
     
-    
-    
-    //cell.textLabel.text = self.parManager.products[indexPath.row];
     return cell;
 }
 

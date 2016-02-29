@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductInfoTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UITableView *productTableView;
 
 @end
