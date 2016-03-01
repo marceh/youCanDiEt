@@ -16,6 +16,8 @@
 @property (nonatomic) APIManager *apiManager;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (nonatomic) NSMutableArray *tempProducts;
+//@property (nonatomic) NSMutableDictionary *tempDictionary;
+@property (nonatomic) NSMutableArray *arrayDone;
 
 @end
 
@@ -28,12 +30,14 @@
     self.parManager = [PARMananger getPARManager];
     self.apiManager = [APIManager getAPIManager];
     self.tempProducts = [NSMutableArray new];
-    [self.searchField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
+    //self.tempDictionary = [NSMutableDictionary new];
+    self.arrayDone = [NSMutableArray new];
+    /*[self.searchField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];*/
     
     [self updateTheTableWithItemsMatchingSearchItem:@"fisk"];
 }
 
-- (void)textChanged:(id)sender {
+/*- (void)textChanged:(id)sender {
     NSLog(@"changing");
     if (self.searchField.text.length < 2) {
         NSLog(@"inte mer än 2");
@@ -42,6 +46,14 @@
         [self.productTableView reloadData];
         
     }
+}*/
+
+-(void)updateTheTable{
+    NSLog(@"visa färdig array nedan: ");
+    NSLog([self.arrayDone description]);
+    
+    NSLog(@"dags att updatera");
+    [self.productTableView reloadData];
 }
      
 -(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
@@ -86,17 +98,24 @@
 
 
 - (void)convertingArrayOfNumbersToArrayOfDictionaries:(NSMutableArray *)arrayOfNumbers{
-    NSLog(@"inne i converitng arrraydjsdnandsa");
+    NSLog(@"inne i convertingArrayOfNumbersToArrayOfDictionaries");
     NSLog(@"arrayOfNumber.count: %d", arrayOfNumbers.count);
-    for(int i = 0; i<arrayOfNumbers.count; i++){
-        NSLog(@"inne i forloopen %d",i);
-        [self giveCorrespondingDictionaryBasedOnNumber:[arrayOfNumbers[i] stringValue] andIndex:i];
-    }
+    //for(int i = 0; i<arrayOfNumbers.count; i++){
+        NSLog(@"inne i forloopen som inte finns längre.");
+        [self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[0] stringValue] andIndex:0];
+   // }
 }
 
 - (void)giveCorrespondingDictionaryBasedOnNumber:(NSString *)number andIndex:(int)index{
+    __block int indexInBlock = index;
     NSLog(@"inne i giveCorrespondingDictionaryBasedOnNumber: %@ andIndex: %d",number,index);
-    NSMutableDictionary *tempDictionary = [NSMutableDictionary new];
+   // [self.tempDictionary removeAllObjects];
+    //NSLog(@"Nu skall hela tempDictionary vara tom...");
+   // NSLog([self.tempDictionary description]);
+    
+    NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
+    NSLog([tempDictionary description]);
+
     //Do all the programming for the JSON object...
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",number]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -107,8 +126,9 @@
                                                 NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
                                                 dispatch_async(dispatch_get_main_queue(),
     ^{
-        NSLog(@"inne för att byta number mot dictionary...");
+        NSLog(@"inne för att byta number mot dictionary...nr = %d",indexInBlock);
       NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
+        //NSLog([nutrientValuesInJSON description]);
         
         [tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
         [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
@@ -116,8 +136,19 @@
         [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
         [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
         
-        [self.tempProducts replaceObjectAtIndex:index withObject:tempDictionary];
-        NSLog(@"hallå");
+        NSLog(@"här är tempDescription ifyllt denna rundan.");
+        NSLog([tempDictionary description]);
+        
+        [self.arrayDone addObject:tempDictionary];
+        
+        if (indexInBlock < self.tempProducts.count -1) {
+            NSLog(@"displayind arrayDone so far:");
+            NSLog([self.arrayDone description]);
+            [self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[indexInBlock+1] stringValue] andIndex:indexInBlock+1];
+        } else {
+            [self updateTheTable];
+        }
+
     });
     }];
     [task resume];
@@ -137,7 +168,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tempProducts.count;
+    return self.arrayDone.count;
 }
 
 
@@ -149,19 +180,19 @@
     UILabel *label;
     
     label = (UILabel *) [cell viewWithTag:1];
-    label.text = [self.tempProducts[indexPath.row] valueForKey:@"name"];
+    label.text = [self.arrayDone[indexPath.row] valueForKey:@"name"];
     
     label = (UILabel *) [cell viewWithTag:2];
-    label.text = [NSString stringWithFormat:@"Kcal: %@",[self.tempProducts[indexPath.row] valueForKey:@"kcal"]];
+    label.text = [NSString stringWithFormat:@"Kcal: %@",[self.arrayDone[indexPath.row] valueForKey:@"kcal"]];
     
     label = (UILabel *) [cell viewWithTag:3];
-    label.text = [NSString stringWithFormat:@"Carbs: %@",[self.tempProducts[indexPath.row] valueForKey:@"carbs"]];
+    label.text = [NSString stringWithFormat:@"Carbs: %@",[self.arrayDone[indexPath.row] valueForKey:@"carbs"]];
     
     label = (UILabel *) [cell viewWithTag:4];
-    label.text = [NSString stringWithFormat:@"Protein: %@",[self.tempProducts[indexPath.row] valueForKey:@"protein"]];
+    label.text = [NSString stringWithFormat:@"Protein: %@",[self.arrayDone[indexPath.row] valueForKey:@"protein"]];
     
     label = (UILabel *) [cell viewWithTag:5];
-    label.text = [NSString stringWithFormat:@"Fat: %@",[self.tempProducts[indexPath.row] valueForKey:@"fat"]];
+    label.text = [NSString stringWithFormat:@"Fat: %@",[self.arrayDone[indexPath.row] valueForKey:@"fat"]];
     
     return cell;
 }
