@@ -34,7 +34,7 @@
     self.arrayDone = [NSMutableArray new];
     /*[self.searchField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];*/
     
-    [self updateTheTableWithItemsMatchingSearchItem:@"fisk"];
+    [self updateTheTableWithItemsMatchingSearchItem:@"fiskpaj"];
 }
 
 /*- (void)textChanged:(id)sender {

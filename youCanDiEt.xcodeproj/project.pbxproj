@@ -31,6 +31,7 @@
 		7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */; };
 		7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */; };
 		7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */; };
+		7F8EC3361C89846D00E5CEDA /* ProductAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		7F1635571C8342B300D08CE7 /* CustomProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProductTableViewCell.h; sourceTree = "<group>"; };
 		7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProductTableViewCell.m; sourceTree = "<group>"; };
 		7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomProductCellView.xib; sourceTree = "<group>"; };
+		7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAddTableViewController.h; sourceTree = "<group>"; };
+		7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAddTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */,
 				7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */,
 				7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */,
+				7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */,
+				7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
 				7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
+				7F8EC3361C89846D00E5CEDA /* ProductAddTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +443,7 @@
 				7F1635201C8181FC00D08CE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
