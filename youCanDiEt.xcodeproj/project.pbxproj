@@ -32,6 +32,7 @@
 		7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */; };
 		7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */; };
 		7F8EC3361C89846D00E5CEDA /* ProductAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */; };
+		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomProductCellView.xib; sourceTree = "<group>"; };
 		7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAddTableViewController.h; sourceTree = "<group>"; };
 		7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAddTableViewController.m; sourceTree = "<group>"; };
+		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
+		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 				7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */,
 				7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */,
 				7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */,
+				7FAE50A11C899A890065049C /* AddProductsViewController.h */,
+				7FAE50A21C899A890065049C /* AddProductsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */,
 				7F16350C1C8181FC00D08CE7 /* main.m in Sources */,
 				7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */,
+				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,
 				7F1635501C81CC0800D08CE7 /* WeekPlannerClickViewController.m in Sources */,
 				7F16352F1C81C8C100D08CE7 /* Settings.m in Sources */,

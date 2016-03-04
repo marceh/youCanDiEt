@@ -18,6 +18,7 @@
 @property (nonatomic) NSMutableArray *tempProducts;
 //@property (nonatomic) NSMutableDictionary *tempDictionary;
 @property (nonatomic) NSMutableArray *arrayDone;
+@property (strong, nonatomic) IBOutlet UITableView *productTableView;
 
 @end
 
@@ -52,7 +53,7 @@
     NSLog(@"visa färdig array nedan: ");
     NSLog([self.arrayDone description]);
     
-    NSLog(@"dags att updatera");
+    NSLog(@"dags att updatera den första skiten");
     [self.productTableView reloadData];
 }
      
