@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Product.h"
 
 @interface PARMananger : NSObject
 
@@ -14,5 +15,9 @@
 @property (nonatomic) NSMutableArray *recipes;
 
 +(id)getPARManager;
+
+-(void)addProductToMyProducts:(Product *)product;
+
+-(Product *)getProductInProductsAtIndex:(int)index;
 
 @end

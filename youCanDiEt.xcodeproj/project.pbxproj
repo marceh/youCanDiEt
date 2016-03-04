@@ -31,7 +31,6 @@
 		7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */; };
 		7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */; };
 		7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */; };
-		7F8EC3361C89846D00E5CEDA /* ProductAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +80,6 @@
 		7F1635571C8342B300D08CE7 /* CustomProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProductTableViewCell.h; sourceTree = "<group>"; };
 		7F1635581C8342B300D08CE7 /* CustomProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProductTableViewCell.m; sourceTree = "<group>"; };
 		7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomProductCellView.xib; sourceTree = "<group>"; };
-		7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAddTableViewController.h; sourceTree = "<group>"; };
-		7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAddTableViewController.m; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,14 +153,16 @@
 		7F16355B1C8342D200D08CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F1635421C81CB8E00D08CE7 /* ProductInfoTableViewController.h */,
+				7F1635431C81CB8E00D08CE7 /* ProductInfoTableViewController.m */,
+				7FAE50A11C899A890065049C /* AddProductsViewController.h */,
+				7FAE50A21C899A890065049C /* AddProductsViewController.m */,
 				7F1635101C8181FC00D08CE7 /* MenuViewController.h */,
 				7F1635111C8181FC00D08CE7 /* MenuViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
 				7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */,
 				7F16353F1C81CB6700D08CE7 /* RecipesAddViewController.h */,
 				7F1635401C81CB6700D08CE7 /* RecipesAddViewController.m */,
-				7F1635421C81CB8E00D08CE7 /* ProductInfoTableViewController.h */,
-				7F1635431C81CB8E00D08CE7 /* ProductInfoTableViewController.m */,
 				7F1635451C81CBB200D08CE7 /* ProductInfoClickViewController.h */,
 				7F1635461C81CBB200D08CE7 /* ProductInfoClickViewController.m */,
 				7F1635481C81CBC800D08CE7 /* WeekPlannerTableViewController.h */,
@@ -176,10 +175,6 @@
 				7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */,
 				7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */,
 				7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */,
-				7F8EC3341C89846D00E5CEDA /* ProductAddTableViewController.h */,
-				7F8EC3351C89846D00E5CEDA /* ProductAddTableViewController.m */,
-				7FAE50A11C899A890065049C /* AddProductsViewController.h */,
-				7FAE50A21C899A890065049C /* AddProductsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -302,7 +297,6 @@
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
 				7F1635591C8342B300D08CE7 /* CustomProductTableViewCell.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
-				7F8EC3361C89846D00E5CEDA /* ProductAddTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

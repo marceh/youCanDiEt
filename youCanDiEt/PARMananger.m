@@ -29,4 +29,12 @@
     return self;
 }
 
+-(void)addProductToMyProducts:(Product *)product{
+    [self.products addObject:product];
+}
+
+-(Product *)getProductInProductsAtIndex:(int)index{
+    return [self.products objectAtIndex:index];
+}
+
 @end
