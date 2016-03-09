@@ -22,4 +22,8 @@
     return self;
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"Name: %@, Kcal: %@, Carbs: %@, Protein: %@, Fat: %@...",self.name,self.kcal,self.carbs,self.protein,self.fat];
+}
+
 @end

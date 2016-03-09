@@ -37,4 +37,11 @@
     return [self.products objectAtIndex:index];
 }
 
+-(void)logProductsArray{
+    
+    for(Product *product in self.products){
+        NSLog([product description]);
+    }
+}
+
 @end

@@ -20,4 +20,6 @@
 
 -(Product *)getProductInProductsAtIndex:(int)index;
 
+-(void)logProductsArray;
+
 @end

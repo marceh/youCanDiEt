@@ -146,8 +146,10 @@
  if (editingStyle == UITableViewCellEditingStyleDelete) {
      NSLog(@"inne i delete");
      Product *product =[[Product alloc]initWithDictionary:self.arrayDone[indexPath.row]];
+     [self.parManager logProductsArray];
      [self.parManager addProductToMyProducts:product];
      NSLog(@"Added shit!");
+     [self.parManager logProductsArray];
  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
  }
  }
