@@ -9,20 +9,36 @@
 #import "ProductInfoClickViewController.h"
 
 @interface ProductInfoClickViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextView *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelKcal;
+@property (weak, nonatomic) IBOutlet UILabel *labelCarbs;
+@property (weak, nonatomic) IBOutlet UILabel *labelProtein;
+@property (weak, nonatomic) IBOutlet UILabel *labelFat;
+@property (nonatomic) NSMutableDictionary *tempDictionary;
 @end
 
 @implementation ProductInfoClickViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tempDictionary = [NSMutableDictionary new];
+    NSLog([NSString stringWithFormat:@"%@",self.productNumber]);
+    //getshit
+    [self updateInformation];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)updateInformation{
+    
+}
+
+
+
+
 
 /*
 #pragma mark - Navigation

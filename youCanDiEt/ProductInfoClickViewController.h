@@ -10,4 +10,6 @@
 
 @interface ProductInfoClickViewController : UIViewController
 
+@property (nonatomic) NSNumber *productNumber;
+
 @end

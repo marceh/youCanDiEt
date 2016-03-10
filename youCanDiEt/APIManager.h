@@ -11,7 +11,15 @@
 @interface APIManager : NSObject
 
 @property (nonatomic) NSNumber *kcalNeed;
+@property (nonatomic) NSMutableArray *arrayDone;
+@property (nonatomic) NSMutableArray *tempProducts;
 
 +(id)getAPIManager;
+
+- (void)searchedItemGetApiNumbers:(NSString *)item;
+
+- (void)giveCorrespondingDictionaryBasedOnNumber:(NSString *)number andIndex:(int)index;
+
+- (NSMutableArray *)getArrayBasedOnSearch;
 
 @end

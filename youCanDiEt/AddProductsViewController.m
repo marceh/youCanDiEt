@@ -8,8 +8,8 @@
 
 #import "AddProductsViewController.h"
 #import "PARMananger.h"
-#import "APIManager.h"
 #import "Product.h"
+#import "ProductInfoClickViewController.h"
 
 @interface AddProductsViewController ()
 
@@ -19,7 +19,7 @@
 @property (nonatomic) NSMutableArray *arrayDone;
 @property (nonatomic) NSMutableArray *tempProducts;
 @property (nonatomic) PARMananger *parManager;
-@property (nonatomic) APIManager *apiManager;
+@property (nonatomic) NSNumber *rowSelsected;
 
 @end
 
@@ -28,7 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
-    self.apiManager = [APIManager getAPIManager];
     self.tempProducts = [NSMutableArray new];
     self.arrayDone = [NSMutableArray new];
 }
@@ -126,6 +125,25 @@
     return cell;
 }
 
+/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"nu sätter vi rowSelectedNumber");
+    self.rowSelsected = self.tempProducts[indexPath.row];
+}
+*/ 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showProductInformation"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ProductInfoClickViewController *destination = [navigationController topViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSLog(@"nu skall vi gå vidare");
+        destination.productNumber = self.tempProducts[indexPath.row];
+    }
+    
+    
+}
+
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Add";
 }
@@ -144,12 +162,7 @@
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
-     NSLog(@"inne i delete");
-     Product *product =[[Product alloc]initWithDictionary:self.arrayDone[indexPath.row]];
-     [self.parManager logProductsArray];
-     [self.parManager addProductToMyProducts:product];
-     NSLog(@"Added shit!");
-     [self.parManager logProductsArray];
+     [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:self.arrayDone[indexPath.row]]];
  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
  }
  }
@@ -165,16 +178,6 @@
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
  // Return NO if you do not want the item to be re-orderable.
  return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
  }
  */
 

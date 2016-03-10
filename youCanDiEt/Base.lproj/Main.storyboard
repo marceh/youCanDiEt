@@ -175,7 +175,7 @@
                         <color key="sectionIndexBackgroundColor" red="0.77666822674823899" green="0.96978258724489708" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProduct" rowHeight="113" id="aVr-O8-rWJ">
-                                <rect key="frame" x="0.0" y="92" width="320" height="113"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellProduct" tableViewCell="aVr-O8-rWJ" id="GHE-gd-UVg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
@@ -278,7 +278,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="w3R-iY-xEB" kind="presentation" id="2z3-mM-xtU"/>
+                                            <segue destination="w3R-iY-xEB" kind="show" identifier="showProductInformation" id="2z3-mM-xtU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -311,7 +311,7 @@
         <!--Product information-->
         <scene sceneID="XO3-Jy-OX7">
             <objects>
-                <viewController id="ZzM-GI-Mxw" sceneMemberID="viewController">
+                <viewController id="ZzM-GI-Mxw" customClass="ProductInfoClickViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vcE-8T-XLg"/>
                         <viewControllerLayoutGuide type="bottom" id="Cif-xy-cHs"/>
@@ -325,7 +325,7 @@
                                 <items>
                                     <barButtonItem systemItem="reply" id="dbC-dZ-IvD">
                                         <connections>
-                                            <segue destination="lfC-nV-Wjo" kind="show" id="5s5-Wv-wuB"/>
+                                            <segue destination="lfC-nV-Wjo" kind="show" identifier="showProductInformation" id="5s5-Wv-wuB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Mdi-3f-BMi"/>
@@ -356,7 +356,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Name of product" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-DL-Teg">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Please wait while updating..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-DL-Teg">
                                 <rect key="frame" x="20" y="158" width="280" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,10 +368,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Product information" id="98n-Uu-ij6"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="labelCarbs" destination="wOT-fr-Fo6" id="ogp-uA-laJ"/>
+                        <outlet property="labelFat" destination="Lox-Mg-crj" id="sGa-SR-Rej"/>
+                        <outlet property="labelKcal" destination="9VC-lW-OHy" id="98P-ky-sqA"/>
+                        <outlet property="labelName" destination="fpY-DL-Teg" id="QhB-4E-9cJ"/>
+                        <outlet property="labelProtein" destination="k1j-fU-7Lo" id="xSQ-oD-4e7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsB-Bk-oEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455" y="-194"/>
+            <point key="canvasLocation" x="3553" y="-195"/>
         </scene>
         <!--Recipes Add View Controller-->
         <scene sceneID="373-rg-M9J">
@@ -508,11 +515,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xq1-sb-CZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="-194"/>
+            <point key="canvasLocation" x="3149" y="-236"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k2C-oy-hkN"/>
+        <segue reference="5s5-Wv-wuB"/>
         <segue reference="ZLc-MG-r0g"/>
     </inferredMetricsTieBreakers>
 </document>
