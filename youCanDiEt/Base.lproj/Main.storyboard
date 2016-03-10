@@ -329,7 +329,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Mdi-3f-BMi"/>
-                                    <barButtonItem systemItem="bookmarks" id="sAW-cS-uhH"/>
+                                    <barButtonItem systemItem="bookmarks" id="sAW-cS-uhH">
+                                        <connections>
+                                            <action selector="saveProduct:" destination="ZzM-GI-Mxw" id="fpW-Rz-PC1"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kcal: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VC-lW-OHy">

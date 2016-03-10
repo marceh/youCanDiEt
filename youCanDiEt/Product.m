@@ -26,4 +26,25 @@
     return [NSString stringWithFormat:@"Name: %@, Kcal: %@, Carbs: %@, Protein: %@, Fat: %@...",self.name,self.kcal,self.carbs,self.protein,self.fat];
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+        self.name = [decoder decodeObjectForKey:@"name"];
+        self.kcal = [decoder decodeObjectForKey:@"kcal"];
+        self.carbs = [decoder decodeObjectForKey:@"carbs"];
+        self.protein = [decoder decodeObjectForKey:@"protein"];
+        self.fat = [decoder decodeObjectForKey:@"fat"];
+    }
+        return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.kcal forKey:@"kcal"];
+    [encoder encodeObject:self.carbs forKey:@"carbs"];
+    [encoder encodeObject:self.protein forKey:@"protein"];
+    [encoder encodeObject:self.fat forKey:@"fat"];
+}
+
+
 @end

@@ -37,6 +37,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    NSLog(@"Inne i enter background");
+    [self.parManager saveProducts];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

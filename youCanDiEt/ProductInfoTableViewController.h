@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductInfoTableViewController : UITableViewController
+@interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate>
+
+- (void)applicationDidEnterBackground:(UIApplication *)application;
 
 @end

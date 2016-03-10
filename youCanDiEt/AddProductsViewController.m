@@ -45,6 +45,7 @@
 
 - (void)searchedItemGetApiNumbers:(NSString *)item {
     NSMutableArray *tempArray = [NSMutableArray new];
+    NSMutableArray *nameArray = [NSMutableArray new];
     NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"http://matapi.se/foodstuff?query=%@",item] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -56,20 +57,23 @@
                                                                ^{
                                                                    for (id jsonObject in json) {
                                                                        [tempArray addObject:[jsonObject valueForKey:@"number"]];
+                                                                       [nameArray addObject:[jsonObject valueForKey:@"name"]];
                                                                    }
                                                                    self.tempProducts = [tempArray copy];
                                                                    if (self.tempProducts.count == 0) {
-                                                                       [self.arrayDone addObject:@{@"name" : @"No product matched your search..."}];
-                                                                       [self.tableView reloadData];
-                                                                       self.textFieldSearch.text = @"";
+                                                                       [self.arrayDone addObject:@"No product matched your search..."];
                                                                    } else {
-                                                                       [self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[0] stringValue] andIndex:0];
+                                                                       self.arrayDone = [nameArray copy];
+                                                                       //[self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[0] stringValue] andIndex:0];
                                                                    }
+                                                                   [self.tableView reloadData];
+                                                                   self.textFieldSearch.text = @"";
                                                                });
                                             }];
     [task resume];
 }
 
+/*
 - (void)giveCorrespondingDictionaryBasedOnNumber:(NSString *)number andIndex:(int)index{
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",number]];
@@ -99,6 +103,7 @@
                                             }];
     [task resume];
  }
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -121,7 +126,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UILabel *label;
     label = (UILabel *) [cell viewWithTag:1];
-    label.text = [self.arrayDone[indexPath.row] valueForKey:@"name"];
+    label.text = self.arrayDone[indexPath.row];
     return cell;
 }
 
@@ -140,8 +145,6 @@
         NSLog(@"nu skall vi gå vidare");
         destination.productNumber = self.tempProducts[indexPath.row];
     }
-    
-    
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,10 +164,32 @@
 
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
-     [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:self.arrayDone[indexPath.row]]];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- }
+     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
+     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",self.tempProducts[indexPath.row]]];
+     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+     NSURLSession *session = [NSURLSession sharedSession];
+     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                 NSError *parseError;
+                                                 NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                                                 dispatch_async(dispatch_get_main_queue(),
+                                                                ^{
+                                                                    NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
+                                                                    [tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
+                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
+                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"carbohydrates"] stringValue] forKey:@"carbs"];
+                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
+                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
+                                                                    
+                                                                    if (editingStyle == UITableViewCellEditingStyleDelete) {
+                                                                        [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:tempDictionary]];
+                                                                        [self.parManager saveProducts];
+                                                                    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+                                                                    }
+                                                                    
+                                                                });
+                                             }];
+     [task resume];
  }
 
 /*

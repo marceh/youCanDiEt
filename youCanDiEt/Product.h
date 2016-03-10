@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Product : NSObject
+@interface Product : NSObject <NSCoding>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSNumber *kcal;
@@ -17,5 +17,9 @@
 @property (nonatomic) NSNumber *fat;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+- (id)initWithCoder:(NSCoder *)decoder;
+
+- (void)encodeWithCoder:(NSCoder *)encoder;
 
 @end

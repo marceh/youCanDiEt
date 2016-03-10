@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Product.h"
 
-@interface PARMananger : NSObject
+@interface PARMananger : NSObject <NSCoding>
 
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSMutableArray *recipes;
@@ -21,5 +21,9 @@
 -(Product *)getProductInProductsAtIndex:(int)index;
 
 -(void)logProductsArray;
+
+-(void)saveProducts;
+
+-(void)loadProducts;
 
 @end

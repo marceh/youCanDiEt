@@ -7,6 +7,8 @@
 //
 
 #import "ProductInfoClickViewController.h"
+#import "Product.h"
+#import "PARMananger.h"
 
 @interface ProductInfoClickViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *labelName;
@@ -15,16 +17,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelProtein;
 @property (weak, nonatomic) IBOutlet UILabel *labelFat;
 @property (nonatomic) NSMutableDictionary *tempDictionary;
+@property (nonatomic) PARMananger *parManager;
+
 @end
 
 @implementation ProductInfoClickViewController
 
 - (void)viewDidLoad {
+    NSLog(@"inne i viewdidload");
     [super viewDidLoad];
+    NSLog(@"inne i viewdidload");
+    self.parManager = [PARMananger getPARManager];
     self.tempDictionary = [NSMutableDictionary new];
-    NSLog([NSString stringWithFormat:@"%@",self.productNumber]);
-    //getshit
-    [self updateInformation];
+    [self setTempDictionaryBasedOnNumber:self.productNumber];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,22 +37,44 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateInformation{
-    
+-(void)updateLabels{
+    NSLog(@"UpdateLabels");
+    self.labelName.text = [self.tempDictionary valueForKey:@"name"];
+    self.labelKcal.text = [NSString stringWithFormat:@"Kcal: %@",[self.tempDictionary valueForKey:@"kcal"]];
+    self.labelCarbs.text = [NSString stringWithFormat:@"Carbs: %@",[self.tempDictionary valueForKey:@"carbs"]];
+    self.labelProtein.text = [NSString stringWithFormat:@"Protein: %@",[self.tempDictionary valueForKey:@"protein"]];
+    self.labelFat.text = [NSString stringWithFormat:@"Fat: %@",[self.tempDictionary valueForKey:@"fat"]];
 }
 
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)saveProduct:(id)sender {
+    [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:self.tempDictionary]];
+    [self.parManager saveProducts];
 }
-*/
+
+- (void)setTempDictionaryBasedOnNumber:(NSNumber *)number{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",number]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                NSError *parseError;
+                                                NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                                                dispatch_async(dispatch_get_main_queue(),
+                                                               ^{
+                                                                   NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
+                                                                   [self.tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
+                                                                   [self.tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
+                                                                   [self.tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"carbohydrates"] stringValue] forKey:@"carbs"];
+                                                                   [self.tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
+                                                                   [self.tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
+                                                                   
+                                                                   NSLog(@"TempDictionary nedan:");
+                                                                   [self.tempDictionary description];
+                                                                   //set all the labels with the dictionary values...
+                                                                   [self updateLabels];
+                                                               });
+                                            }];
+    [task resume];
+}
 
 @end
