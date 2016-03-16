@@ -15,8 +15,7 @@
 //Categories = breakfast, lunch, snack, dinner, supper.
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSNumber *portions;
-//WeekDay = 1-7.
-@property (nonatomic) NSNumber *weekDay;
+
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

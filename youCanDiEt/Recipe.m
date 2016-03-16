@@ -17,7 +17,6 @@
         self.howTo = [dictionary valueForKey:@"howTo"];
         self.category = [dictionary valueForKey:@"category"];
         self.portions = [dictionary valueForKey:@"portions"];
-        self.weekDay = nil;
     }
     return self;
 }
