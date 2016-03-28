@@ -15,6 +15,8 @@
 //Categories = breakfast, lunch, snack, dinner, supper.
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSNumber *portions;
+@property (nonatomic) NSString *picPath;
+@property (nonatomic) NSString *name;
 
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipesAddViewController : UIViewController
+@interface RecipesAddViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end

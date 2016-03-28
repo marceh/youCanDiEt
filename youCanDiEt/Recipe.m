@@ -17,6 +17,9 @@
         self.howTo = [dictionary valueForKey:@"howTo"];
         self.category = [dictionary valueForKey:@"category"];
         self.portions = [dictionary valueForKey:@"portions"];
+        self.picPath = [dictionary valueForKey:@"picPath"];
+        self.name = [dictionary valueForKey:@"name"];
+        
     }
     return self;
 }
