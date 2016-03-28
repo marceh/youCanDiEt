@@ -140,10 +140,10 @@
 		7F16355A1C8342C300D08CE7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7F1635241C81BBD000D08CE7 /* Product.h */,
-				7F1635251C81BBD000D08CE7 /* Product.m */,
 				7F1635271C81C89E00D08CE7 /* Recipe.h */,
 				7F1635281C81C89E00D08CE7 /* Recipe.m */,
+				7F1635241C81BBD000D08CE7 /* Product.h */,
+				7F1635251C81BBD000D08CE7 /* Product.m */,
 				7F16352A1C81C8AB00D08CE7 /* WeekPlanner.h */,
 				7F16352B1C81C8AB00D08CE7 /* WeekPlanner.m */,
 			);
@@ -153,6 +153,10 @@
 		7F16355B1C8342D200D08CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
+				7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */,
+				7F16353F1C81CB6700D08CE7 /* RecipesAddViewController.h */,
+				7F1635401C81CB6700D08CE7 /* RecipesAddViewController.m */,
 				7F1635421C81CB8E00D08CE7 /* ProductInfoTableViewController.h */,
 				7F1635431C81CB8E00D08CE7 /* ProductInfoTableViewController.m */,
 				7FAE50A11C899A890065049C /* AddProductsViewController.h */,
@@ -161,10 +165,6 @@
 				7F1635461C81CBB200D08CE7 /* ProductInfoClickViewController.m */,
 				7F1635101C8181FC00D08CE7 /* MenuViewController.h */,
 				7F1635111C8181FC00D08CE7 /* MenuViewController.m */,
-				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
-				7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */,
-				7F16353F1C81CB6700D08CE7 /* RecipesAddViewController.h */,
-				7F1635401C81CB6700D08CE7 /* RecipesAddViewController.m */,
 				7F1635481C81CBC800D08CE7 /* WeekPlannerTableViewController.h */,
 				7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */,
 				7F16354B1C81CBE300D08CE7 /* WeekPlannerAddViewController.h */,
