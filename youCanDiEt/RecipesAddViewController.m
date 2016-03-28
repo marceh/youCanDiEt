@@ -29,6 +29,9 @@
     [super viewDidLoad];
     self.arrayCategories = @[@"Breakfast", @"Snack", @"Lunch", @"Dinner", @"Supper"];
     [self.pickerViewCategory selectRow:2 inComponent:0 animated:YES];
+    self.stepperPortions.value = 1.00;
+    self.stepperPortions.minimumValue = 1.00;
+    self.stepperPortions.maximumValue = 16.00;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +56,9 @@
     NSLog(self.categorySelected);
 }
 
+- (IBAction)stepperChanged:(UIStepper *)stepper {
+    self.labelNrOfPortions.text = [NSString stringWithFormat:@"%d",(int)stepper.value];
+}
 
 
 
