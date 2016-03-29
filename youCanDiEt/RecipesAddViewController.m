@@ -7,6 +7,7 @@
 //
 
 #import "RecipesAddViewController.h"
+#import "Recipe.h"
 
 @interface RecipesAddViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textFieldName;
@@ -14,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNrOfPortions;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperPortions;
 @property (weak, nonatomic) IBOutlet UITableView *tabeViewIngredients;
-//@property (weak, nonatomic) IBOutlet UISlider *sliderInCell;
+//@property (weak, nonatomic) IBOutlet UISlider *sliderInCell;s
 //@property (weak, nonatomic) IBOutlet UILabel *nameInCell;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (nonatomic) NSArray *arrayCategories;
@@ -32,6 +33,7 @@
     self.stepperPortions.value = 1.00;
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
+    [self imagePath];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,24 +62,58 @@
     self.labelNrOfPortions.text = [NSString stringWithFormat:@"%d",(int)stepper.value];
 }
 
-
-
-
-- (IBAction)takePicture:(id)sender {
-}
 - (IBAction)addIngredient:(id)sender {
 }
 - (IBAction)saveRecipe:(id)sender {
+    // gör en dictionary som du initar ett recept med babydoll...
+    // glom inte att sätta imagepathen där nere som skall vara sparad i en varaiabel...
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)takePicture:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        NSLog(@"den hittade kameran");
+    } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        NSLog(@"den hittade inte kameran med sparade bilder");
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    [self presentViewController:picker animated:YES completion:nil];
 }
-*/
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    
+    NSString *imagePath = [self imagePath];
+    
+    BOOL success = [imageData writeToFile:imagePath atomically:YES];
+    
+    if(success) {
+        NSLog(@"Saved image to user documents directory. with path: %@", imagePath);
+    } else {
+        NSLog(@"Couldn't save image to user documents directory");
+    }
+}
+
+- (NSString *)imagePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = paths[0];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString *cachedDatePNG = [NSString stringWithFormat:@"cachedImage%@.png",[formatter stringFromDate:[NSDate date]]];
+  //  NSLog(cachedDatePNG);
+    return [path stringByAppendingPathComponent:cachedDatePNG];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

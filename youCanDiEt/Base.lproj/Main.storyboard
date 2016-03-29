@@ -437,9 +437,10 @@
                                 <state key="normal" title="Add ingredient"/>
                                 <connections>
                                     <action selector="addIngredient:" destination="dsT-n2-7pm" eventType="touchUpInside" id="2Dz-AW-gxS"/>
+                                    <segue destination="LwG-iz-7Xc" kind="presentation" id="YX0-IY-kHP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-bq-d3D">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How to: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-bq-d3D">
                                 <rect key="frame" x="20" y="441" width="280" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -448,7 +449,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD8-wi-0RO">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="reply" id="XpV-5w-Z4t"/>
+                                    <barButtonItem systemItem="reply" id="XpV-5w-Z4t">
+                                        <connections>
+                                            <segue destination="o87-nx-WdD" kind="show" id="afd-W8-34J"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="228" style="plain" systemItem="fixedSpace" id="JK0-j2-oKI"/>
                                     <barButtonItem systemItem="bookmarks" id="H3w-TS-BwH">
                                         <connections>
@@ -504,7 +509,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNB-za-CXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534" y="-1782"/>
+            <point key="canvasLocation" x="1354" y="-2178"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="IB5-xH-7zJ">
+            <objects>
+                <tableViewController id="LwG-iz-7Xc" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q18-L2-CCB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="PpK-ux-lXe">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpK-ux-lXe" id="tHe-CC-zSi">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LwG-iz-7Xc" id="Xu8-EO-GlE"/>
+                            <outlet property="delegate" destination="LwG-iz-7Xc" id="2BW-dC-eDt"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NU7-0B-wxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="-2425"/>
         </scene>
         <!--My Recipes-->
         <scene sceneID="MEm-69-WWU">
@@ -702,7 +736,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8y-gV-vLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="-1637"/>
+            <point key="canvasLocation" x="800" y="-2178"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6cV-hi-3h8">
@@ -727,6 +761,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZLc-MG-r0g"/>
         <segue reference="k2C-oy-hkN"/>
-        <segue reference="RTS-eM-lN9"/>
+        <segue reference="afd-W8-34J"/>
+        <segue reference="e6V-21-Z9I"/>
     </inferredMetricsTieBreakers>
 </document>
