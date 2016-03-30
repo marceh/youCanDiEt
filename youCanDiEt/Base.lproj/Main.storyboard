@@ -437,7 +437,7 @@
                                 <state key="normal" title="Add ingredient"/>
                                 <connections>
                                     <action selector="addIngredient:" destination="dsT-n2-7pm" eventType="touchUpInside" id="2Dz-AW-gxS"/>
-                                    <segue destination="LwG-iz-7Xc" kind="presentation" id="YX0-IY-kHP"/>
+                                    <segue destination="iex-lO-mkw" kind="presentation" id="YX0-IY-kHP"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How to: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-bq-d3D">
@@ -509,24 +509,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNB-za-CXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-2178"/>
+            <point key="canvasLocation" x="1365" y="-2120"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Ingredient Table View Controller-->
         <scene sceneID="IB5-xH-7zJ">
             <objects>
-                <tableViewController id="LwG-iz-7Xc" sceneMemberID="viewController">
+                <tableViewController id="LwG-iz-7Xc" customClass="AddIngredientTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q18-L2-CCB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="PpK-ux-lXe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="PpK-ux-lXe" customClass="MyTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpK-ux-lXe" id="tHe-CC-zSi">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dsT-n2-7pm" kind="show" id="kVK-yC-8gE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -534,11 +537,12 @@
                             <outlet property="delegate" destination="LwG-iz-7Xc" id="2BW-dC-eDt"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="VkB-qi-1ze"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NU7-0B-wxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066" y="-2425"/>
+            <point key="canvasLocation" x="2162" y="-2435"/>
         </scene>
         <!--My Recipes-->
         <scene sceneID="MEm-69-WWU">
@@ -757,11 +761,31 @@
             </objects>
             <point key="canvasLocation" x="2090" y="-947"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jAY-8c-7uj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iex-lO-mkw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y7k-ds-EMj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LwG-iz-7Xc" kind="relationship" relationship="rootViewController" id="bX7-sx-rbB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sTv-6w-jso" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="-2801"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZLc-MG-r0g"/>
-        <segue reference="k2C-oy-hkN"/>
+        <segue reference="kVK-yC-8gE"/>
         <segue reference="afd-W8-34J"/>
         <segue reference="e6V-21-Z9I"/>
+        <segue reference="ZLc-MG-r0g"/>
+        <segue reference="k2C-oy-hkN"/>
     </inferredMetricsTieBreakers>
 </document>

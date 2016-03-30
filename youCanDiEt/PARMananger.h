@@ -13,14 +13,21 @@
 
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSMutableArray *recipes;
+@property (nonatomic) NSMutableArray *arrayOfIngredients;
 
 +(id)getPARManager;
 
 -(void)addProductToMyProducts:(Product *)product;
 
+-(void)addProductToArrayOfIngredients:(Product *)product;
+
 -(Product *)getProductInProductsAtIndex:(int)index;
 
+-(Product *)getProductInArrayOfIngredientsAtIndex:(int)index;
+
 -(void)logProductsArray;
+
+-(void)logIngredientArray;
 
 -(void)saveProducts;
 

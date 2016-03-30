@@ -7,8 +7,17 @@
 //
 
 #import "AddIngredientTableViewController.h"
+#import "PARMananger.h"
+#import "Product.h"
+#import "MyTableViewCell.h"
+
 
 @interface AddIngredientTableViewController ()
+
+@property NSArray *myProducts;
+@property NSArray *searchResult;
+@property PARMananger *parManager;
+@property UISearchController *searchContoller;
 
 @end
 
@@ -16,12 +25,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.parManager = [PARMananger getPARManager];
+    self.myProducts = self.parManager.products;
+    self.searchContoller = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchContoller.searchResultsUpdater = self;
+    self.definesPresentationContext = YES;
+    self.searchContoller.dimsBackgroundDuringPresentation = NO;
+    self.tableView.tableHeaderView = self.searchContoller.searchBar;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,27 +40,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchText = searchController.searchBar.text;
+    NSPredicate *findProducts = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    
+    self.searchResult = [self.myProducts filteredArrayUsingPredicate:findProducts];
+    [self.tableView reloadData];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    if (self.searchContoller.isActive && self.searchContoller.searchBar.text.length > 0) {
+        return self.searchResult.count;
+    } else {
+        return self.myProducts.count;
+    }
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSArray *activeData;
     
+    if (self.searchContoller.isActive && self.searchContoller.searchBar.text.length > 0) {
+        //cell.textLabel.text = [self.searchResult[indexPath.row] name];
+        activeData = self.searchResult;
+    } else {
+        activeData = self.myProducts;
+    }
+    
+    cell.textLabel.text = [activeData[indexPath.row] name];
+    cell.productInformation = activeData[indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -85,14 +113,18 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"nu skickar i med seque");
+    MyTableViewCell *cell = sender;
+    NSLog(cell.productInformation.description);
+    [self.parManager addProductToArrayOfIngredients:cell.productInformation];
+    //[self.parManager.arrayOfIngredients addObject:@"hej..."];
+   //[segue.destinationViewController.arrayOfIngredients addObject:cell.productInformation];
+    //segue.destinationViewController.title = [cell.productInformation name];
+    //[self.recipesAddViewController.arrayOfIngredients addObject:cell.productInformation];
+
 }
-*/
+
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddIngredientTableViewController : UITableViewController
+@interface AddIngredientTableViewController : UITableViewController <UISearchResultsUpdating>
 
 @end

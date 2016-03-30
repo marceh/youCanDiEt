@@ -8,6 +8,7 @@
 
 #import "RecipesAddViewController.h"
 #import "Recipe.h"
+#import "PARMananger.h"
 
 @interface RecipesAddViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textFieldName;
@@ -19,8 +20,8 @@
 //@property (weak, nonatomic) IBOutlet UILabel *nameInCell;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (nonatomic) NSArray *arrayCategories;
-
 @property (nonatomic) NSString *categorySelected;
+@property (nonatomic) PARMananger *parManager;
 
 @end
 
@@ -28,12 +29,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.parManager = [PARMananger getPARManager];
     self.arrayCategories = @[@"Breakfast", @"Snack", @"Lunch", @"Dinner", @"Supper"];
     [self.pickerViewCategory selectRow:2 inComponent:0 animated:YES];
     self.stepperPortions.value = 1.00;
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
     [self imagePath];
+    NSLog(@"PARMANAGER array count = %d", self.parManager.arrayOfIngredients.count);
+    NSLog(@"PARMANAGER product array count = %d", self.parManager.products.count);
+    self.parManager.logIngredientArray;
 }
 
 - (void)didReceiveMemoryWarning {

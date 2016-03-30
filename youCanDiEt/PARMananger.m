@@ -25,6 +25,7 @@
     if (self) {
         self.products = [NSMutableArray new];
         self.recipes = [NSMutableArray new];
+        self.arrayOfIngredients = [NSMutableArray new];
     }
     return self;
 }
@@ -33,13 +34,30 @@
     [self.products addObject:product];
 }
 
+-(void)addProductToArrayOfIngredients:(Product *)product{
+    NSLog(@"adding shit to arrayofIngredients...logging array below:");
+    [self logIngredientArray];
+    [self.arrayOfIngredients addObject:product];
+}
+
 -(Product *)getProductInProductsAtIndex:(int)index{
     return [self.products objectAtIndex:index];
+}
+
+-(Product *)getProductInArrayOfIngredientsAtIndex:(int)index{
+    return [self.arrayOfIngredients objectAtIndex:index];
 }
 
 -(void)logProductsArray{
     
     for(Product *product in self.products){
+        NSLog([product description]);
+    }
+}
+
+-(void)logIngredientArray{
+    
+    for(Product *product in self.arrayOfIngredients){
         NSLog([product description]);
     }
 }
