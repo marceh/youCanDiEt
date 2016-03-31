@@ -9,7 +9,7 @@
 #import "MyTableViewCell.h"
 
 @implementation MyTableViewCell
-@synthesize labelName, labelGrams, sliderGrams;
+@synthesize labelName, labelGrams, sliderGrams, gramsInformation;
 
 - (void)awakeFromNib {
     
@@ -23,6 +23,7 @@
 
 - (IBAction)sliderValueChanged:(UISlider *)slider {
     labelGrams.text = [NSString stringWithFormat:@"Grams: %d",(int)sliderGrams.value];
+    gramsInformation = [NSNumber numberWithInt:(int)sliderGrams.value];
 }
 
 

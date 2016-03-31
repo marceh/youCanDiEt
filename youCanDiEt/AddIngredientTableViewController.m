@@ -74,7 +74,7 @@
         activeData = self.myProducts;
     }
     
-    cell.textLabel.text = [activeData[indexPath.row] name];
+    cell.labelName.text = [activeData[indexPath.row] name];
     cell.productInformation = activeData[indexPath.row];
     return cell;
 }
@@ -119,8 +119,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"nu skickar i med seque");
     MyTableViewCell *cell = sender;
-    NSLog(cell.productInformation.description);
-    [self.parManager addProductToArrayOfIngredients:cell.productInformation];
+    [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:cell.gramsInformation];
     //[self.parManager.arrayOfIngredients addObject:@"hej..."];
    //[segue.destinationViewController.arrayOfIngredients addObject:cell.productInformation];
     //segue.destinationViewController.title = [cell.productInformation name];

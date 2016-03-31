@@ -9,7 +9,7 @@
 #import "AddRecipeCustomTableViewCell.h"
 
 @implementation AddRecipeCustomTableViewCell
-@synthesize labelName, labelGrams, sliderGrams;
+@synthesize labelName, labelGrams;
 
 - (void)awakeFromNib {
     
@@ -19,10 +19,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (IBAction)sliderValueChanged:(UISlider *)slider {
-    labelGrams.text = [NSString stringWithFormat:@"Grams: %d",(int)sliderGrams.value];
 }
 
 @end

@@ -12,8 +12,5 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *labelName;
 @property (nonatomic, weak) IBOutlet UILabel *labelGrams;
-@property (nonatomic, weak) IBOutlet UISlider *sliderGrams;
-
-- (IBAction)sliderValueChanged:(UISlider *)slider;
 
 @end

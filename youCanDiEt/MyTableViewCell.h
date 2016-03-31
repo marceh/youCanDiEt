@@ -12,6 +12,7 @@
 @interface MyTableViewCell : UITableViewCell
 
 @property Product *productInformation;
+@property NSNumber *gramsInformation;
 @property (nonatomic, weak) IBOutlet UILabel *labelName;
 @property (nonatomic, weak) IBOutlet UILabel *labelGrams;
 @property (nonatomic, weak) IBOutlet UISlider *sliderGrams;

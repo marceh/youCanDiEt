@@ -21,6 +21,7 @@
 }
 
 -(instancetype)init {
+    NSLog(@"-1");
     self = [super init];
     if (self) {
         self.products = [NSMutableArray new];
@@ -35,10 +36,11 @@
     [self.products addObject:product];
 }
 
--(void)addProductToArrayOfIngredients:(Product *)product{
+-(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams{
+    NSLog(@"0");
     NSLog(@"adding shit to arrayofIngredients...logging array below:");
-    [self logIngredientArray];
-    [self.arrayOfIngredients addObject:product];
+    NSDictionary *tempDictionary = @{@"product" : product, @"grams" : grams};
+    [self.arrayOfIngredients addObject:tempDictionary];
 }
 
 -(Product *)getProductInProductsAtIndex:(int)index{
@@ -46,7 +48,12 @@
 }
 
 -(Product *)getProductInArrayOfIngredientsAtIndex:(int)index{
-    return [self.arrayOfIngredients objectAtIndex:index];
+    NSLog(@"1");
+    return [[self.arrayOfIngredients objectAtIndex:index] valueForKey:@"product"];
+}
+
+-(NSNumber *)getProductGramsInArrayOfIngredientsAtIndex:(int)index{
+    return [[self.arrayOfIngredients objectAtIndex:index] valueForKey:@"grams"];
 }
 
 -(void)logProductsArray{
@@ -56,12 +63,12 @@
     }
 }
 
--(void)logIngredientArray{
+/*-(void)logIngredientArray{
     
     for(Product *product in self.arrayOfIngredients){
         NSLog([product description]);
     }
-}
+}*/
 
 -(void)saveProducts{
     NSLog(@"savingProducts");

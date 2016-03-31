@@ -21,7 +21,7 @@
 
 -(void)addProductToMyProducts:(Product *)product;
 
--(void)addProductToArrayOfIngredients:(Product *)product;
+-(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams;
 
 -(Product *)getProductInProductsAtIndex:(int)index;
 

@@ -30,6 +30,7 @@
 @implementation RecipesAddViewController
 
 - (void)viewDidLoad {
+    NSLog(@"2");
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
     self.arrayCategories = @[@"Breakfast", @"Snack", @"Lunch", @"Dinner", @"Supper"];
@@ -37,8 +38,7 @@
     self.stepperPortions.value = 1.00;
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
-    [self imagePath];
-    self.parManager.logIngredientArray;
+    //[self imagePath];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,7 +60,6 @@
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.categorySelected = [self.arrayCategories objectAtIndex:row];
-    NSLog(self.categorySelected);
 }
 
 - (IBAction)stepperChanged:(UIStepper *)stepper {
@@ -139,13 +138,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"3");
     return self.parManager.arrayOfIngredients.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddRecipeCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
-    cell.labelName.text = [self.parManager.arrayOfIngredients[indexPath.row] name];
-    cell.labelGrams.text = [NSString stringWithFormat:@"grams: %d", (int)cell.sliderGrams.value];
+    cell.labelName.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
+//    cell.labelGrams.text = [NSString stringWithFormat:@"grams: %d", (int)cell.sliderGrams.value];
+    cell.labelGrams.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue];
+NSLog(@"4");
     return cell;
 }
 
