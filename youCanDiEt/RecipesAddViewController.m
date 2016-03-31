@@ -9,6 +9,7 @@
 #import "RecipesAddViewController.h"
 #import "Recipe.h"
 #import "PARMananger.h"
+#import "AddRecipeCustomTableViewCell.h"
 
 @interface RecipesAddViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textFieldName;
@@ -119,6 +120,17 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.parManager.arrayOfIngredients.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AddRecipeCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
+    cell.labelName.text = [self.parManager.arrayOfIngredients[indexPath.row] name];
+    cell.labelGrams.text = [NSString stringWithFormat:@"grams: %d", (int)cell.sliderGrams.value];
+    return cell;
 }
 
 @end

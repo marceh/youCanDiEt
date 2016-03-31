@@ -33,6 +33,7 @@
 		7F16355F1C83450200D08CE7 /* CustomProductCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F16355E1C83450200D08CE7 /* CustomProductCellView.xib */; };
 		7F8D637F1CAAA3E7002EFB3F /* AddIngredientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */; };
 		7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */; };
+		7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientTableViewController.m; sourceTree = "<group>"; };
 		7F8D63801CABB4B9002EFB3F /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		7F8D63831CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRecipeCustomTableViewCell.h; sourceTree = "<group>"; };
+		7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeCustomTableViewCell.m; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +193,8 @@
 		7F16355C1C8342D800D08CE7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7F8D63831CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.h */,
+				7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */,
 				7F8D63801CABB4B9002EFB3F /* MyTableViewCell.h */,
 				7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */,
 				7F1635571C8342B300D08CE7 /* CustomProductTableViewCell.h */,
@@ -302,6 +307,7 @@
 				7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */,
 				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,
+				7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */,
 				7F1635501C81CC0800D08CE7 /* WeekPlannerClickViewController.m in Sources */,
 				7F16352F1C81C8C100D08CE7 /* Settings.m in Sources */,
 				7F16353B1C81C94000D08CE7 /* DBManager.m in Sources */,
