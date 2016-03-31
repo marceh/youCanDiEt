@@ -9,15 +9,21 @@
 #import "MyTableViewCell.h"
 
 @implementation MyTableViewCell
+@synthesize labelName, labelGrams, sliderGrams;
 
 - (void)awakeFromNib {
-    // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
+
+- (IBAction)sliderValueChanged:(UISlider *)slider {
+    labelGrams.text = [NSString stringWithFormat:@"Grams: %d",(int)sliderGrams.value];
+}
+
 
 @end

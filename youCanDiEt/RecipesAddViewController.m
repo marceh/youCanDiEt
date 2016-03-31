@@ -23,6 +23,7 @@
 @property (nonatomic) NSArray *arrayCategories;
 @property (nonatomic) NSString *categorySelected;
 @property (nonatomic) PARMananger *parManager;
+@property (nonatomic) NSMutableDictionary *dictionaryPrep4RecipInit;
 
 @end
 
@@ -37,8 +38,6 @@
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
     [self imagePath];
-    NSLog(@"PARMANAGER array count = %d", self.parManager.arrayOfIngredients.count);
-    NSLog(@"PARMANAGER product array count = %d", self.parManager.products.count);
     self.parManager.logIngredientArray;
 }
 
@@ -68,11 +67,28 @@
     self.labelNrOfPortions.text = [NSString stringWithFormat:@"%d",(int)stepper.value];
 }
 
-- (IBAction)addIngredient:(id)sender {
-}
+
 - (IBAction)saveRecipe:(id)sender {
-    // gör en dictionary som du initar ett recept med babydoll...
-    // glom inte att sätta imagepathen där nere som skall vara sparad i en varaiabel...
+    //TODO: make sure form isn't empty...
+    
+    //1. Already saved latest PicPath...
+    
+    //2. Add recipe name...
+    [self.parManager addName2CurrentRecipe:self.textFieldName.text];
+    
+    //3. Add recipe category...
+    [self.parManager addCategory2CurrentRecipe:self.categorySelected];
+    
+    //4. Add recipe portions...
+    [self.parManager addPortions2CurrentRecipe:[NSNumber numberWithInt:[self.labelNrOfPortions.text intValue]]];
+    
+    //5. Add recipe howTo...
+    [self.parManager addHowTo2CurrentRecipe:self.textViewDescription.text];
+    
+    //6. Add recipe array of products and corresponding units...
+    NSLog(@"vill ha namn: %@ och gram %d",self.tableViewAddRecipe, 10);
+    
+    //7. Convert recipe dictionary to actual recipe and save it in PAR...
     
 }
 
@@ -103,6 +119,7 @@
     
     if(success) {
         NSLog(@"Saved image to user documents directory. with path: %@", imagePath);
+        [self.parManager addPicPath2CurrentRecipe:imagePath];
     } else {
         NSLog(@"Couldn't save image to user documents directory");
     }
@@ -114,7 +131,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMddHHmmss"];
     NSString *cachedDatePNG = [NSString stringWithFormat:@"cachedImage%@.png",[formatter stringFromDate:[NSDate date]]];
-  //  NSLog(cachedDatePNG);
     return [path stringByAppendingPathComponent:cachedDatePNG];
 }
 

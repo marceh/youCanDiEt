@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"inne i addIner");
     self.parManager = [PARMananger getPARManager];
     self.myProducts = self.parManager.products;
     self.searchContoller = [[UISearchController alloc] initWithSearchResultsController:nil];
