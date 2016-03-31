@@ -37,18 +37,34 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.parManager.products.count;
+    NSLog(@"%d",self.parManager.recipes.count);
+    if (self.parManager.recipes.count < 1) {
+        return 1;
+    } else {
+        return self.parManager.recipes.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (self.parManager.recipes.count < 1) {
+        cell.labelRecipeName.text = @"No Recipes added yet";
+    } else {
+        cell.labelRecipeName.text = [self.parManager.recipes[indexPath.row] name];
+        
+        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] picPath]];
+        
+        if (cachedImage) {
+            cell.imageRecipePicture.image = cachedImage;
+        } else {
+            NSLog(@"didn't find the picPath of the recipe");
+        }
+    }
     
     return cell;
 }
