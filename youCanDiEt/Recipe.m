@@ -23,5 +23,17 @@
     }
     return self;
 }
+/*
+- (int)getTotalKcalInRecipe{
+    
+}
 
+- (int)getTotalProteinInRecipe{
+    
+}
+
+- (int)getDietValue{
+    
+}
+*/
 @end

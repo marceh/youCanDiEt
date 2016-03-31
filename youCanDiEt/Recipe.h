@@ -10,9 +10,10 @@
 
 @interface Recipe : NSObject
 
+//Array of Dictionaries...
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSString *howTo;
-//Categories = breakfast, lunch, snack, dinner, supper.
+//Categories = breakfast, lunch, snack, dinner, supper...
 @property (nonatomic) NSString *category;
 @property (nonatomic) NSNumber *portions;
 @property (nonatomic) NSString *picPath;
@@ -20,5 +21,6 @@
 
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 
 @end

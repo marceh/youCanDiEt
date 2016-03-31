@@ -587,7 +587,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="234" id="JSr-w5-xr9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="234" id="JSr-w5-xr9" customClass="RecipesTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="320" height="234"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSr-w5-xr9" id="A2R-sg-wrX">
@@ -606,6 +606,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imageRecipePicture" destination="D6q-EN-2KC" id="jTZ-9W-2sY"/>
+                                    <outlet property="labelRecipeName" destination="s00-D8-pXq" id="DJ3-fH-C88"/>
                                     <segue destination="zEO-BR-VLB" kind="show" identifier="segueClickRecipe" id="Ix5-lN-aJd"/>
                                 </connections>
                             </tableViewCell>

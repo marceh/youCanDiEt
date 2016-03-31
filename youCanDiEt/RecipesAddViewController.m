@@ -30,7 +30,6 @@
 @implementation RecipesAddViewController
 
 - (void)viewDidLoad {
-    NSLog(@"2");
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
     self.arrayCategories = @[@"Breakfast", @"Snack", @"Lunch", @"Dinner", @"Supper"];
@@ -84,10 +83,8 @@
     //5. Add recipe howTo...
     [self.parManager addHowTo2CurrentRecipe:self.textViewDescription.text];
     
-    //6. Add recipe array of products and corresponding units...
-    NSLog(@"vill ha namn: %@ och gram %d",self.tableViewAddRecipe, 10);
-    
     //7. Convert recipe dictionary to actual recipe and save it in PAR...
+    [self.parManager convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager];
     
 }
 
@@ -138,7 +135,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"3");
     return self.parManager.arrayOfIngredients.count;
 }
 
@@ -147,7 +143,6 @@
     cell.labelName.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
 //    cell.labelGrams.text = [NSString stringWithFormat:@"grams: %d", (int)cell.sliderGrams.value];
     cell.labelGrams.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue];
-NSLog(@"4");
     return cell;
 }
 

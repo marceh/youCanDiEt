@@ -21,7 +21,6 @@
 }
 
 -(instancetype)init {
-    NSLog(@"-1");
     self = [super init];
     if (self) {
         self.products = [NSMutableArray new];
@@ -36,9 +35,11 @@
     [self.products addObject:product];
 }
 
+-(void)addRecipeToMyRecipes:(Recipe *)recipe{
+    [self.recipes addObject:recipe];
+}
+
 -(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams{
-    NSLog(@"0");
-    NSLog(@"adding shit to arrayofIngredients...logging array below:");
     NSDictionary *tempDictionary = @{@"product" : product, @"grams" : grams};
     [self.arrayOfIngredients addObject:tempDictionary];
 }
@@ -48,7 +49,6 @@
 }
 
 -(Product *)getProductInArrayOfIngredientsAtIndex:(int)index{
-    NSLog(@"1");
     return [[self.arrayOfIngredients objectAtIndex:index] valueForKey:@"product"];
 }
 
@@ -62,13 +62,6 @@
         NSLog([product description]);
     }
 }
-
-/*-(void)logIngredientArray{
-    
-    for(Product *product in self.arrayOfIngredients){
-        NSLog([product description]);
-    }
-}*/
 
 -(void)saveProducts{
     NSLog(@"savingProducts");
@@ -124,8 +117,8 @@
 }
 
 -(void)convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager {
+    [self addProducts2CurrentRecipe:self.arrayOfIngredients];
     Recipe *newRecipe = [[Recipe alloc]initWithDictionary:self.dictionaryCurrentRecipe];
+    [self addRecipeToMyRecipes:newRecipe];
 }
-
-
 @end
