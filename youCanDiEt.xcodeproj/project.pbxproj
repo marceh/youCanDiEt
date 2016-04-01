@@ -33,6 +33,7 @@
 		7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */; };
 		7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */; };
 		7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */; };
+		7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeCustomTableViewCell.m; sourceTree = "<group>"; };
 		7F8D63861CAD81B3002EFB3F /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
 		7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
+		7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesClickedViewController.h; sourceTree = "<group>"; };
+		7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesClickedViewController.m; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +161,8 @@
 		7F16355B1C8342D200D08CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */,
+				7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
 				7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */,
 				7F16353F1C81CB6700D08CE7 /* RecipesAddViewController.h */,
@@ -293,6 +298,7 @@
 				7F1635351C81C91200D08CE7 /* APIManager.m in Sources */,
 				7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */,
 				7F1635291C81C89E00D08CE7 /* Recipe.m in Sources */,
+				7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */,
 				7F1635441C81CB8E00D08CE7 /* ProductInfoTableViewController.m in Sources */,
 				7F1635261C81BBD000D08CE7 /* Product.m in Sources */,
 				7F1635321C81C8D900D08CE7 /* PARMananger.m in Sources */,

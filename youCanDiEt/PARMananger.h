@@ -16,6 +16,8 @@
 @property (nonatomic) NSMutableArray *recipes;
 @property (nonatomic) NSMutableArray *arrayOfIngredients;
 @property (nonatomic) NSMutableDictionary *dictionaryCurrentRecipe;
+@property (nonatomic) Recipe *comparableRecipeOne;
+@property (nonatomic) Recipe *comparableRecipeTwo;
 
 +(id)getPARManager;
 
@@ -56,5 +58,7 @@
 -(void)deleteMyProducts;
 
 -(void)deleteMyRecipes;
+
+-(void)thisIsComparableRecipe:(Recipe *)recipe number:(int)number;
 
 @end

@@ -106,11 +106,25 @@
 }
 */
 
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//did DEselect för ffannnn... 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"inne i didselect Celllllll");
+    [self.parManager thisIsComparableRecipe:self.parManager.recipes[indexPath.row] number:1];
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SegueToAddRecipe"]){
         [self.parManager clearCurrentRecipe];
+    } else if ([segue.identifier isEqualToString:@"segueClickRecipe"]){
+        NSLog(@"inne i seguen...");
+        //RecipesTableViewCell *cell = sender;
+        //self.parManager thisIsComparableRecipe:self.parManager.recipes[cell.] number:<#(int)#>
     }
+    
 }
 
 

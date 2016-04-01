@@ -631,7 +631,7 @@
                                 <connections>
                                     <outlet property="imageRecipePicture" destination="D6q-EN-2KC" id="jTZ-9W-2sY"/>
                                     <outlet property="labelRecipeName" destination="s00-D8-pXq" id="DJ3-fH-C88"/>
-                                    <segue destination="zEO-BR-VLB" kind="show" identifier="segueClickRecipe" id="Ix5-lN-aJd"/>
+                                    <segue destination="zEO-BR-VLB" kind="presentation" identifier="segueClickRecipe" id="Ix5-lN-aJd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -662,10 +662,10 @@
             </objects>
             <point key="canvasLocation" x="1303" y="-1266"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipes Clicked View Controller-->
         <scene sceneID="gcw-St-JjS">
             <objects>
-                <viewController id="Wzb-CM-fcl" sceneMemberID="viewController">
+                <viewController id="Wzb-CM-fcl" customClass="RecipesClickedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rd2-4K-jDu"/>
                         <viewControllerLayoutGuide type="bottom" id="GRr-yP-mdb"/>
@@ -674,21 +674,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ReC-OG-moO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="temp" id="76B-3i-dXP"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="895-54-2Y6">
-                                <rect key="frame" x="232" y="219" width="30" height="30"/>
-                                <state key="normal" title="haj"/>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0p-Lx-vfR">
+                                <rect key="frame" x="0.0" y="64" width="320" height="156"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvK-Dc-9cq">
+                                <rect key="frame" x="20" y="228" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kcal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="858-wH-P5p">
+                                <rect key="frame" x="20" y="257" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-jm-u6p">
+                                <rect key="frame" x="20" y="286" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFh-z4-nqV">
+                                <rect key="frame" x="20" y="315" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWX-Lp-F9t">
+                                <rect key="frame" x="20" y="344" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diet value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6S-03-C7U">
+                                <rect key="frame" x="20" y="401" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="val" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ro-H7-0nr">
+                                <rect key="frame" x="20" y="430" width="280" height="103"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="86"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6iY-ko-mMm"/>
+                    <navigationItem key="navigationItem" id="6iY-ko-mMm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="EMW-lb-f6G">
+                            <connections>
+                                <segue destination="XDf-Mi-vtE" kind="show" id="vwm-mH-FKQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageViewPic" destination="h0p-Lx-vfR" id="xVU-cQ-sz9"/>
+                        <outlet property="labelCarbs" destination="Ale-jm-u6p" id="HLO-fQ-9k7"/>
+                        <outlet property="labelDietValue" destination="5ro-H7-0nr" id="GBs-fM-KAb"/>
+                        <outlet property="labelFat" destination="NWX-Lp-F9t" id="pnU-wv-QfA"/>
+                        <outlet property="labelKcal" destination="858-wH-P5p" id="V33-pA-5H2"/>
+                        <outlet property="labelName" destination="OvK-Dc-9cq" id="EKb-9B-Yxs"/>
+                        <outlet property="labelProtein" destination="nFh-z4-nqV" id="21i-m1-QXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffk-d7-zfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -865,9 +915,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="1BY-ss-fiR"/>
-        <segue reference="tCP-rh-Idb"/>
-        <segue reference="eC7-Ig-Pd7"/>
+        <segue reference="vwm-mH-FKQ"/>
         <segue reference="b1m-46-Ke6"/>
+        <segue reference="eC7-Ig-Pd7"/>
+        <segue reference="tCP-rh-Idb"/>
         <segue reference="k2C-oy-hkN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -147,4 +147,12 @@
     [self.recipes removeAllObjects];
 }
 
+-(void)thisIsComparableRecipe:(Recipe *)recipe number:(int)number {
+    if (number == 1) {
+        self.comparableRecipeOne = recipe;
+    } else {
+        self.comparableRecipeTwo = recipe;
+    }
+}
+
 @end
