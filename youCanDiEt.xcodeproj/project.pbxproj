@@ -34,6 +34,11 @@
 		7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */; };
 		7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */; };
 		7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */; };
+		7F8D638E1CAEC9AA002EFB3F /* ComparisonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */; };
+		7F8D639C1CAEE671002EFB3F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D63991CAEE671002EFB3F /* Icon-72.png */; };
+		7F8D639D1CAEE671002EFB3F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */; };
+		7F8D639E1CAEE671002EFB3F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639B1CAEE671002EFB3F /* Icon@2x.png */; };
+		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +95,12 @@
 		7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
 		7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesClickedViewController.h; sourceTree = "<group>"; };
 		7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesClickedViewController.m; sourceTree = "<group>"; };
+		7F8D638C1CAEC9AA002EFB3F /* ComparisonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparisonsViewController.h; sourceTree = "<group>"; };
+		7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparisonsViewController.m; sourceTree = "<group>"; };
+		7F8D63991CAEE671002EFB3F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		7F8D639B1CAEE671002EFB3F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +151,10 @@
 		7F16350A1C8181FC00D08CE7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */,
+				7F8D63991CAEE671002EFB3F /* Icon-72.png */,
+				7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */,
+				7F8D639B1CAEE671002EFB3F /* Icon@2x.png */,
 				7F16350B1C8181FC00D08CE7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -161,6 +176,8 @@
 		7F16355B1C8342D200D08CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F8D638C1CAEC9AA002EFB3F /* ComparisonsViewController.h */,
+				7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */,
 				7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */,
 				7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
@@ -280,7 +297,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F16351A1C8181FC00D08CE7 /* LaunchScreen.storyboard in Resources */,
+				7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */,
+				7F8D639E1CAEE671002EFB3F /* Icon@2x.png in Resources */,
+				7F8D639C1CAEE671002EFB3F /* Icon-72.png in Resources */,
 				7F1635171C8181FC00D08CE7 /* Assets.xcassets in Resources */,
+				7F8D639D1CAEE671002EFB3F /* Icon-Small@2x.png in Resources */,
 				7F1635151C8181FC00D08CE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +336,7 @@
 				7F16352F1C81C8C100D08CE7 /* Settings.m in Sources */,
 				7F16353B1C81C94000D08CE7 /* DBManager.m in Sources */,
 				7F16354D1C81CBE300D08CE7 /* WeekPlannerAddViewController.m in Sources */,
+				7F8D638E1CAEC9AA002EFB3F /* ComparisonsViewController.m in Sources */,
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
 			);

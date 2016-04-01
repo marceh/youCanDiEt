@@ -18,35 +18,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-It-VB1">
-                                <rect key="frame" x="20" y="139" width="120" height="120"/>
+                                <rect key="frame" x="20" y="230" width="120" height="120"/>
                                 <state key="normal" title="Recepies"/>
                                 <connections>
                                     <segue destination="o87-nx-WdD" kind="show" id="tCP-rh-Idb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dso-4c-1yA">
-                                <rect key="frame" x="187" y="139" width="120" height="120"/>
+                                <rect key="frame" x="180" y="230" width="120" height="120"/>
                                 <state key="normal" title="Products"/>
                                 <connections>
                                     <segue destination="VUU-ii-yQh" kind="show" id="b1m-46-Ke6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKr-QG-u0H">
-                                <rect key="frame" x="180" y="341" width="120" height="120"/>
+                                <rect key="frame" x="180" y="396" width="120" height="120"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="bEH-Wn-iCj" kind="show" id="HsB-Ys-iWJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Ev-Bah">
-                                <rect key="frame" x="20" y="341" width="120" height="120"/>
+                                <rect key="frame" x="20" y="396" width="120" height="120"/>
                                 <state key="normal" title="Week Planner"/>
                                 <connections>
                                     <segue destination="30S-Cj-5WH" kind="show" id="6d4-2m-4dy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-LG-2bn">
+                                <rect key="frame" x="90" y="358" width="140" height="30"/>
+                                <state key="normal" title="Compare DietValues"/>
+                                <connections>
+                                    <segue destination="bpa-Tk-DRH" kind="show" id="HpF-eT-ceV"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YouCanDiEt" translatesAutoresizingMaskIntoConstraints="NO" id="oke-5R-qrS">
+                                <rect key="frame" x="108" y="119" width="104" height="103"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DiEtYourself" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v67-16-yJv">
+                                <rect key="frame" x="20" y="119" width="280" height="103"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.38004110540164548" green="1" blue="0.41460840923920628" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="1tp-PO-evy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -96,7 +112,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pX3-ri-0us" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="485"/>
+            <point key="canvasLocation" x="1762" y="485"/>
         </scene>
         <!--Week Planner Add View Controller-->
         <scene sceneID="wQx-gX-c7o">
@@ -115,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nur-0h-igD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="525"/>
+            <point key="canvasLocation" x="2266" y="525"/>
         </scene>
         <!--Week Planner Click View Controller-->
         <scene sceneID="qSn-Bt-1T2">
@@ -134,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEz-0b-AII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2010" y="1233"/>
+            <point key="canvasLocation" x="2822" y="1233"/>
         </scene>
         <!--Settings-->
         <scene sceneID="u2s-RO-zbM">
@@ -184,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyY-yP-6ha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="1225"/>
+            <point key="canvasLocation" x="2282" y="1225"/>
         </scene>
         <!--My products-->
         <scene sceneID="0tD-FI-cxh">
@@ -410,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsB-Bk-oEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3329" y="385"/>
+            <point key="canvasLocation" x="4141" y="385"/>
         </scene>
         <!--New recipe-->
         <scene sceneID="373-rg-M9J">
@@ -893,6 +909,66 @@
             </objects>
             <point key="canvasLocation" x="1774" y="-2801"/>
         </scene>
+        <!--Comparisons-->
+        <scene sceneID="yHc-KK-0Xv">
+            <objects>
+                <viewController title="Comparisons" id="Krf-Nb-Vli" customClass="ComparisonsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hmn-1E-PwM"/>
+                        <viewControllerLayoutGuide type="bottom" id="S5F-hN-e0j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Jg-60-Jda">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2o-QI-BuB">
+                                <rect key="frame" x="20" y="176" width="280" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Krf-Nb-Vli" id="0pF-U7-71E"/>
+                                    <outlet property="delegate" destination="Krf-Nb-Vli" id="fum-iF-RT4"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-2p-cpv">
+                                <rect key="frame" x="20" y="400" width="280" height="39"/>
+                                <state key="normal" title="Compare Diet Values"/>
+                                <connections>
+                                    <action selector="clickedDietValuesComparisons:" destination="Krf-Nb-Vli" eventType="touchUpInside" id="eLd-ca-55c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNh-dB-Nl8">
+                                <rect key="frame" x="20" y="129" width="280" height="39"/>
+                                <state key="normal" title="Show Detailed Comparisons"/>
+                                <connections>
+                                    <action selector="clickedDetailedComparisons:" destination="Krf-Nb-Vli" eventType="touchUpInside" id="9OI-IT-Wgt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-KI-vy2">
+                                <rect key="frame" x="175" y="0.0" width="125" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shV-IT-qph">
+                                <rect key="frame" x="20" y="0.0" width="132" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comparisons" id="CWZ-ko-Egn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="labelOne" destination="shV-IT-qph" id="XkJ-FR-4FV"/>
+                        <outlet property="labelTwo" destination="zyS-KI-vy2" id="wFV-7q-b7A"/>
+                        <outlet property="pickerOne" destination="t2o-QI-BuB" id="gkt-I4-63Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8n-Fc-Cci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="624" y="999"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="5CG-bE-Riv">
             <objects>
@@ -910,15 +986,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jC-Gv-n65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="1225"/>
+            <point key="canvasLocation" x="1868" y="1225"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EqY-3Z-p0E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bpa-Tk-DRH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOv-hO-qLD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Krf-Nb-Vli" kind="relationship" relationship="rootViewController" id="sq0-nB-LG0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyy-jd-7lO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="YouCanDiEt" width="450" height="470"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1BY-ss-fiR"/>
         <segue reference="vwm-mH-FKQ"/>
-        <segue reference="b1m-46-Ke6"/>
-        <segue reference="eC7-Ig-Pd7"/>
+        <segue reference="e6V-21-Z9I"/>
         <segue reference="tCP-rh-Idb"/>
+        <segue reference="b1m-46-Ke6"/>
         <segue reference="k2C-oy-hkN"/>
     </inferredMetricsTieBreakers>
 </document>
