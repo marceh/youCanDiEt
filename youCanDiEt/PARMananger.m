@@ -64,7 +64,6 @@
 }
 
 -(void)saveProducts{
-    NSLog(@"savingProducts");
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings setInteger:self.products.count forKey:@"productsCount"];
     
@@ -75,14 +74,31 @@
     [settings synchronize];
 }
 
--(void)loadProducts{
-    NSLog(@"loadingProducts");
+-(void)saveRecipes{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings setInteger:self.recipes.count forKey:@"recipesCount"];
+    
+    for (int i = 0, length = self.recipes.count; i<length; i++) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.recipes[i]];
+        [settings setObject:data forKey:[NSString stringWithFormat:@"recipes[%d]",i]];
+    }
+    [settings synchronize];
+}
+
+-(void)loadProductsAndRecipes{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     NSInteger productsCount = [settings integerForKey:@"productsCount"];
     
     for (int i = 0; i<productsCount; i++) {
         NSData *data = [settings objectForKey:[NSString stringWithFormat:@"products[%d]",i]];
         [self addProductToMyProducts:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+    
+    NSInteger recipesCount = [settings integerForKey:@"recipesCount"];
+    
+    for (int i = 0; i<recipesCount; i++) {
+        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"recipes[%d]",i]];
+        [self addRecipeToMyRecipes:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     }
 }
 
@@ -120,5 +136,15 @@
     [self addProducts2CurrentRecipe:self.arrayOfIngredients];
     Recipe *newRecipe = [[Recipe alloc]initWithDictionary:self.dictionaryCurrentRecipe];
     [self addRecipeToMyRecipes:newRecipe];
+    [self saveRecipes];     
 }
+
+-(void)deleteMyProducts {
+    [self.products removeAllObjects];
+}
+
+-(void)deleteMyRecipes {
+    [self.recipes removeAllObjects];
+}
+
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Recipe : NSObject
+@interface Recipe : NSObject <NSCoding>
 
 //Array of Dictionaries...
 @property (nonatomic) NSMutableArray *products;
@@ -18,9 +18,19 @@
 @property (nonatomic) NSNumber *portions;
 @property (nonatomic) NSString *picPath;
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSDictionary *dictionaryOfRecipeContent;
 
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+- (id)initWithCoder:(NSCoder *)decoder;
+
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+- (void)logTheRecipeProducts;
+
+- (NSString *)getTheRightFolderAndImagePath;
+
+- (int)getDietValue;
 
 @end

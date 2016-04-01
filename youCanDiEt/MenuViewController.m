@@ -7,11 +7,8 @@
 //
 
 #import "MenuViewController.h"
-#import "PARMananger.h"
 
 @interface MenuViewController ()
-
-@property (nonatomic) PARMananger *parManager;
 
 @end
 
@@ -19,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.parManager = [PARMananger getPARManager];
-    [self.parManager loadProducts];
+
 }
 
 

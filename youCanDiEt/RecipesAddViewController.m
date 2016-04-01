@@ -115,7 +115,7 @@
     
     if(success) {
         NSLog(@"Saved image to user documents directory. with path: %@", imagePath);
-        [self.parManager addPicPath2CurrentRecipe:imagePath];
+        //[self.parManager addPicPath2CurrentRecipe:imagePath];
     } else {
         NSLog(@"Couldn't save image to user documents directory");
     }
@@ -127,7 +127,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMddHHmmss"];
     NSString *cachedDatePNG = [NSString stringWithFormat:@"cachedImage%@.png",[formatter stringFromDate:[NSDate date]]];
+    [self.parManager addPicPath2CurrentRecipe:cachedDatePNG];
     return [path stringByAppendingPathComponent:cachedDatePNG];
+    //return [path stringByAppendingPathComponent:@"cachedImage.png"];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

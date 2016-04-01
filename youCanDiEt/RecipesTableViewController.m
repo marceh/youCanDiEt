@@ -40,8 +40,7 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%d",self.parManager.recipes.count);
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
     if (self.parManager.recipes.count < 1) {
         return 1;
     } else {
@@ -57,8 +56,11 @@
     } else {
         cell.labelRecipeName.text = [self.parManager.recipes[indexPath.row] name];
         
-        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] picPath]];
+        NSLog(@"the picPath of the image = %@ at indexpath.row = %d",[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath], indexPath.row);
         
+        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath]];
+        
+        NSLog(@"cached image = %@", cachedImage);
         if (cachedImage) {
             cell.imageRecipePicture.image = cachedImage;
         } else {
@@ -104,14 +106,12 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SegueToAddRecipe"]){
+        [self.parManager clearCurrentRecipe];
+    }
 }
-*/
+
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "SettingsViewController.h"
+#import "PARMananger.h"
 
 @interface SettingsViewController ()
+
+@property (nonatomic) PARMananger *parManager;
 
 @end
 
@@ -16,12 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.parManager = [PARMananger getPARManager];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)removeAllProducts:(id)sender {
+    [self.parManager deleteMyProducts];
+}
+
+- (IBAction)removeAllRecipes:(id)sender {
+    [self.parManager deleteMyRecipes];
 }
 
 /*

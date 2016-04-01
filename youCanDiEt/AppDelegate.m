@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "PARMananger.h"
+#import "Recipe.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic) PARMananger *parManager;
 
 @end
 
@@ -17,6 +21,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.parManager = [PARMananger getPARManager];
+    [self.parManager loadProductsAndRecipes];
+    
+/*  
+    for (Recipe *recipe in self.parManager.recipes) {
+        [recipe getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"];
+    }
+*/
+    
     return YES;
 }
 
@@ -26,6 +39,8 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+   // [self.parManager saveProducts];
+   // [self.parManager saveRecipes];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

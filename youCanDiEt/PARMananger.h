@@ -33,7 +33,9 @@
 
 -(void)saveProducts;
 
--(void)loadProducts;
+-(void)saveRecipes;
+
+-(void)loadProductsAndRecipes;
 
 -(void)clearCurrentRecipe;
 
@@ -50,5 +52,9 @@
 -(void)addProducts2CurrentRecipe :(NSArray *)products;
 
 -(void)convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager;
+
+-(void)deleteMyProducts;
+
+-(void)deleteMyRecipes;
 
 @end

@@ -28,7 +28,6 @@
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
     self.apiManager = [APIManager getAPIManager];
-    NSLog([NSString stringWithFormat:@"inne i viewDidLoad och products == %@", [self.parManager.products description]]);
     [self.productTableView reloadData];
 }
 
@@ -37,10 +36,10 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application{
+/*- (void)applicationDidEnterBackground:(UIApplication *)application{
     NSLog(@"Inne i enter background");
-    [self.parManager saveProducts];
-}
+    //[self.parManager saveProducts];
+}*/
 
 #pragma mark - Table view data source
 

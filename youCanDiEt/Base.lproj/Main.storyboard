@@ -35,7 +35,7 @@
                                 <rect key="frame" x="180" y="341" width="120" height="120"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="seH-mh-1I7" kind="show" id="HsB-Ys-iWJ"/>
+                                    <segue destination="bEH-Wn-iCj" kind="show" id="HsB-Ys-iWJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Ev-Bah">
@@ -134,12 +134,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEz-0b-AII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198" y="1233"/>
+            <point key="canvasLocation" x="2010" y="1233"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="u2s-RO-zbM">
             <objects>
-                <viewController id="seH-mh-1I7" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController title="Settings" id="seH-mh-1I7" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sqZ-q9-1kh"/>
                         <viewControllerLayoutGuide type="bottom" id="T4l-em-tlJ"/>
@@ -148,20 +148,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35h-iR-qtP">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Settings" id="c1M-6Y-Tdy"/>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rir-Xr-0nX">
+                                <rect key="frame" x="89" y="195" width="142" height="30"/>
+                                <state key="normal" title="Remove All Products"/>
+                                <connections>
+                                    <action selector="removeAllProducts:" destination="seH-mh-1I7" eventType="touchUpInside" id="PEZ-ci-3gc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMe-GR-UTe">
+                                <rect key="frame" x="93" y="311" width="134" height="30"/>
+                                <state key="normal" title="Remove All Recipes"/>
+                                <connections>
+                                    <action selector="removeAllRecipes:" destination="seH-mh-1I7" eventType="touchUpInside" id="deJ-ac-OpT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZv-KF-Lh4">
+                                <rect key="frame" x="26" y="138" width="97" height="30"/>
+                                <state key="normal" title="tillbaka...temp"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="acp-DP-jjr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="reply" id="OQb-tm-8fZ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="eC7-Ig-Pd7"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="u66-D2-OVG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyY-yP-6ha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="1225"/>
+            <point key="canvasLocation" x="1470" y="1225"/>
         </scene>
         <!--My products-->
         <scene sceneID="0tD-FI-cxh">
@@ -175,7 +198,7 @@
                         <color key="sectionIndexBackgroundColor" red="0.77666822674823899" green="0.96978258724489708" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProduct" rowHeight="113" id="aVr-O8-rWJ">
-                                <rect key="frame" x="0.0" y="92" width="320" height="113"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellProduct" tableViewCell="aVr-O8-rWJ" id="GHE-gd-UVg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
@@ -628,7 +651,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mn8-l4-ue0">
                             <connections>
-                                <segue destination="k8n-T4-x0a" kind="show" id="Xds-iS-4dz"/>
+                                <segue destination="k8n-T4-x0a" kind="show" identifier="SegueToAddRecipe" id="Xds-iS-4dz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -820,12 +843,31 @@
             </objects>
             <point key="canvasLocation" x="1774" y="-2801"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5CG-bE-Riv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bEH-Wn-iCj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9R1-i3-RSn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="seH-mh-1I7" kind="relationship" relationship="rootViewController" id="qmz-Up-dbU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jC-Gv-n65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658" y="1225"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kVK-yC-8gE"/>
-        <segue reference="afd-W8-34J"/>
-        <segue reference="e6V-21-Z9I"/>
-        <segue reference="ZLc-MG-r0g"/>
+        <segue reference="1BY-ss-fiR"/>
+        <segue reference="tCP-rh-Idb"/>
+        <segue reference="eC7-Ig-Pd7"/>
+        <segue reference="b1m-46-Ke6"/>
         <segue reference="k2C-oy-hkN"/>
     </inferredMetricsTieBreakers>
 </document>
