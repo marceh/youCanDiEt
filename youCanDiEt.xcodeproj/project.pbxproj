@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D940CFD027A1B81981B116F /* libPods-youCanDiEt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */; };
 		7F16350C1C8181FC00D08CE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16350B1C8181FC00D08CE7 /* main.m */; };
 		7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16350E1C8181FC00D08CE7 /* AppDelegate.m */; };
 		7F1635121C8181FC00D08CE7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635111C8181FC00D08CE7 /* MenuViewController.m */; };
@@ -39,10 +40,12 @@
 		7F8D639D1CAEE671002EFB3F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */; };
 		7F8D639E1CAEE671002EFB3F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639B1CAEE671002EFB3F /* Icon@2x.png */; };
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
+		7F8D63A51CAFDCD4002EFB3F /* DetailedComparisonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2279BFB3CAEB4034F81E82C7 /* Pods-youCanDiEt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youCanDiEt.release.xcconfig"; path = "Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt.release.xcconfig"; sourceTree = "<group>"; };
 		7F1635071C8181FC00D08CE7 /* youCanDiEt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youCanDiEt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F16350B1C8181FC00D08CE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F16350D1C8181FC00D08CE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,8 +104,12 @@
 		7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		7F8D639B1CAEE671002EFB3F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		7F8D63A31CAFDCD4002EFB3F /* DetailedComparisonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedComparisonsViewController.h; sourceTree = "<group>"; };
+		7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedComparisonsViewController.m; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
+		BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-youCanDiEt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youCanDiEt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D940CFD027A1B81981B116F /* libPods-youCanDiEt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +129,8 @@
 			children = (
 				7F1635091C8181FC00D08CE7 /* youCanDiEt */,
 				7F1635081C8181FC00D08CE7 /* Products */,
+				B6DF41D1DBD5C53AF65CDAF3 /* Pods */,
+				E4E5702138B7EF3A8FDA6784 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +186,8 @@
 		7F16355B1C8342D200D08CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F8D63A31CAFDCD4002EFB3F /* DetailedComparisonsViewController.h */,
+				7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */,
 				7F8D638C1CAEC9AA002EFB3F /* ComparisonsViewController.h */,
 				7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */,
 				7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */,
@@ -238,6 +250,23 @@
 			name = Singletons;
 			sourceTree = "<group>";
 		};
+		B6DF41D1DBD5C53AF65CDAF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */,
+				2279BFB3CAEB4034F81E82C7 /* Pods-youCanDiEt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4E5702138B7EF3A8FDA6784 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,9 +274,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F16351E1C8181FC00D08CE7 /* Build configuration list for PBXNativeTarget "youCanDiEt" */;
 			buildPhases = (
+				BE276A5EF9E045A1BC110112 /* Check Pods Manifest.lock */,
 				7F1635031C8181FC00D08CE7 /* Sources */,
 				7F1635041C8181FC00D08CE7 /* Frameworks */,
 				7F1635051C8181FC00D08CE7 /* Resources */,
+				9AB5526475276C4D1C69450F /* Embed Pods Frameworks */,
+				D28849726942070FC5AFC647 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,6 +340,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9AB5526475276C4D1C69450F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE276A5EF9E045A1BC110112 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D28849726942070FC5AFC647 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F1635031C8181FC00D08CE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -339,6 +419,7 @@
 				7F8D638E1CAEC9AA002EFB3F /* ComparisonsViewController.m in Sources */,
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
+				7F8D63A51CAFDCD4002EFB3F /* DetailedComparisonsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +527,7 @@
 		};
 		7F16351F1C8181FC00D08CE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = youCanDiEt/Info.plist;
@@ -457,6 +539,7 @@
 		};
 		7F1635201C8181FC00D08CE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2279BFB3CAEB4034F81E82C7 /* Pods-youCanDiEt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = youCanDiEt/Info.plist;

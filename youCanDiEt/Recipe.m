@@ -70,7 +70,6 @@
 - (NSNumber *)getTotalKeyWordContentInRecipeBasedOnKeyWord:(NSString *)keyWord{
     int sum = 0;
     for (NSMutableDictionary *productinfo in self.products){
-        NSLog(@"keyword = %@, Value = %@, grams = %@",keyWord, [[productinfo valueForKey:@"product"] valueForKey:keyWord], [productinfo valueForKey:@"grams"]);
         sum += [[[productinfo valueForKey:@"product"] valueForKey:keyWord] intValue] * [[productinfo valueForKey:@"grams"] intValue] / 100;
     }
     return [NSNumber numberWithInt:sum];
