@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
-    self.labelOne.tintColor = [UIColor greenColor];
-    self.labelTwo.tintColor = [UIColor yellowColor];
+    self.labelOne.textColor = [UIColor greenColor];
+    self.labelTwo.textColor = [UIColor yellowColor];
     self.labelOne.text = self.parManager.comparableRecipeOne.name;
     self.labelTwo.text = self.parManager.comparableRecipeTwo.name;
     self.graph.dataSource = self;

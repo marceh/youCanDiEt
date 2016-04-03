@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--youCanDiEt-->
@@ -17,46 +18,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-It-VB1">
-                                <rect key="frame" x="20" y="230" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-It-VB1">
+                                <rect key="frame" x="20" y="363" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5pS-IS-E65"/>
+                                </constraints>
                                 <state key="normal" title="Recepies"/>
                                 <connections>
                                     <segue destination="o87-nx-WdD" kind="show" id="tCP-rh-Idb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dso-4c-1yA">
-                                <rect key="frame" x="180" y="230" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dso-4c-1yA">
+                                <rect key="frame" x="20" y="316" width="280" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jpb-U0-4cL"/>
+                                    <constraint firstAttribute="height" constant="39" id="qKK-4r-PiP"/>
+                                </constraints>
                                 <state key="normal" title="Products"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jpb-U0-4cL"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="VUU-ii-yQh" kind="show" id="b1m-46-Ke6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKr-QG-u0H">
-                                <rect key="frame" x="180" y="396" width="120" height="120"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="bEH-Wn-iCj" kind="show" id="HsB-Ys-iWJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Ev-Bah">
-                                <rect key="frame" x="20" y="396" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Ev-Bah">
+                                <rect key="frame" x="20" y="411" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Jnb-zw-nCZ"/>
+                                </constraints>
                                 <state key="normal" title="Week Planner"/>
                                 <connections>
                                     <segue destination="30S-Cj-5WH" kind="show" id="6d4-2m-4dy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-LG-2bn">
-                                <rect key="frame" x="90" y="358" width="140" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-LG-2bn">
+                                <rect key="frame" x="20" y="459" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Kyq-EX-zbl"/>
+                                </constraints>
                                 <state key="normal" title="Compare DietValues"/>
                                 <connections>
                                     <segue destination="bpa-Tk-DRH" kind="show" id="HpF-eT-ceV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YouCanDiEt" translatesAutoresizingMaskIntoConstraints="NO" id="oke-5R-qrS">
-                                <rect key="frame" x="108" y="119" width="104" height="103"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YouCanDiEt" translatesAutoresizingMaskIntoConstraints="NO" id="oke-5R-qrS">
+                                <rect key="frame" x="20" y="28" width="280" height="280"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKr-QG-u0H">
+                                <rect key="frame" x="20" y="507" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LR2-eQ-Xg3"/>
+                                </constraints>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="bEH-Wn-iCj" kind="show" id="HsB-Ys-iWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.38004110540164548" green="1" blue="0.41460840923920628" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dso-4c-1yA" firstAttribute="leading" secondItem="oke-5R-qrS" secondAttribute="leading" id="1pN-5d-6cz"/>
+                            <constraint firstItem="dso-4c-1yA" firstAttribute="leading" secondItem="EJj-It-VB1" secondAttribute="leading" id="3w2-LG-Bug"/>
+                            <constraint firstItem="dso-4c-1yA" firstAttribute="trailing" secondItem="oke-5R-qrS" secondAttribute="trailing" id="630-BY-Nfv"/>
+                            <constraint firstItem="TKr-QG-u0H" firstAttribute="trailing" secondItem="iEZ-LG-2bn" secondAttribute="trailing" id="7X0-hr-BEX"/>
+                            <constraint firstItem="8bR-Ev-Bah" firstAttribute="trailing" secondItem="iEZ-LG-2bn" secondAttribute="trailing" id="DhA-bu-cU7"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="top" secondItem="dso-4c-1yA" secondAttribute="bottom" constant="8" symbolic="YES" id="FiT-fE-TFU"/>
+                            <constraint firstItem="iEZ-LG-2bn" firstAttribute="top" secondItem="8bR-Ev-Bah" secondAttribute="bottom" constant="8" symbolic="YES" id="JwB-Nf-Dpm"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="leading" secondItem="8bR-Ev-Bah" secondAttribute="leading" id="KrN-EV-6Vs"/>
+                            <constraint firstItem="8bR-Ev-Bah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UcZ-zc-IDl"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="leading" secondItem="dso-4c-1yA" secondAttribute="leading" id="WMl-az-ODi"/>
+                            <constraint firstItem="iEZ-LG-2bn" firstAttribute="leading" secondItem="8bR-Ev-Bah" secondAttribute="leading" id="b37-pc-pv7"/>
+                            <constraint firstItem="oke-5R-qrS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="eCh-XK-sDf"/>
+                            <constraint firstItem="TKr-QG-u0H" firstAttribute="top" secondItem="iEZ-LG-2bn" secondAttribute="bottom" constant="8" symbolic="YES" id="euY-cG-nac"/>
+                            <constraint firstItem="dso-4c-1yA" firstAttribute="top" secondItem="oke-5R-qrS" secondAttribute="bottom" constant="8" symbolic="YES" id="hDZ-yr-eZF"/>
+                            <constraint firstItem="8bR-Ev-Bah" firstAttribute="top" secondItem="EJj-It-VB1" secondAttribute="bottom" constant="8" symbolic="YES" id="hNl-PU-PU3"/>
+                            <constraint firstItem="oke-5R-qrS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="idI-xc-aWO"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="trailing" secondItem="8bR-Ev-Bah" secondAttribute="trailing" id="jNa-wR-2xo"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="trailing" secondItem="8bR-Ev-Bah" secondAttribute="trailing" id="lss-Ip-erU"/>
+                            <constraint firstItem="dso-4c-1yA" firstAttribute="trailing" secondItem="EJj-It-VB1" secondAttribute="trailing" id="nSh-fG-i7g"/>
+                            <constraint firstItem="TKr-QG-u0H" firstAttribute="leading" secondItem="iEZ-LG-2bn" secondAttribute="leading" id="o7Q-2l-BeT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TKr-QG-u0H" secondAttribute="bottom" constant="21" id="pAI-oY-tAi"/>
+                            <constraint firstItem="EJj-It-VB1" firstAttribute="leading" secondItem="8bR-Ev-Bah" secondAttribute="leading" id="vQY-GI-TJt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KrN-EV-6Vs"/>
+                                <exclude reference="WMl-az-ODi"/>
+                                <exclude reference="jNa-wR-2xo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="youCanDiEt" id="1tp-PO-evy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -973,7 +1025,7 @@
             </objects>
             <point key="canvasLocation" x="624" y="999"/>
         </scene>
-        <!--Detailed Comparisons View Controller-->
+        <!--Detailed comparisons-->
         <scene sceneID="28E-dc-wSk">
             <objects>
                 <viewController id="RTE-Tr-MR7" customClass="DetailedComparisonsViewController" sceneMemberID="viewController">
@@ -989,14 +1041,8 @@
                                 <rect key="frame" x="20" y="271" width="280" height="277"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGp-3x-TvN">
-                                <rect key="frame" x="20" y="94" width="280" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYx-5p-eEz">
-                                <rect key="frame" x="20" y="129" width="280" height="21"/>
+                                <rect key="frame" x="15" y="214" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1025,10 +1071,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGp-3x-TvN">
+                                <rect key="frame" x="15" y="185" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fJw-9j-c0L"/>
+                    <navigationItem key="navigationItem" title="Detailed comparisons" id="fJw-9j-c0L">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="zpw-be-U8P">
+                            <connections>
+                                <segue destination="Krf-Nb-Vli" kind="show" id="ikx-fp-FeS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="graph" destination="FCI-Oc-uBg" id="oS8-B9-la0"/>
@@ -1102,11 +1160,12 @@
         <image name="YouCanDiEt" width="450" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1BY-ss-fiR"/>
+        <segue reference="e6V-21-Z9I"/>
         <segue reference="vwm-mH-FKQ"/>
-        <segue reference="y1h-rb-oIB"/>
+        <segue reference="1BY-ss-fiR"/>
         <segue reference="tCP-rh-Idb"/>
         <segue reference="b1m-46-Ke6"/>
         <segue reference="k2C-oy-hkN"/>
+        <segue reference="ikx-fp-FeS"/>
     </inferredMetricsTieBreakers>
 </document>
