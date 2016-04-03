@@ -66,7 +66,8 @@
     
     [self restoreLabelsForGravity];
     
-    CGPoint finishedPosition = CGPointMake(237, 546);
+    CGFloat bottomOfView = self.view.bounds.size.height - 22.0;
+    CGPoint finishedPosition = CGPointMake(237, bottomOfView);
     [UIView animateWithDuration:3.0 delay:1.0 options:kNilOptions animations:^{
         self.labelTwo.center = finishedPosition;
     }completion:^(BOOL finished){
