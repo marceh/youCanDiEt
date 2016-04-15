@@ -24,6 +24,7 @@
 @property (nonatomic) NSString *categorySelected;
 @property (nonatomic) PARMananger *parManager;
 @property (nonatomic) NSMutableDictionary *dictionaryPrep4RecipInit;
+@property (nonatomic) BOOL haveTakenPic;
 
 @end
 
@@ -37,6 +38,7 @@
     self.stepperPortions.value = 1.00;
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
+    self.haveTakenPic = NO;
     //[self imagePath];
 }
 
@@ -67,15 +69,31 @@
 
 
 - (IBAction)saveRecipe:(id)sender {
-    //TODO: make sure form isn't empty...
     
+    //Recipe must have Name, Pic and ingreedients...
+    if ([self.textFieldName.text isEqualToString:@""] || !self.haveTakenPic || self.parManager.arrayOfIngredients.count == 0) {
+        if ([self.textFieldName.text isEqualToString:@""]) {
+            NSLog(@"lika med empty shit");
+        }
+        if (!self.haveTakenPic){
+            NSLog(@"No picture");
+        }
+        if (self.parManager.arrayOfIngredients.count == 0) {
+            NSLog(@"No ingredient added");
+        }
+    } else {
+        
     //1. Already saved latest PicPath...
     
     //2. Add recipe name...
     [self.parManager addName2CurrentRecipe:self.textFieldName.text];
     
     //3. Add recipe category...
-    [self.parManager addCategory2CurrentRecipe:self.categorySelected];
+        if (self.categorySelected == nil) {
+            [self.parManager addCategory2CurrentRecipe:@"Lunch"];
+        } else {
+            [self.parManager addCategory2CurrentRecipe:self.categorySelected];
+        }
     
     //4. Add recipe portions...
     [self.parManager addPortions2CurrentRecipe:[NSNumber numberWithInt:[self.labelNrOfPortions.text intValue]]];
@@ -85,6 +103,8 @@
     
     //7. Convert recipe dictionary to actual recipe and save it in PAR...
     [self.parManager convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager];
+        
+    }
     
 }
 
@@ -94,9 +114,7 @@
     picker.allowsEditing = YES;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        NSLog(@"den hittade kameran");
     } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        NSLog(@"den hittade inte kameran med sparade bilder");
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     [self presentViewController:picker animated:YES completion:nil];
@@ -114,10 +132,9 @@
     BOOL success = [imageData writeToFile:imagePath atomically:YES];
     
     if(success) {
-        NSLog(@"Saved image to user documents directory. with path: %@", imagePath);
         //[self.parManager addPicPath2CurrentRecipe:imagePath];
+        self.haveTakenPic = YES;
     } else {
-        NSLog(@"Couldn't save image to user documents directory");
     }
 }
 

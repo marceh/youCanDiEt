@@ -56,15 +56,15 @@
     } else {
         cell.labelRecipeName.text = [self.parManager.recipes[indexPath.row] name];
         
-        NSLog(@"the picPath of the image = %@ at indexpath.row = %d",[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath], indexPath.row);
+        //NSLog(@"the picPath of the image = %@ at indexpath.row = %d",[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath], indexPath.row);
         
         UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath]];
         
-        NSLog(@"cached image = %@", cachedImage);
+        //NSLog(@"cached image = %@", cachedImage);
         if (cachedImage) {
             cell.imageRecipePicture.image = cachedImage;
         } else {
-            NSLog(@"didn't find the picPath of the recipe");
+            //NSLog(@"didn't find the picPath of the recipe");
         }
     }
     

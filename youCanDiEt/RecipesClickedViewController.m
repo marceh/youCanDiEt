@@ -37,6 +37,7 @@
     self.labelCarbs.text = [NSString stringWithFormat:@"Total Carbs: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"carbs"]];
     self.labelProtein.text = [NSString stringWithFormat:@"Total Protein: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"protein"]];
     self.labelFat.text = [NSString stringWithFormat:@"Total Fat: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"fat"]];
+    NSLog(@"%d",[self.theRecipe getDietValue]);
     self.labelDietValue.text = [NSString stringWithFormat:@"%d", [self.theRecipe getDietValue]];
 }
 

@@ -119,7 +119,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"nu skickar i med seque");
     MyTableViewCell *cell = sender;
-    [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:cell.gramsInformation];
+    if (cell.gramsInformation == nil) {
+        [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:@100];
+    } else {
+        [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:cell.gramsInformation];
+    }
     //[self.parManager.arrayOfIngredients addObject:@"hej..."];
    //[segue.destinationViewController.arrayOfIngredients addObject:cell.productInformation];
     //segue.destinationViewController.title = [cell.productInformation name];
