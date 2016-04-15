@@ -37,7 +37,8 @@
 }
 
 -(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
-    [self.arrayDone removeAllObjects];
+//    [self.arrayDone removeAllObjects];
+    self.arrayDone = [NSMutableArray new];
     [self.tableView reloadData];
     self.textFieldSearch.text = @"Searching... Please wait!";
     [self searchedItemGetApiNumbers:item];

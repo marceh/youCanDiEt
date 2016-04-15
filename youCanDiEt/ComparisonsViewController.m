@@ -56,9 +56,7 @@
     
     [self restoreLabelsForGravity];
     
-    self.labelOne.text = [NSString stringWithFormat:@"%d",[self.parManager.comparableRecipeOne getDietValue]];
-    self.labelTwo.text = [NSString stringWithFormat:@"%d",[self.parManager.comparableRecipeTwo getDietValue]];
-}
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
