@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
+    [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:0] number:1];
+    [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:1] number:2];
     self.pickerOne.delegate = self;
     self.pickerOne.dataSource = self;
     [self.pickerOne selectRow:1 inComponent:1 animated:YES];
@@ -31,6 +33,7 @@
     self.collision = [[UICollisionBehavior alloc] initWithItems:@[self.labelOne]];
     self.collision.translatesReferenceBoundsIntoBoundary = YES;
     [self enterGravity];
+//    [self enterGravity];
 
 }
 
@@ -47,6 +50,7 @@
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+        NSLog(@"Inne i pickerview");
     [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:[self.pickerOne selectedRowInComponent:0]] number:1];
     [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:[self.pickerOne selectedRowInComponent:1]] number:2];
     
@@ -63,30 +67,43 @@
 - (IBAction)clickedDetailedComparisons:(id)sender {
 }
 - (IBAction)clickedDietValuesComparisons:(id)sender {
+    self.labelOne.text = [NSString stringWithFormat:@"%d",[self.parManager.comparableRecipeOne getDietValue]];
+    self.labelTwo.text = [NSString stringWithFormat:@"%d",[self.parManager.comparableRecipeTwo getDietValue]];
     
     [self restoreLabelsForGravity];
     
-    CGFloat bottomOfView = self.view.bounds.size.height - 22.0;
-    CGPoint finishedPosition = CGPointMake(237, bottomOfView);
-    [UIView animateWithDuration:3.0 delay:1.0 options:kNilOptions animations:^{
-        self.labelTwo.center = finishedPosition;
+    [self doAnimations];
+    
+    
+    /*[UIView animateWithDuration:3.0 delay:0.0 options:kNilOptions animations:^{
+       // self.labelTwo.center = finishedPosition;
+        self.labelTwo.center = CGPointMake(237, self.view.bounds.size.height - 22.0);
+        NSLog(@"inne i animatewith duration");
+            NSLog(self.labelTwo.text);
     }completion:^(BOOL finished){
+            NSLog(@"Inne i completion");
         [self enterGravity];
-    }];
+    }];*/
 
 
-    /*CGPoint finishedPosition = CGPointMake(237, 527);
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDelay:1];
-    [UIView setAnimationDuration:5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    self.labelTwo.center = finishedPosition;
-    [UIView commitAnimations];*/
 
 
 }
 
+- (void)doAnimations {
+    CGFloat bottomOfView = self.view.bounds.size.height - 22.0;
+    CGPoint finishedPosition = CGPointMake(237, bottomOfView);
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationDuration:3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    self.labelTwo.center = finishedPosition;
+    [UIView commitAnimations];
+    [self enterGravity];
+}
+
 - (void)restoreLabelsForGravity {
+        NSLog(@"Inne i restoreLabelsForGravity");
     [self.animator removeAllBehaviors];
     CGPoint labelOneStartingPosition = CGPointMake(50, 0);
     CGPoint labelTwoStartingPosition = CGPointMake(237, 0);
@@ -95,18 +112,19 @@
 }
 
 - (void)enterGravity {
+    NSLog(@"Inne i enter gravity");
     [self.animator addBehavior:self.gravity];
     [self.animator addBehavior:self.collision];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Check the Null shit...
+    if (self.parManager.comparableRecipeOne == nil && self.parManager.comparableRecipeTwo == nil) {
+        NSLog(@"inne i segue...");
+        [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:0] number:1];
+        [self.parManager thisIsComparableRecipe:[self.parManager.recipes objectAtIndex:1] number:2];
+    }
 }
-*/
+
 
 @end
