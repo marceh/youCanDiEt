@@ -39,6 +39,9 @@
     self.stepperPortions.minimumValue = 1.00;
     self.stepperPortions.maximumValue = 16.00;
     self.haveTakenPic = NO;
+    self.textFieldName.delegate = self;
+    self.textViewDescription.delegate = self;
+    
     //[self imagePath];
 }
 
@@ -165,4 +168,22 @@
     return cell;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 @end

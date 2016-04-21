@@ -1419,12 +1419,12 @@
         <image name="YouCanDiEt" width="450" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="b1m-46-Ke6"/>
         <segue reference="y1h-rb-oIB"/>
         <segue reference="ikx-fp-FeS"/>
-        <segue reference="tCP-rh-Idb"/>
-        <segue reference="b1m-46-Ke6"/>
+        <segue reference="5s5-Wv-wuB"/>
         <segue reference="1BY-ss-fiR"/>
         <segue reference="vwm-mH-FKQ"/>
-        <segue reference="5s5-Wv-wuB"/>
+        <segue reference="afd-W8-34J"/>
     </inferredMetricsTieBreakers>
 </document>
