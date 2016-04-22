@@ -212,47 +212,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rir-Xr-0nX">
-                                <rect key="frame" x="89" y="195" width="142" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rir-Xr-0nX">
+                                <rect key="frame" x="20" y="518" width="142" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Remove All Products"/>
                                 <connections>
                                     <action selector="removeAllProducts:" destination="seH-mh-1I7" eventType="touchUpInside" id="PEZ-ci-3gc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMe-GR-UTe">
-                                <rect key="frame" x="93" y="311" width="134" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL8-iW-a1B">
+                                <rect key="frame" x="20" y="79" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-iX-5Nu">
+                                <rect key="frame" x="20" y="117" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCa-j4-nu9">
+                                <rect key="frame" x="20" y="155" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-Th-WQI">
+                                <rect key="frame" x="20" y="193" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Training sessions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhD-E7-J6P">
+                                <rect key="frame" x="20" y="231" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-v2-aER">
+                                <rect key="frame" x="20" y="338" width="280" height="70"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-g8-rCE">
+                                <rect key="frame" x="170" y="72" width="130" height="29"/>
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="seH-mh-1I7" eventType="valueChanged" id="RUG-5o-vwe"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="in years" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-Wd-7Uj">
+                                <rect key="frame" x="170" y="108" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="in cm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97E-N3-DJN">
+                                <rect key="frame" x="170" y="146" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="in kg" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W76-Md-zSQ">
+                                <rect key="frame" x="170" y="184" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="per week" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NmM-DC-90z">
+                                <rect key="frame" x="170" y="222" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-g1-mhM">
+                                <rect key="frame" x="20" y="260" width="280" height="70"/>
+                                <state key="normal" title="Calculate daily Kcal need"/>
+                                <connections>
+                                    <action selector="calculateButtonClicked:" destination="seH-mh-1I7" eventType="touchUpInside" id="w2V-cK-bhw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMe-GR-UTe">
+                                <rect key="frame" x="166" y="518" width="134" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Remove All Recipes"/>
                                 <connections>
                                     <action selector="removeAllRecipes:" destination="seH-mh-1I7" eventType="touchUpInside" id="deJ-ac-OpT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZv-KF-Lh4">
-                                <rect key="frame" x="26" y="138" width="97" height="30"/>
-                                <state key="normal" title="tillbaka...temp"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="acp-DP-jjr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="centerX" secondItem="27d-ed-tJm" secondAttribute="centerX" id="O6Q-PB-goe"/>
-                            <constraint firstItem="qMe-GR-UTe" firstAttribute="top" secondItem="Rir-Xr-0nX" secondAttribute="bottom" constant="86" id="ZFp-31-EBh"/>
-                            <constraint firstItem="IZv-KF-Lh4" firstAttribute="top" secondItem="sqZ-q9-1kh" secondAttribute="bottom" constant="74" id="hvZ-pZ-m5V"/>
-                            <constraint firstItem="IZv-KF-Lh4" firstAttribute="leading" secondItem="27d-ed-tJm" secondAttribute="leadingMargin" constant="10" id="iCp-Gp-2hf"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="centerX" secondItem="qMe-GR-UTe" secondAttribute="centerX" id="oQh-PT-dct"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="top" secondItem="IZv-KF-Lh4" secondAttribute="bottom" constant="27" id="sQQ-CZ-T7M"/>
-                        </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem systemItem="reply" id="OQb-tm-8fZ">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="piJ-zo-A2H" userLabel="Settings">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="EQh-fj-BMn">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="eC7-Ig-Pd7"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="xnS-2s-Dk8"/>
                             </connections>
                         </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="u66-D2-OVG"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="QI4-Wd-7Uj" id="HFj-Su-EaB"/>
+                        <outlet property="genderSegmentedControl" destination="bwh-g8-rCE" id="wjB-5K-3qS"/>
+                        <outlet property="heightTextField" destination="97E-N3-DJN" id="bRa-9R-pHt"/>
+                        <outlet property="kcalLabel" destination="Moa-v2-aER" id="8j4-KC-5Es"/>
+                        <outlet property="trainingSessionsTextView" destination="NmM-DC-90z" id="L7W-iG-VZY"/>
+                        <outlet property="weightTextView" destination="W76-Md-zSQ" id="tlK-Qy-hoV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyY-yP-6ha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1419,12 +1488,12 @@
         <image name="YouCanDiEt" width="450" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b1m-46-Ke6"/>
-        <segue reference="y1h-rb-oIB"/>
-        <segue reference="ikx-fp-FeS"/>
-        <segue reference="5s5-Wv-wuB"/>
-        <segue reference="1BY-ss-fiR"/>
         <segue reference="vwm-mH-FKQ"/>
+        <segue reference="1BY-ss-fiR"/>
         <segue reference="afd-W8-34J"/>
+        <segue reference="xnS-2s-Dk8"/>
+        <segue reference="b1m-46-Ke6"/>
+        <segue reference="5s5-Wv-wuB"/>
+        <segue reference="ikx-fp-FeS"/>
     </inferredMetricsTieBreakers>
 </document>

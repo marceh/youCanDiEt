@@ -8,10 +8,19 @@
 
 #import "SettingsViewController.h"
 #import "PARMananger.h"
+#import "Settings.h"
 
 @interface SettingsViewController ()
 
 @property (nonatomic) PARMananger *parManager;
+@property (nonatomic) Settings *settingsManager;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
+@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
+@property (weak, nonatomic) IBOutlet UITextField *heightTextField;
+@property (weak, nonatomic) IBOutlet UITextField *weightTextView;
+@property (weak, nonatomic) IBOutlet UITextField *trainingSessionsTextView;
+@property (weak, nonatomic) IBOutlet UILabel *kcalLabel;
+@property (nonatomic) char gender;
 
 @end
 
@@ -20,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
+    self.settingsManager = [Settings getSetting];
+    [self updateKcalLabel];
+    self.gender = 'm';
     // Do any additional setup after loading the view.
 }
 
@@ -27,6 +39,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)segmentedControlValueChanged:(id)sender {
+    if (self.genderSegmentedControl.selectedSegmentIndex == 0) {
+        self.gender = 'm';
+    } else {
+        self.gender = 'f';
+    }
+}
+
+- (IBAction)calculateButtonClicked:(UIButton *)sender {
+    if ([self checkIfAllFieldsAreValid]) {
+        int age = [self.ageTextField.text intValue];
+        int height = [self.heightTextField.text intValue];
+        int weight = [self.weightTextView.text intValue];
+        int daysOfExercisePerWeek = [self.trainingSessionsTextView.text intValue];
+        
+        self.settingsManager.kcalNeed = [NSNumber numberWithInt:(int)[self.settingsManager calculateKcalNeedsUsingGender:self.gender age:age height:height weight:weight andDaysOfExercisePerWeek:daysOfExercisePerWeek]];
+        [self updateKcalLabel];
+    } else {
+        self.kcalLabel.text = @"Input not valid!";
+    }
+}
+
+- (BOOL)checkIfAllFieldsAreValid {
+    //TODO: implement the checkmethod...
+    return YES;
+}
+
+-(void)updateKcalLabel{
+    self.kcalLabel.text = [self.settingsManager.kcalNeed stringValue];
+}
+
 - (IBAction)removeAllProducts:(id)sender {
     [self.parManager deleteMyProducts];
 }
