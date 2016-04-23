@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSMutableArray *recipes;
 @property (nonatomic) NSString *weekName;
+@property (nonatomic) NSNumber *kcalInWeek;
 
 -(instancetype)initWithWeekName:(NSString *)weekName andRecipes:(NSMutableArray *)recipes;
 

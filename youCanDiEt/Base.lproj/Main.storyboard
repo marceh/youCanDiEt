@@ -119,33 +119,20 @@
             </objects>
             <point key="canvasLocation" x="517" y="293"/>
         </scene>
-        <!--Week Planner Table View Controller-->
+        <!--Week Planner-->
         <scene sceneID="Nwx-4I-j3B">
             <objects>
                 <tableViewController id="30S-Cj-5WH" customClass="WeekPlannerTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s6l-W8-shf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="s6l-W8-shf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="xMb-e9-iQg">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="ToBeContinued" id="ncC-VU-nh8">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="BPa-xE-VVc">
-                                        <connections>
-                                            <segue destination="KHm-uW-acM" kind="presentation" id="sUA-vD-fAD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zvq-lv-zGY">
-                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="theCellInWeekPlannerTableViewController" rowHeight="75" id="Zvq-lv-zGY">
+                                <rect key="frame" x="0.0" y="92" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zvq-lv-zGY" id="rhX-Rl-2Qy">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -155,6 +142,19 @@
                         </prototypes>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Week Planner" id="gmj-W5-ZM2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="I7s-nV-i3H">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="4BK-KQ-b0s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="00x-Md-Ysi">
+                            <connections>
+                                <segue destination="KHm-uW-acM" kind="show" id="bnI-7I-RYn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
@@ -162,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="1845" y="908"/>
         </scene>
-        <!--Week Planner Add View Controller-->
+        <!--Week Planner Add-->
         <scene sceneID="wQx-gX-c7o">
             <objects>
                 <viewController id="KHm-uW-acM" customClass="WeekPlannerAddViewController" sceneMemberID="viewController">
@@ -173,13 +173,77 @@
                     <view key="view" contentMode="scaleToFill" id="aSX-rr-els">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the week" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dj5-BY-5J7">
+                                <rect key="frame" x="20" y="72" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBf-Eo-388">
+                                <rect key="frame" x="0.0" y="225" width="320" height="117"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KHm-uW-acM" id="9Qb-Hq-oiD"/>
+                                    <outlet property="delegate" destination="KHm-uW-acM" id="T8D-ww-nVd"/>
+                                </connections>
+                            </pickerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-WY-uOa">
+                                <rect key="frame" x="20" y="110" width="280" height="107"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellInTwoTables" id="hGy-pD-Qv2">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hGy-pD-Qv2" id="2pP-g8-Mbj">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KHm-uW-acM" id="Yol-hM-O6p"/>
+                                    <outlet property="delegate" destination="KHm-uW-acM" id="gjx-se-9LW"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kah-61-feh">
+                                <rect key="frame" x="20" y="350" width="280" height="198"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellInTwoTables" id="Kdk-dV-mp0">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kdk-dV-mp0" id="8Pb-ue-EUJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KHm-uW-acM" id="DHq-M4-jp8"/>
+                                    <outlet property="delegate" destination="KHm-uW-acM" id="ACm-8q-1zc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Week Planner Add" id="bEY-6K-Ykc" userLabel="Week Planner add">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="07o-4q-2Vf">
+                            <connections>
+                                <segue destination="30S-Cj-5WH" kind="show" id="Bl6-Oa-ySS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="chosenRecipesTableView" destination="MI0-WY-uOa" id="x3q-PY-hNS"/>
+                        <outlet property="recipesToChooseFromTableView" destination="kah-61-feh" id="Kwv-3s-4Kr"/>
+                        <outlet property="weekNameTextField" destination="dj5-BY-5J7" id="rie-S6-7fu"/>
+                        <outlet property="weekdaysAndCategoryPickerView" destination="cBf-Eo-388" id="6L9-JS-wCe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nur-0h-igD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="989"/>
+            <point key="canvasLocation" x="2250" y="908"/>
         </scene>
         <!--Week Planner Click View Controller-->
         <scene sceneID="qSn-Bt-1T2">
@@ -198,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEz-0b-AII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3634" y="1233"/>
+            <point key="canvasLocation" x="2220" y="1613"/>
         </scene>
         <!--Settings-->
         <scene sceneID="u2s-RO-zbM">
@@ -1443,7 +1507,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jC-Gv-n65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680" y="1225"/>
+            <point key="canvasLocation" x="2677" y="980"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EqY-3Z-p0E">
@@ -1491,7 +1555,8 @@
         <segue reference="vwm-mH-FKQ"/>
         <segue reference="1BY-ss-fiR"/>
         <segue reference="afd-W8-34J"/>
-        <segue reference="xnS-2s-Dk8"/>
+        <segue reference="Bl6-Oa-ySS"/>
+        <segue reference="4BK-KQ-b0s"/>
         <segue reference="b1m-46-Ke6"/>
         <segue reference="5s5-Wv-wuB"/>
         <segue reference="ikx-fp-FeS"/>

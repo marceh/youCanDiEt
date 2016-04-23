@@ -15,8 +15,14 @@
     if (self) {
         self.weekName = weekName;
         self.recipes = recipes;
+        self.kcalInWeek = [self getNumberOfKCalInWeek];
     }
     return self;
+}
+
+-(NSNumber *)getNumberOfKCalInWeek{
+    //TODO: Fix this method
+    return @(2500 * 7);
 }
 
 @end

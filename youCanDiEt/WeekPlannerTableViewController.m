@@ -7,8 +7,11 @@
 //
 
 #import "WeekPlannerTableViewController.h"
+#import "WeekPlanner.h"
+#import "PARMananger.h"
 
 @interface WeekPlannerTableViewController ()
+@property (nonatomic) PARMananger* parManager;
 
 @end
 
@@ -16,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.parManager = [PARMananger getPARManager];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,24 +36,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 10;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    static NSString *CellIdentifier = @"theCellInWeekPlannerTableViewController";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    cell.textLabel.text = @"Nyttiga veckan";
+    cell.detailTextLabel.text = @"≈ -0.50kg";
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

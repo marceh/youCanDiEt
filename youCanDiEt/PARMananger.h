@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Product.h"
 #import "Recipe.h"
+#import "WeekPlanner.h"
 
 @interface PARMananger : NSObject <NSCoding>
 
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSMutableArray *recipes;
+@property (nonatomic) NSMutableArray *weeks;
 @property (nonatomic) NSMutableArray *arrayOfIngredients;
 @property (nonatomic) NSMutableDictionary *dictionaryCurrentRecipe;
 @property (nonatomic) Recipe *comparableRecipeOne;
@@ -23,6 +25,8 @@
 
 -(void)addProductToMyProducts:(Product *)product;
 
+-(void)addWeekToMyWeeks:(WeekPlanner *)week;
+
 -(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams;
 
 -(Product *)getProductInProductsAtIndex:(int)index;
@@ -30,8 +34,6 @@
 -(Product *)getProductInArrayOfIngredientsAtIndex:(int)index;
 
 -(void)logProductsArray;
-
--(void)logIngredientArray;
 
 -(void)saveProducts;
 

@@ -25,6 +25,7 @@
     if (self) {
         self.products = [NSMutableArray new];
         self.recipes = [NSMutableArray new];
+        self.weeks = [NSMutableArray new];
         self.arrayOfIngredients = [NSMutableArray new];
         self.dictionaryCurrentRecipe = [NSMutableDictionary new];
     }
@@ -37,6 +38,10 @@
 
 -(void)addRecipeToMyRecipes:(Recipe *)recipe{
     [self.recipes addObject:recipe];
+}
+
+-(void)addWeekToMyWeeks:(WeekPlanner *)week{
+    [self.weeks addObject:week];
 }
 
 -(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams{
