@@ -231,6 +231,11 @@
                                 <segue destination="30S-Cj-5WH" kind="show" id="Bl6-Oa-ySS"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="klh-4v-hNO">
+                            <connections>
+                                <action selector="saveTheWeek:" destination="KHm-uW-acM" id="8QK-s6-BeS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

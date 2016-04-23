@@ -33,4 +33,6 @@
 
 - (int)getDietValue;
 
+- (NSNumber *)getTotalKeyWordContentInRecipeBasedOnKeyWord:(NSString *)keyWord;
+
 @end

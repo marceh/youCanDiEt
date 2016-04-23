@@ -40,7 +40,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (self.parManager.weeks.count < 1) {
+        return 1;
+    } else {
+        return self.parManager.weeks.count;
+    }
 }
 
 

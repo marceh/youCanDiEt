@@ -27,6 +27,7 @@
 @property (nonatomic) NSMutableArray *arrayDinnerRecipes;
 @property (nonatomic) NSMutableArray *arraySupperRecipes;
 @property (nonatomic) NSMutableArray *arrayOfDictionariesWithAddedRecipes;
+@property (nonatomic) NSMutableArray *arrayChangableBasedOnCategory;
 
 @end
 
@@ -39,7 +40,8 @@
     self.categories = [[NSArray alloc] initWithObjects:@"Breakfast", @"Snack", @"Lunch", @"Dinner", @"Supper", nil];
     self.weekdayChosen = @"Monday";
     self.categoryChosen = @"Breakfast";
-    [self breakUpTheRecipesIntoOwnArraysBasedOnCategory];
+    [self initArraysAndBreakUpTheRecipesIntoOwnArraysBasedOnCategory];
+
     
 }
 
@@ -48,7 +50,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)breakUpTheRecipesIntoOwnArraysBasedOnCategory {
+-(void)initArraysAndBreakUpTheRecipesIntoOwnArraysBasedOnCategory {
+    self.arrayBreakfastRecipes = [NSMutableArray new];
+    self.arraySnackRecipes = [NSMutableArray new];
+    self.arrayLunchRecipes = [NSMutableArray new];
+    self.arrayDinnerRecipes = [NSMutableArray new];
+    self.arraySupperRecipes = [NSMutableArray new];
+    self.arrayChangableBasedOnCategory= [NSMutableArray new];
+    self.arrayOfDictionariesWithAddedRecipes= [NSMutableArray new];
+    
     for(Recipe *recipe in self.parManager.recipes) {
         if ([recipe.category isEqualToString:@"Breakfast"]) {
             [self.arrayBreakfastRecipes addObject:recipe];
@@ -64,6 +74,7 @@
             NSLog(@"Did not match any category");
         }
     }
+    [self setChangableArrayBasedOnCategory];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -73,49 +84,69 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
    
     if (tableView == self.recipesToChooseFromTableView) {
-        return 10;
+        return self.arrayChangableBasedOnCategory.count;
     } else {
-        return 5;
+        if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
+            return 1;
+        } else {
+            return self.arrayOfDictionariesWithAddedRecipes.count;
+        }
     }
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInTwoTables"];
-    
-    if (cell == nil){
-        NSLog(@"innne här");
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellInTwoTables"];
-    }
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellInTwoTables"];
     
     if (tableView == self.recipesToChooseFromTableView) {
+        cell.textLabel.text = [self.arrayChangableBasedOnCategory[indexPath.row] name];
+        int kcal = [[self.arrayChangableBasedOnCategory[indexPath.row] getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"] intValue];
+        int portions = [[self.arrayChangableBasedOnCategory[indexPath.row] portions] intValue];
+        int kcalPerPortions = (int)kcal/portions;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d kcal per portions", kcalPerPortions];
         
-        
-        cell.textLabel.text = @"hej";
-        
+        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.arrayChangableBasedOnCategory[indexPath.row] getTheRightFolderAndImagePath]];
+        if (cachedImage) {
+            cell.imageView.image = cachedImage;
+        } else {
+            NSLog(@"didn't find the picPath of the recipe");
+        }
     } else {
-        
-        cell.textLabel.text = @"då";
-
+        if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
+            cell.textLabel.text = @"No Recipes added to this week";
+        } else {
+            cell.textLabel.text =[[self.arrayOfDictionariesWithAddedRecipes[indexPath.row] valueForKey:@"recipe"] name];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@s %@.", [self.arrayOfDictionariesWithAddedRecipes[indexPath.row] valueForKey:@"weekday"], [self.arrayOfDictionariesWithAddedRecipes[indexPath.row] valueForKey:@"category"] ];
+            
+            UIImage *cachedImage = [UIImage imageWithContentsOfFile:[[self.arrayOfDictionariesWithAddedRecipes[indexPath.row] valueForKey:@"recipe" ] getTheRightFolderAndImagePath]];
+            if (cachedImage) {
+                cell.imageView.image = cachedImage;
+            } else {
+                NSLog(@"didn't find the picPath of the recipe");
+            }
+        }
     }
     
     
     return cell;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Inne här");
+    if (tableView == self.recipesToChooseFromTableView) {
+        NSLog([NSString stringWithFormat:@"tounched row: %d",indexPath.row]);
+        NSLog([[self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row] name]);
+        NSDictionary *tempDictionary = @{@"recipe" : [self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row], @"category" : self.categoryChosen, @"weekday" : self.weekdayChosen};
+        
+        [self.arrayOfDictionariesWithAddedRecipes insertObject:tempDictionary atIndex:0];
+        [self.chosenRecipesTableView reloadData];
+        
+    } else {
+       //TODO: If clicked remove recipe but warn first...
+    }
+    
+}
 
 //PickerView Implementation below...
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -162,10 +193,39 @@
             //This is when the categoryComponent is changed...
             self.categoryChosen = [self.categories objectAtIndex:[self.weekdaysAndCategoryPickerView selectedRowInComponent:1]];
             NSLog(self.categoryChosen);
-            
+            [self setChangableArrayBasedOnCategory];
+            [self.recipesToChooseFromTableView reloadData];
             break;
         default:
             break;
+    }
+}
+
+- (void)setChangableArrayBasedOnCategory {
+    self.arrayChangableBasedOnCategory = [NSMutableArray new];
+    if ([self.categoryChosen isEqualToString:@"Breakfast"]) {
+        self.arrayChangableBasedOnCategory = self.arrayBreakfastRecipes;
+    } else if ([self.categoryChosen isEqualToString:@"Snack"]) {
+        self.arrayChangableBasedOnCategory = self.arraySnackRecipes;
+    } else if ([self.categoryChosen isEqualToString:@"Lunch"]) {
+        self.arrayChangableBasedOnCategory = self.arrayLunchRecipes;
+    } else if ([self.categoryChosen isEqualToString:@"Dinner"]) {
+        self.arrayChangableBasedOnCategory = self.arrayDinnerRecipes;
+    } else if ([self.categoryChosen isEqualToString:@"Supper"]) {
+        self.arrayChangableBasedOnCategory = self.arraySupperRecipes;
+    } else {
+        NSLog(@"Something went wrong in setChangebleArrayBasedOnCaetegory...");
+    }
+    
+    //update the tableview???
+}
+
+- (IBAction)saveTheWeek:(id)sender {
+    if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
+        //TODO: Fix the felhantering... Och inget namn...
+    } else {
+        WeekPlanner *plannedWeek = [[WeekPlanner alloc] initWithWeekName:self.weekNameTextField.text andRecipes:self.arrayOfDictionariesWithAddedRecipes];
+        [self.parManager addWeekToMyWeeks:plannedWeek];
     }
 }
 
