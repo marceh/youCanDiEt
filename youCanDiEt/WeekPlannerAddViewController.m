@@ -216,7 +216,6 @@
     } else {
         NSLog(@"Something went wrong in setChangebleArrayBasedOnCaetegory...");
     }
-    
     //update the tableview???
 }
 

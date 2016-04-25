@@ -51,9 +51,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"theCellInWeekPlannerTableViewController";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    cell.textLabel.text = @"Nyttiga veckan";
-    cell.detailTextLabel.text = @"≈ -0.50kg";
+    
+    if (self.parManager.weeks.count < 1) {
+        cell.textLabel.text = @"No weeks created yet.";
+    } else {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.textLabel.text = [self.parManager.weeks[indexPath.row] weekName];
+        cell.detailTextLabel.text = @"≈ -0.50kg";
+    }
     
     return cell;
 }
