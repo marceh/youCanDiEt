@@ -357,7 +357,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-g1-mhM">
                                 <rect key="frame" x="20" y="260" width="280" height="70"/>
-                                <state key="normal" title="Calculate daily Kcal need"/>
+                                <state key="normal" title="Calculate and set daily Kcal need"/>
                                 <connections>
                                     <action selector="calculateButtonClicked:" destination="seH-mh-1I7" eventType="touchUpInside" id="w2V-cK-bhw"/>
                                 </connections>
@@ -1561,9 +1561,9 @@
         <segue reference="1BY-ss-fiR"/>
         <segue reference="afd-W8-34J"/>
         <segue reference="Bl6-Oa-ySS"/>
-        <segue reference="4BK-KQ-b0s"/>
-        <segue reference="b1m-46-Ke6"/>
         <segue reference="5s5-Wv-wuB"/>
+        <segue reference="b1m-46-Ke6"/>
+        <segue reference="xnS-2s-Dk8"/>
         <segue reference="ikx-fp-FeS"/>
     </inferredMetricsTieBreakers>
 </document>

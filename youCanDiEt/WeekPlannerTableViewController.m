@@ -9,9 +9,11 @@
 #import "WeekPlannerTableViewController.h"
 #import "WeekPlanner.h"
 #import "PARMananger.h"
+#import "Settings.h"
 
 @interface WeekPlannerTableViewController ()
-@property (nonatomic) PARMananger* parManager;
+@property (nonatomic) PARMananger *parManager;
+@property (nonatomic) Settings *settingsManager;
 
 @end
 
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
+    self.settingsManager = [Settings getSetting];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,7 +60,7 @@
     } else {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.textLabel.text = [self.parManager.weeks[indexPath.row] weekName];
-        cell.detailTextLabel.text = @"≈ -0.50kg";
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Estimated weigthloss: %.2fkg", ((([[self.parManager.weeks[indexPath.row] kcalInWeek] doubleValue]) - ([[self.settingsManager kcalNeed] doubleValue] * 7)) / 7000)];
     }
     
     return cell;

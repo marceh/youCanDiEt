@@ -1,4 +1,4 @@
-//
+    //
 //  WeekPlanner.m
 //  youCanDiEt
 //
@@ -7,6 +7,7 @@
 //
 
 #import "WeekPlanner.h"
+#import "Recipe.h"
 
 @implementation WeekPlanner
 
@@ -15,14 +16,17 @@
     if (self) {
         self.weekName = weekName;
         self.recipes = recipes;
-        self.kcalInWeek = [self getNumberOfKCalInWeek];
+        self.kcalInWeek = [self getNumberOfKCalInWeekBasedOnOnePortion];
     }
     return self;
 }
 
--(NSNumber *)getNumberOfKCalInWeek{
-    //TODO: Fix this method
-    return @(2500 * 7);
+-(NSNumber *)getNumberOfKCalInWeekBasedOnOnePortion{
+    double sum = 0.00;
+    for (Recipe *recipe in self.recipes) {
+        sum += (([[[[recipe valueForKey:@"recipe"] dictionaryOfRecipeContent] valueForKey:@"kcal"] doubleValue]) / ([[[recipe valueForKey:@"recipe"] portions] doubleValue]));
+    }
+    return  [NSNumber numberWithInt:((int) sum)];
 }
 
 @end
