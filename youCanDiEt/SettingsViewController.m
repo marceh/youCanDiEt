@@ -56,6 +56,7 @@
         
         self.settingsManager.kcalNeed = [NSNumber numberWithInt:(int)[self.settingsManager calculateKcalNeedsUsingGender:self.gender age:age height:height weight:weight andDaysOfExercisePerWeek:daysOfExercisePerWeek]];
         [self updateKcalLabel];
+        [self.settingsManager saveKcalNeed];
     } else {
         self.kcalLabel.text = @"Input not valid!";
     }

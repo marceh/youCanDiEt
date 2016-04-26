@@ -39,7 +39,9 @@
 
 -(void)saveRecipes;
 
--(void)loadProductsAndRecipes;
+-(void)saveWeeks;
+
+-(void)loadProductsAndRecipesAndWeeks;
 
 -(void)clearCurrentRecipe;
 

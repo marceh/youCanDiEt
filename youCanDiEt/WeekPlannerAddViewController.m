@@ -225,6 +225,7 @@
     } else {
         WeekPlanner *plannedWeek = [[WeekPlanner alloc] initWithWeekName:self.weekNameTextField.text andRecipes:self.arrayOfDictionariesWithAddedRecipes];
         [self.parManager addWeekToMyWeeks:plannedWeek];
+        [self.parManager saveWeeks];
     }
 }
 

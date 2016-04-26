@@ -56,4 +56,15 @@
     return burnedKcalPerDay;
 }
 
+-(void)saveKcalNeed{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings setInteger:[self.kcalNeed intValue] forKey:@"kcalNeed"];
+    [settings synchronize];
+}
+
+-(void)loadKcalNeed{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    self.kcalNeed = [NSNumber numberWithInt:[settings integerForKey:@"kcalNeed"]];
+}
+
 @end

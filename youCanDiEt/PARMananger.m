@@ -90,7 +90,18 @@
     [settings synchronize];
 }
 
--(void)loadProductsAndRecipes{
+-(void)saveWeeks{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings setInteger:self.weeks.count forKey:@"weeksCount"];
+    
+    for (int i = 0, length = self.weeks.count; i<length; i++) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.weeks[i]];
+        [settings setObject:data forKey:[NSString stringWithFormat:@"weeks[%d]",i]];
+    }
+    [settings synchronize];
+}
+
+-(void)loadProductsAndRecipesAndWeeks{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     NSInteger productsCount = [settings integerForKey:@"productsCount"];
     
@@ -105,6 +116,14 @@
         NSData *data = [settings objectForKey:[NSString stringWithFormat:@"recipes[%d]",i]];
         [self addRecipeToMyRecipes:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     }
+    
+    NSInteger weeksCount = [settings integerForKey:@"weeksCount"];
+    
+    for (int i = 0; i<weeksCount; i++) {
+        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"weeks[%d]",i]];
+        [self addWeekToMyWeeks:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+
 }
 
 //will clear when entring add recipe from my recipe segue...

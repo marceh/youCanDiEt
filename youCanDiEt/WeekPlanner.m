@@ -29,4 +29,19 @@
     return  [NSNumber numberWithInt:((int) sum)];
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+        self.weekName = [decoder decodeObjectForKey:@"weekName"];
+        self.recipes = [decoder decodeObjectForKey:@"recipes"];
+        self.kcalInWeek = [self getNumberOfKCalInWeekBasedOnOnePortion];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.weekName forKey:@"weekName"];
+    [encoder encodeObject:self.recipes forKey:@"recipes"];
+}
+
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Settings : NSObject
+@interface Settings : NSObject <NSCoding>
 
 @property (nonatomic) NSNumber *kcalNeed;
 
@@ -18,5 +18,9 @@
 //Height: write in cm (integer).
 //Weight: write in kg (integer).
 -(double)calculateKcalNeedsUsingGender:(char)gender age:(int)age height:(int)height weight:(int)weight andDaysOfExercisePerWeek:(int)daysOfExercisePerWeek;
+
+-(void)saveKcalNeed;
+
+-(void)loadKcalNeed;
 
 @end

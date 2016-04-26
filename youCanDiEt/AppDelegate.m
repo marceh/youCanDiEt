@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import "PARMananger.h"
 #import "Recipe.h"
+#import "Settings.h"
 
 @interface AppDelegate ()
 
 @property (nonatomic) PARMananger *parManager;
+@property (nonatomic) Settings *settingsManager;
 
 @end
 
@@ -22,8 +24,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.parManager = [PARMananger getPARManager];
-    [self.parManager loadProductsAndRecipes];
-    
+    self.settingsManager = [Settings getSetting];
+    [self.parManager loadProductsAndRecipesAndWeeks];
+    [self.settingsManager loadKcalNeed];
 /*  
     for (Recipe *recipe in self.parManager.recipes) {
         [recipe getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"];
