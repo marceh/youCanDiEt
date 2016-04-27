@@ -26,7 +26,6 @@
 		7F16354A1C81CBC800D08CE7 /* WeekPlannerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */; };
 		7F16354D1C81CBE300D08CE7 /* WeekPlannerAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */; };
 		7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */; };
-		7F8A57661CD0B580001CDAFD /* WeekClickedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */; };
 		7F8D637F1CAAA3E7002EFB3F /* AddIngredientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */; };
 		7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */; };
 		7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */; };
@@ -37,6 +36,7 @@
 		7F8D639E1CAEE671002EFB3F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639B1CAEE671002EFB3F /* Icon@2x.png */; };
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
+		7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +75,6 @@
 		7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPlannerAddViewController.m; sourceTree = "<group>"; };
 		7F1635511C81CC5A00D08CE7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		7F8A57641CD0B580001CDAFD /* WeekClickedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedViewController.h; sourceTree = "<group>"; };
-		7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedViewController.m; sourceTree = "<group>"; };
 		7F8D637D1CAAA3E7002EFB3F /* AddIngredientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientTableViewController.h; sourceTree = "<group>"; };
 		7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientTableViewController.m; sourceTree = "<group>"; };
 		7F8D63801CABB4B9002EFB3F /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
+		7FB3E2A91CD0DA1C00F21CCB /* WeekClickedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedTableViewController.h; sourceTree = "<group>"; };
+		7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedTableViewController.m; sourceTree = "<group>"; };
 		BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-youCanDiEt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youCanDiEt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,8 +175,8 @@
 				7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */,
 				7F16354B1C81CBE300D08CE7 /* WeekPlannerAddViewController.h */,
 				7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */,
-				7F8A57641CD0B580001CDAFD /* WeekClickedViewController.h */,
-				7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */,
+				7FB3E2A91CD0DA1C00F21CCB /* WeekClickedTableViewController.h */,
+				7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */,
 				7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */,
 				7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
@@ -378,11 +378,11 @@
 				7F1635261C81BBD000D08CE7 /* Product.m in Sources */,
 				7F1635321C81C8D900D08CE7 /* PARMananger.m in Sources */,
 				7F8D637F1CAAA3E7002EFB3F /* AddIngredientTableViewController.m in Sources */,
+				7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */,
 				7F16354A1C81CBC800D08CE7 /* WeekPlannerTableViewController.m in Sources */,
 				7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */,
 				7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */,
 				7F16350C1C8181FC00D08CE7 /* main.m in Sources */,
-				7F8A57661CD0B580001CDAFD /* WeekClickedViewController.m in Sources */,
 				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,
 				7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */,

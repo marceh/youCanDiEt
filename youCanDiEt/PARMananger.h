@@ -20,6 +20,7 @@
 @property (nonatomic) NSMutableDictionary *dictionaryCurrentRecipe;
 @property (nonatomic) Recipe *comparableRecipeOne;
 @property (nonatomic) Recipe *comparableRecipeTwo;
+@property (nonatomic) NSMutableArray *selectedWeek;
 
 +(id)getPARManager;
 

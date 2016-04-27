@@ -101,8 +101,9 @@
 }
 */
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"klickade");
+    self.parManager.selectedWeek = [self.parManager.weeks[indexPath.row] recipes];
     [self performSegueWithIdentifier:@"goToClickedWeek" sender:self];
 }
 
