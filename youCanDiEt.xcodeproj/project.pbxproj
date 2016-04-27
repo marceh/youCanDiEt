@@ -19,28 +19,23 @@
 		7F16352C1C81C8AB00D08CE7 /* WeekPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16352B1C81C8AB00D08CE7 /* WeekPlanner.m */; };
 		7F16352F1C81C8C100D08CE7 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16352E1C81C8C100D08CE7 /* Settings.m */; };
 		7F1635321C81C8D900D08CE7 /* PARMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635311C81C8D900D08CE7 /* PARMananger.m */; };
-		7F1635351C81C91200D08CE7 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635341C81C91200D08CE7 /* APIManager.m */; };
-		7F16353B1C81C94000D08CE7 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16353A1C81C94000D08CE7 /* DBManager.m */; };
 		7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */; };
 		7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635401C81CB6700D08CE7 /* RecipesAddViewController.m */; };
 		7F1635441C81CB8E00D08CE7 /* ProductInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635431C81CB8E00D08CE7 /* ProductInfoTableViewController.m */; };
 		7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635461C81CBB200D08CE7 /* ProductInfoClickViewController.m */; };
 		7F16354A1C81CBC800D08CE7 /* WeekPlannerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */; };
 		7F16354D1C81CBE300D08CE7 /* WeekPlannerAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */; };
-		7F1635501C81CC0800D08CE7 /* WeekPlannerClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16354F1C81CC0800D08CE7 /* WeekPlannerClickViewController.m */; };
 		7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */; };
-		7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */; };
+		7F8A57661CD0B580001CDAFD /* WeekClickedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */; };
 		7F8D637F1CAAA3E7002EFB3F /* AddIngredientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */; };
 		7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63811CABB4B9002EFB3F /* MyTableViewCell.m */; };
 		7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63841CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m */; };
 		7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */; };
 		7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */; };
-		7F8D638E1CAEC9AA002EFB3F /* ComparisonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */; };
 		7F8D639C1CAEE671002EFB3F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D63991CAEE671002EFB3F /* Icon-72.png */; };
 		7F8D639D1CAEE671002EFB3F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */; };
 		7F8D639E1CAEE671002EFB3F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639B1CAEE671002EFB3F /* Icon@2x.png */; };
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
-		7F8D63A51CAFDCD4002EFB3F /* DetailedComparisonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +61,6 @@
 		7F16352E1C81C8C100D08CE7 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		7F1635301C81C8D900D08CE7 /* PARMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARMananger.h; sourceTree = "<group>"; };
 		7F1635311C81C8D900D08CE7 /* PARMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARMananger.m; sourceTree = "<group>"; };
-		7F1635331C81C91200D08CE7 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
-		7F1635341C81C91200D08CE7 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		7F1635391C81C94000D08CE7 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		7F16353A1C81C94000D08CE7 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewController.h; sourceTree = "<group>"; };
 		7F16353D1C81CB1E00D08CE7 /* RecipesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewController.m; sourceTree = "<group>"; };
 		7F16353F1C81CB6700D08CE7 /* RecipesAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesAddViewController.h; sourceTree = "<group>"; };
@@ -82,12 +73,10 @@
 		7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPlannerTableViewController.m; sourceTree = "<group>"; };
 		7F16354B1C81CBE300D08CE7 /* WeekPlannerAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekPlannerAddViewController.h; sourceTree = "<group>"; };
 		7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPlannerAddViewController.m; sourceTree = "<group>"; };
-		7F16354E1C81CC0800D08CE7 /* WeekPlannerClickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekPlannerClickViewController.h; sourceTree = "<group>"; };
-		7F16354F1C81CC0800D08CE7 /* WeekPlannerClickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPlannerClickViewController.m; sourceTree = "<group>"; };
 		7F1635511C81CC5A00D08CE7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KcalNeedViewController.h; sourceTree = "<group>"; };
-		7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KcalNeedViewController.m; sourceTree = "<group>"; };
+		7F8A57641CD0B580001CDAFD /* WeekClickedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedViewController.h; sourceTree = "<group>"; };
+		7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedViewController.m; sourceTree = "<group>"; };
 		7F8D637D1CAAA3E7002EFB3F /* AddIngredientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientTableViewController.h; sourceTree = "<group>"; };
 		7F8D637E1CAAA3E7002EFB3F /* AddIngredientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientTableViewController.m; sourceTree = "<group>"; };
 		7F8D63801CABB4B9002EFB3F /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
@@ -98,14 +87,10 @@
 		7F8D63871CAD81B3002EFB3F /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
 		7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesClickedViewController.h; sourceTree = "<group>"; };
 		7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesClickedViewController.m; sourceTree = "<group>"; };
-		7F8D638C1CAEC9AA002EFB3F /* ComparisonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparisonsViewController.h; sourceTree = "<group>"; };
-		7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparisonsViewController.m; sourceTree = "<group>"; };
 		7F8D63991CAEE671002EFB3F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		7F8D639A1CAEE671002EFB3F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		7F8D639B1CAEE671002EFB3F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		7F8D63A31CAFDCD4002EFB3F /* DetailedComparisonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedComparisonsViewController.h; sourceTree = "<group>"; };
-		7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedComparisonsViewController.m; sourceTree = "<group>"; };
 		7FAE50A11C899A890065049C /* AddProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductsViewController.h; sourceTree = "<group>"; };
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 		BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-youCanDiEt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,12 +175,8 @@
 				7F1635491C81CBC800D08CE7 /* WeekPlannerTableViewController.m */,
 				7F16354B1C81CBE300D08CE7 /* WeekPlannerAddViewController.h */,
 				7F16354C1C81CBE300D08CE7 /* WeekPlannerAddViewController.m */,
-				7F16354E1C81CC0800D08CE7 /* WeekPlannerClickViewController.h */,
-				7F16354F1C81CC0800D08CE7 /* WeekPlannerClickViewController.m */,
-				7F8D63A31CAFDCD4002EFB3F /* DetailedComparisonsViewController.h */,
-				7F8D63A41CAFDCD4002EFB3F /* DetailedComparisonsViewController.m */,
-				7F8D638C1CAEC9AA002EFB3F /* ComparisonsViewController.h */,
-				7F8D638D1CAEC9AA002EFB3F /* ComparisonsViewController.m */,
+				7F8A57641CD0B580001CDAFD /* WeekClickedViewController.h */,
+				7F8A57651CD0B580001CDAFD /* WeekClickedViewController.m */,
 				7F8D63891CAEAB2B002EFB3F /* RecipesClickedViewController.h */,
 				7F8D638A1CAEAB2B002EFB3F /* RecipesClickedViewController.m */,
 				7F16353C1C81CB1E00D08CE7 /* RecipesTableViewController.h */,
@@ -214,8 +195,6 @@
 				7F1635111C8181FC00D08CE7 /* MenuViewController.m */,
 				7F1635511C81CC5A00D08CE7 /* SettingsViewController.h */,
 				7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */,
-				7F1635541C81CC7000D08CE7 /* KcalNeedViewController.h */,
-				7F1635551C81CC7000D08CE7 /* KcalNeedViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -242,10 +221,6 @@
 				7F16352E1C81C8C100D08CE7 /* Settings.m */,
 				7F1635301C81C8D900D08CE7 /* PARMananger.h */,
 				7F1635311C81C8D900D08CE7 /* PARMananger.m */,
-				7F1635391C81C94000D08CE7 /* DBManager.h */,
-				7F16353A1C81C94000D08CE7 /* DBManager.m */,
-				7F1635331C81C91200D08CE7 /* APIManager.h */,
-				7F1635341C81C91200D08CE7 /* APIManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -396,7 +371,6 @@
 				7F16352C1C81C8AB00D08CE7 /* WeekPlanner.m in Sources */,
 				7F1635121C8181FC00D08CE7 /* MenuViewController.m in Sources */,
 				7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */,
-				7F1635351C81C91200D08CE7 /* APIManager.m in Sources */,
 				7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */,
 				7F1635291C81C89E00D08CE7 /* Recipe.m in Sources */,
 				7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */,
@@ -408,18 +382,14 @@
 				7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */,
 				7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */,
 				7F16350C1C8181FC00D08CE7 /* main.m in Sources */,
-				7F1635561C81CC7000D08CE7 /* KcalNeedViewController.m in Sources */,
+				7F8A57661CD0B580001CDAFD /* WeekClickedViewController.m in Sources */,
 				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,
 				7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */,
-				7F1635501C81CC0800D08CE7 /* WeekPlannerClickViewController.m in Sources */,
 				7F16352F1C81C8C100D08CE7 /* Settings.m in Sources */,
-				7F16353B1C81C94000D08CE7 /* DBManager.m in Sources */,
 				7F16354D1C81CBE300D08CE7 /* WeekPlannerAddViewController.m in Sources */,
-				7F8D638E1CAEC9AA002EFB3F /* ComparisonsViewController.m in Sources */,
 				7F1635471C81CBB200D08CE7 /* ProductInfoClickViewController.m in Sources */,
 				7F16353E1C81CB1E00D08CE7 /* RecipesTableViewController.m in Sources */,
-				7F8D63A51CAFDCD4002EFB3F /* DetailedComparisonsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

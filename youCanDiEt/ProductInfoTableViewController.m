@@ -8,12 +8,10 @@
 
 #import "ProductInfoTableViewController.h"
 #import "PARMananger.h"
-#import "APIManager.h"
 #import "Product.h"
 
 @interface ProductInfoTableViewController ()
 @property (nonatomic) PARMananger *parManager;
-@property (nonatomic) APIManager *apiManager;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (nonatomic) NSMutableArray *tempProducts;
 //@property (nonatomic) NSMutableDictionary *tempDictionary;
@@ -27,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
-    self.apiManager = [APIManager getAPIManager];
     [self.productTableView reloadData];
 }
 
