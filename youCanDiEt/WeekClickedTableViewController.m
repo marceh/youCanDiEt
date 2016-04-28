@@ -257,6 +257,31 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"klickade på indexpath: %ld, %ld",(long)indexPath.section, (long)indexPath.row);
+    
+    if (indexPath.section == 0) {
+        [self.parmanager thisIsComparableRecipe:self.mondaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 1) {
+        [self.parmanager thisIsComparableRecipe:self.tuesdaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 2) {
+        [self.parmanager thisIsComparableRecipe:self.wednesdaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 3) {
+        [self.parmanager thisIsComparableRecipe:self.thursdaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 4) {
+        [self.parmanager thisIsComparableRecipe:self.fridaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 5) {
+        [self.parmanager thisIsComparableRecipe:self.saturdaysRecipes[indexPath.row] number:1];
+    } else if (indexPath.section == 6) {
+        [self.parmanager thisIsComparableRecipe:self.sundaysRecipes[indexPath.row] number:1];
+    } else {
+        NSLog(@"Something went wrong...");
+    }
+    self.parmanager.fromClickedRecipes = YES;
+    [self performSegueWithIdentifier:@"FromClickedToInfo" sender:self];
+    
+}
+
 
 /*
 // Override to support conditional editing of the table view.

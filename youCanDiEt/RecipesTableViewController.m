@@ -113,6 +113,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"inne i didselect Celllllll");
     [self.parManager thisIsComparableRecipe:self.parManager.recipes[indexPath.row] number:1];
+    self.parManager.fromClickedRecipes = NO;
 }
 
 

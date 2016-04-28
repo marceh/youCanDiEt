@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="1840" y="902"/>
         </scene>
-        <!--Week Clicked Table View Controller-->
+        <!--Week Recipes-->
         <scene sceneID="Mt5-QW-fNl">
             <objects>
                 <tableViewController id="cZe-4Q-Uba" customClass="WeekClickedTableViewController" sceneMemberID="viewController">
@@ -158,6 +158,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Wzb-CM-fcl" kind="show" identifier="FromClickedToInfo" id="0PC-8k-cHf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -165,6 +168,14 @@
                             <outlet property="delegate" destination="cZe-4Q-Uba" id="yVp-w9-BhE"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Week Recipes" id="Jur-SY-vDf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="teg-zm-sxu">
+                            <connections>
+                                <segue destination="30S-Cj-5WH" kind="show" id="Pak-8i-ZbF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
@@ -399,7 +410,7 @@
                         <color key="sectionIndexBackgroundColor" red="0.77666822674823899" green="0.96978258724489708" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProduct" rowHeight="113" id="aVr-O8-rWJ">
-                                <rect key="frame" x="0.0" y="28" width="320" height="113"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellProduct" tableViewCell="aVr-O8-rWJ" id="GHE-gd-UVg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
@@ -941,7 +952,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipesTableViewCell" rowHeight="234" id="JSr-w5-xr9" customClass="RecipesTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="234"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="234"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSr-w5-xr9" id="A2R-sg-wrX">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
@@ -1115,7 +1126,7 @@
                     <navigationItem key="navigationItem" id="6iY-ko-mMm">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="EMW-lb-f6G">
                             <connections>
-                                <segue destination="XDf-Mi-vtE" kind="show" id="vwm-mH-FKQ"/>
+                                <action selector="clickedBack:" destination="Wzb-CM-fcl" id="NSp-4a-BZz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1128,11 +1139,13 @@
                         <outlet property="labelKcal" destination="858-wH-P5p" id="V33-pA-5H2"/>
                         <outlet property="labelName" destination="OvK-Dc-9cq" id="EKb-9B-Yxs"/>
                         <outlet property="labelProtein" destination="nFh-z4-nqV" id="21i-m1-QXG"/>
+                        <segue destination="XDf-Mi-vtE" kind="show" identifier="FromRecipesClickedToRecipes" id="2Pl-Oz-WAq"/>
+                        <segue destination="cZe-4Q-Uba" kind="show" identifier="FromRecipesClickedToWeekClicked" id="GAS-Ft-89F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffk-d7-zfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="-1055"/>
+            <point key="canvasLocation" x="2646" y="-881"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uBC-1F-ITk">
@@ -1262,7 +1275,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KN7-nt-YoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="-947"/>
+            <point key="canvasLocation" x="1920" y="-669"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jAY-8c-7uj">
@@ -1307,13 +1320,15 @@
         <image name="YouCanDiEt" width="450" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bl6-Oa-ySS"/>
-        <segue reference="4BK-KQ-b0s"/>
-        <segue reference="ml5-Rg-W0i"/>
-        <segue reference="5s5-Wv-wuB"/>
         <segue reference="ZLc-MG-r0g"/>
-        <segue reference="vwm-mH-FKQ"/>
+        <segue reference="k2C-oy-hkN"/>
+        <segue reference="RTS-eM-lN9"/>
+        <segue reference="ml5-Rg-W0i"/>
         <segue reference="1BY-ss-fiR"/>
+        <segue reference="2Pl-Oz-WAq"/>
+        <segue reference="0PC-8k-cHf"/>
+        <segue reference="GAS-Ft-89F"/>
+        <segue reference="Pak-8i-ZbF"/>
         <segue reference="afd-W8-34J"/>
     </inferredMetricsTieBreakers>
 </document>

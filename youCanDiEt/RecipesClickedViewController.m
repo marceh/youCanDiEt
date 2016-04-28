@@ -46,6 +46,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickedBack:(id)sender {
+    if (self.parManager.fromClickedRecipes) {
+        [self performSegueWithIdentifier:@"FromRecipesClickedToWeekClicked" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"FromRecipesClickedToRecipes" sender:self];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
