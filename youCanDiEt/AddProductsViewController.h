@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddProductsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AddProductsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate>
 
 @end

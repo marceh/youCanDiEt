@@ -76,6 +76,8 @@
                                             }];
     [task resume];
 }
+
+/*
 - (IBAction)popoverSegueProductClicked:(id)sender {
     [self performSegueWithIdentifier:@"popoverSegueProduct" sender:self];
 }
@@ -97,7 +99,7 @@
 
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
-}
+}*/
 
 
 @end

@@ -74,38 +74,6 @@
     [task resume];
 }
 
-/*
-- (void)giveCorrespondingDictionaryBasedOnNumber:(NSString *)number andIndex:(int)index{
-    NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",number]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                NSError *parseError;
-                                                NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
-                                                dispatch_async(dispatch_get_main_queue(),
-                                                               ^{
-                                                                   NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
-                                                                   [tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
-                                                                   [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
-                                                                   [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"carbohydrates"] stringValue] forKey:@"carbs"];
-                                                                   [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
-                                                                   [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
-                                                                   [self.arrayDone addObject:tempDictionary];
-                                                                   if (index < self.tempProducts.count -1) {
-                                                                       [self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[index+1] stringValue] andIndex:index+1];
-                                                                   } else {
-                                                                       [self.tableView reloadData];
-                                                                       self.textFieldSearch.text = @"";
-                                                                   }
-                                                                   
-                                                               });
-                                            }];
-    [task resume];
- }
-*/
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -134,17 +102,27 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.parManager.productNumber = self.tempProducts[indexPath.row];
+    [self performSegueWithIdentifier:@"popoverSegueProduct" sender:self];
 }
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//   if([segue.identifier isEqualToString:@"showProductInformation"]){
-//        UINavigationController *navigationController = [segue destinationViewController];
-//        ProductInfoClickViewController *destination = [navigationController topViewController];
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-//        NSLog(@"nu skall vi gå vidare");
-//        destination.productNumber = self.tempProducts[indexPath.row];
-//    }
+    if ([segue.identifier isEqualToString:@"popoverSegueProduct"]) {
+        UIViewController *viewController = segue.destinationViewController;
+        UIPopoverPresentationController *controller = viewController.popoverPresentationController;
+        
+        if (controller != nil) {
+            controller.delegate = self;
+        }
+    }
+}
+
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
+}
+
+-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
