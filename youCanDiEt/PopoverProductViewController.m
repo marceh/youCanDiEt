@@ -44,12 +44,13 @@
     self.labelFat.text = [NSString stringWithFormat:@"Fat: %@",[self.tempDictionary valueForKey:@"fat"]];
 }
 - (IBAction)saveTheProduct:(id)sender {
-//    [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:self.tempDictionary]];
-//    [self.parManager saveProducts];
-//    //kalla på tillbaka...tillbaka...
+    [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:self.tempDictionary]];
+    [self.parManager saveProducts];
+    [self goBack:self];
 }
 
 - (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)setTempDictionaryBasedOnNumber:(NSNumber *)number{
