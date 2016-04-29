@@ -131,21 +131,20 @@
     return cell;
 }
 
-/*
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"nu sätter vi rowSelectedNumber");
-    self.rowSelsected = self.tempProducts[indexPath.row];
+    self.parManager.productNumber = self.tempProducts[indexPath.row];
 }
-*/ 
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"showProductInformation"]){
-        UINavigationController *navigationController = [segue destinationViewController];
-        ProductInfoClickViewController *destination = [navigationController topViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSLog(@"nu skall vi gå vidare");
-        destination.productNumber = self.tempProducts[indexPath.row];
-    }
+//   if([segue.identifier isEqualToString:@"showProductInformation"]){
+//        UINavigationController *navigationController = [segue destinationViewController];
+//        ProductInfoClickViewController *destination = [navigationController topViewController];
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+//        NSLog(@"nu skall vi gå vidare");
+//        destination.productNumber = self.tempProducts[indexPath.row];
+//    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {

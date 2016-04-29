@@ -10,7 +10,6 @@
 		1D940CFD027A1B81981B116F /* libPods-youCanDiEt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */; };
 		7F16350C1C8181FC00D08CE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16350B1C8181FC00D08CE7 /* main.m */; };
 		7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F16350E1C8181FC00D08CE7 /* AppDelegate.m */; };
-		7F1635121C8181FC00D08CE7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1635111C8181FC00D08CE7 /* MenuViewController.m */; };
 		7F1635151C8181FC00D08CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1635131C8181FC00D08CE7 /* Main.storyboard */; };
 		7F1635171C8181FC00D08CE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1635161C8181FC00D08CE7 /* Assets.xcassets */; };
 		7F16351A1C8181FC00D08CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1635181C8181FC00D08CE7 /* LaunchScreen.storyboard */; };
@@ -37,6 +36,7 @@
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 		7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */; };
+		7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,6 @@
 		7F16350B1C8181FC00D08CE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F16350D1C8181FC00D08CE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F16350E1C8181FC00D08CE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7F1635101C8181FC00D08CE7 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		7F1635111C8181FC00D08CE7 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		7F1635141C8181FC00D08CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F1635161C8181FC00D08CE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F1635191C8181FC00D08CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 		7FB3E2A91CD0DA1C00F21CCB /* WeekClickedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedTableViewController.h; sourceTree = "<group>"; };
 		7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedTableViewController.m; sourceTree = "<group>"; };
+		7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
+		7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-youCanDiEt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youCanDiEt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,10 +191,10 @@
 				7FAE50A21C899A890065049C /* AddProductsViewController.m */,
 				7F1635451C81CBB200D08CE7 /* ProductInfoClickViewController.h */,
 				7F1635461C81CBB200D08CE7 /* ProductInfoClickViewController.m */,
-				7F1635101C8181FC00D08CE7 /* MenuViewController.h */,
-				7F1635111C8181FC00D08CE7 /* MenuViewController.m */,
 				7F1635511C81CC5A00D08CE7 /* SettingsViewController.h */,
 				7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */,
+				7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */,
+				7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -369,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F16352C1C81C8AB00D08CE7 /* WeekPlanner.m in Sources */,
-				7F1635121C8181FC00D08CE7 /* MenuViewController.m in Sources */,
 				7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */,
 				7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */,
 				7F1635291C81C89E00D08CE7 /* Recipe.m in Sources */,
@@ -383,6 +382,7 @@
 				7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */,
 				7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */,
 				7F16350C1C8181FC00D08CE7 /* main.m in Sources */,
+				7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */,
 				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,
 				7F8D63851CAD0A3C002EFB3F /* AddRecipeCustomTableViewCell.m in Sources */,

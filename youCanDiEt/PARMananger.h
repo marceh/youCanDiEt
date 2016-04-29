@@ -22,6 +22,7 @@
 @property (nonatomic) Recipe *comparableRecipeTwo;
 @property (nonatomic) NSMutableArray *selectedWeek;
 @property (nonatomic) BOOL fromClickedRecipes;
+@property (nonatomic) NSNumber *productNumber;
 
 +(id)getPARManager;
 

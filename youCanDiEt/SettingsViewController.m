@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     self.parManager = [PARMananger getPARManager];
     self.settingsManager = [Settings getSetting];
     [self updateKcalLabel];

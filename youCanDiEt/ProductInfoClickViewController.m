@@ -29,7 +29,7 @@
     NSLog(@"inne i viewdidload");
     self.parManager = [PARMananger getPARManager];
     self.tempDictionary = [NSMutableDictionary new];
-    [self setTempDictionaryBasedOnNumber:self.productNumber];
+    [self setTempDictionaryBasedOnNumber:self.parManager.productNumber];
 }
 
 - (void)didReceiveMemoryWarning {
