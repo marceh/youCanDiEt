@@ -505,12 +505,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter product name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WmL-Do-fak">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter product name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WmL-Do-fak">
                                 <rect key="frame" x="20" y="72" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71x-wQ-vhd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71x-wQ-vhd">
                                 <rect key="frame" x="252" y="72" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="7eP-kG-LOM"/>
@@ -520,7 +520,7 @@
                                     <action selector="clickedButtonSearch:" destination="kVa-9A-WgY" eventType="touchUpInside" id="kDe-i6-OUb"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-Oz-5X0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-Oz-5X0">
                                 <rect key="frame" x="20" y="110" width="280" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -952,7 +952,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipesTableViewCell" rowHeight="234" id="JSr-w5-xr9" customClass="RecipesTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="320" height="234"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="234"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSr-w5-xr9" id="A2R-sg-wrX">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
@@ -1164,7 +1164,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iU-ft-Pc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="293"/>
+            <point key="canvasLocation" x="64" y="293"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="60L-TI-Q19">
+            <objects>
+                <tabBarController id="g5U-um-v0k" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="YMO-UR-dKc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JqQ-fE-gz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-838" y="1166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fCQ-0t-1cg">
@@ -1320,15 +1335,15 @@
         <image name="YouCanDiEt" width="450" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZLc-MG-r0g"/>
+        <segue reference="Pak-8i-ZbF"/>
+        <segue reference="2OX-Y9-Fyh"/>
+        <segue reference="0PC-8k-cHf"/>
+        <segue reference="2Pl-Oz-WAq"/>
+        <segue reference="1BY-ss-fiR"/>
+        <segue reference="afd-W8-34J"/>
         <segue reference="k2C-oy-hkN"/>
+        <segue reference="ZLc-MG-r0g"/>
         <segue reference="RTS-eM-lN9"/>
         <segue reference="ml5-Rg-W0i"/>
-        <segue reference="1BY-ss-fiR"/>
-        <segue reference="2Pl-Oz-WAq"/>
-        <segue reference="0PC-8k-cHf"/>
-        <segue reference="GAS-Ft-89F"/>
-        <segue reference="Pak-8i-ZbF"/>
-        <segue reference="afd-W8-34J"/>
     </inferredMetricsTieBreakers>
 </document>
