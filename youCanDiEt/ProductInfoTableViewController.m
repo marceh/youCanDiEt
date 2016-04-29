@@ -24,9 +24,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"ViewDidLoad");
     self.parManager = [PARMananger getPARManager];
+   //
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear,,,");
     [self.productTableView reloadData];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +52,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.parManager.products.count;
+    if (self.parManager.products.count < 1) {
+        return 1;
+    } else {
+        return self.parManager.products.count;
+    }
 }
 
 
@@ -54,23 +65,45 @@
     static NSString *CellIdentifier = @"cellProduct";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    UILabel *label;
-    
-    label = (UILabel *) [cell viewWithTag:1];
-    Product *product = [self.parManager getProductInProductsAtIndex:indexPath.row];
-    label.text = product.name;
-    
-    label = (UILabel *) [cell viewWithTag:2];
-    label.text = [NSString stringWithFormat:@"Kcal: %@", product.kcal];
-    
-    label = (UILabel *) [cell viewWithTag:3];
-    label.text = [NSString stringWithFormat:@"Carbs: %@", product.carbs];
-    
-    label = (UILabel *) [cell viewWithTag:4];
-    label.text = [NSString stringWithFormat:@"Protein: %@", product.protein];
-    
-    label = (UILabel *) [cell viewWithTag:5];
-    label.text = [NSString stringWithFormat:@"Fat: %@", product.fat];
+    if (self.parManager.products.count < 1) {
+        cell.textLabel.text = @"No products added yet";
+        
+        UILabel *label;
+        
+        label = (UILabel *) [cell viewWithTag:1];
+        label.text = @"";
+        
+        label = (UILabel *) [cell viewWithTag:2];
+        label.text = @"";
+        
+        label = (UILabel *) [cell viewWithTag:3];
+        label.text = @"";
+        
+        label = (UILabel *) [cell viewWithTag:4];
+        label.text = @"";
+        
+        label = (UILabel *) [cell viewWithTag:5];
+        label.text = @"";
+        
+    } else {
+        UILabel *label;
+        
+        label = (UILabel *) [cell viewWithTag:1];
+        Product *product = [self.parManager getProductInProductsAtIndex:indexPath.row];
+        label.text = product.name;
+        
+        label = (UILabel *) [cell viewWithTag:2];
+        label.text = [NSString stringWithFormat:@"Kcal: %@", product.kcal];
+        
+        label = (UILabel *) [cell viewWithTag:3];
+        label.text = [NSString stringWithFormat:@"Carbs: %@", product.carbs];
+        
+        label = (UILabel *) [cell viewWithTag:4];
+        label.text = [NSString stringWithFormat:@"Protein: %@", product.protein];
+        
+        label = (UILabel *) [cell viewWithTag:5];
+        label.text = [NSString stringWithFormat:@"Fat: %@", product.fat];
+    }
     return cell;
 }
 

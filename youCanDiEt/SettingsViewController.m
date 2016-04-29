@@ -33,6 +33,10 @@
     self.settingsManager = [Settings getSetting];
     [self updateKcalLabel];
     self.gender = 'm';
+    self.ageTextField.delegate = self;
+    self.heightTextField.delegate = self;
+    self.weightTextView.delegate = self;
+    self.trainingSessionsTextView.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -78,6 +82,11 @@
 
 - (IBAction)removeAllRecipes:(id)sender {
     [self.parManager deleteMyRecipes];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 /*

@@ -30,6 +30,7 @@
     self.parManager = [PARMananger getPARManager];
     self.tempProducts = [NSMutableArray new];
     self.arrayDone = [NSMutableArray new];
+    self.textFieldSearch.delegate = self;
 }
 
 - (IBAction)clickedButtonSearch:(id)sender {
@@ -169,6 +170,11 @@
                                              }];
      [task resume];
  }
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 /*
  // Override to support rearranging the table view.
