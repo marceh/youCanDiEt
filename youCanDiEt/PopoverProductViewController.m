@@ -33,5 +33,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)leftButtonClicked:(id)sender {
+    NSLog(@"vänster");
+}
+
+- (IBAction)rightButtonClicked:(id)sender {
+    NSLog(@"höger");
+}
 
 @end
