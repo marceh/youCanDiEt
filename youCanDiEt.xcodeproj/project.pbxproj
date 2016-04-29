@@ -37,6 +37,7 @@
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 		7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */; };
 		7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */; };
+		7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,8 @@
 		7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedTableViewController.m; sourceTree = "<group>"; };
 		7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
+		7FD85FBA1CD36EE100F25B21 /* PopoverProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverProductViewController.h; sourceTree = "<group>"; };
+		7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverProductViewController.m; sourceTree = "<group>"; };
 		BA1CA3A75B96A27C2AB50097 /* libPods-youCanDiEt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-youCanDiEt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0BD02C992184D3B28C1D8B /* Pods-youCanDiEt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youCanDiEt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youCanDiEt/Pods-youCanDiEt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +198,8 @@
 				7F1635521C81CC5A00D08CE7 /* SettingsViewController.m */,
 				7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */,
 				7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */,
+				7FD85FBA1CD36EE100F25B21 /* PopoverProductViewController.h */,
+				7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 			files = (
 				7F16352C1C81C8AB00D08CE7 /* WeekPlanner.m in Sources */,
 				7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */,
+				7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */,
 				7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */,
 				7F1635291C81C89E00D08CE7 /* Recipe.m in Sources */,
 				7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */,

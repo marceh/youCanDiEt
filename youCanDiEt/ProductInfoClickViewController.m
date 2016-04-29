@@ -76,5 +76,28 @@
                                             }];
     [task resume];
 }
+- (IBAction)popoverSegueProductClicked:(id)sender {
+    [self performSegueWithIdentifier:@"popoverSegueProduct" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"popoverSegueProduct"]) {
+        UIViewController *viewController = segue.destinationViewController;
+        UIPopoverPresentationController *controller = viewController.popoverPresentationController;
+        
+        if (controller != nil) {
+            controller.delegate = self;
+        }
+    }
+}
+
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
+}
+
+-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    
+}
+
 
 @end

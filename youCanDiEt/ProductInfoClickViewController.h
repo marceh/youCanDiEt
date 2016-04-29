@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductInfoClickViewController : UIViewController
+@interface ProductInfoClickViewController : UIViewController <UIPopoverPresentationControllerDelegate>
 
 @property (nonatomic) NSNumber *productNumber;
 
