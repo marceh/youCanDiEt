@@ -161,10 +161,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AddRecipeCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
-    cell.labelName.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
-//    cell.labelGrams.text = [NSString stringWithFormat:@"grams: %d", (int)cell.sliderGrams.value];
-    cell.labelGrams.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellOfAddRecipe"];
+    
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:8];
+    cell.textLabel.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Recipe contains %@ grams of this product.",[[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue]];
     return cell;
 }
 
