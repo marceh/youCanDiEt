@@ -23,6 +23,7 @@
 @property (nonatomic) PARMananger *parManager;
 @property (nonatomic) NSMutableDictionary *dictionaryPrep4RecipInit;
 @property (nonatomic) BOOL haveTakenPic;
+@property (weak, nonatomic) IBOutlet UIButton *buttonTakePicture;
 
 @end
 
@@ -39,6 +40,9 @@
     self.haveTakenPic = NO;
     self.textFieldName.delegate = self;
     self.textViewDescription.delegate = self;
+    if (!self.parManager.recipeForEditing) {
+        self.parManager.recipeForEditing = [[Recipe alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +68,6 @@
 - (IBAction)stepperChanged:(UIStepper *)stepper {
     self.labelNrOfPortions.text = [NSString stringWithFormat:@"%d",(int)stepper.value];
 }
-
 
 - (IBAction)saveRecipe:(id)sender {
     
@@ -106,7 +109,7 @@
     
 }
 
-- (IBAction)takePicture:(id)sender {
+- (IBAction)takePicture:(UIButton *)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -130,9 +133,19 @@
     BOOL success = [imageData writeToFile:imagePath atomically:YES];
     
     if(success) {
-        //[self.parManager addPicPath2CurrentRecipe:imagePath];
         self.haveTakenPic = YES;
-    } else {
+        [self changePicOfButton];
+    }
+}
+
+
+
+
+- (void)changePicOfButton {
+    UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipeForEditing getTheRightFolderAndImagePath]];
+    if (cachedImage) {
+        [self.buttonTakePicture setImage:cachedImage forState:UIControlStateNormal];
+        self.buttonTakePicture.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
 }
 
@@ -143,8 +156,8 @@
     [formatter setDateFormat:@"yyyyMMddHHmmss"];
     NSString *cachedDatePNG = [NSString stringWithFormat:@"cachedImage%@.png",[formatter stringFromDate:[NSDate date]]];
     [self.parManager addPicPath2CurrentRecipe:cachedDatePNG];
+    self.parManager.recipeForEditing.picPath = cachedDatePNG;
     return [path stringByAppendingPathComponent:cachedDatePNG];
-    //return [path stringByAppendingPathComponent:@"cachedImage.png"];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -152,23 +165,57 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.parManager.arrayOfIngredients.count;
+    if (self.parManager.arrayOfIngredients.count < 1) {
+        return 1;
+    } else {
+        return self.parManager.arrayOfIngredients.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellOfAddRecipe"];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTheCell:)];
     UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
     pressRecognizer.minimumPressDuration = 0.5;
     cell.tag = indexPath.row;
+    [cell addGestureRecognizer:tapRecognizer];
     [cell addGestureRecognizer:pressRecognizer];
     
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:8];
-    cell.textLabel.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Recipe contains %@ grams of this product.",[[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue]];
+    
+    if (self.parManager.arrayOfIngredients.count < 1) {
+        cell.textLabel.text = @"No product added to recipe.";
+    } else {
+        cell.textLabel.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Recipe contains %@ grams of this product.",[[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"grams"] stringValue]];
+    }
+    
     return cell;
+}
+
+-(void)tappedTheCell:(UILongPressGestureRecognizer *)sender {
+    if (self.parManager.arrayOfIngredients.count > 0) {
+        //If a clickable action is added, put it here...
+        NSLog(@"Klickade");
+    } else {
+        NSLog(@"Klickade");
+        [self performSegueWithIdentifier:@"toArrayOfIngredientsAdder" sender:self];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"toArrayOfIngredientsAdder"]) {
+        
+        
+        
+        //self.parManager.recipeForEditing
+    
+    }
 }
 
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {

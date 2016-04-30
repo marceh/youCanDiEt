@@ -59,7 +59,6 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = paths[0];
     return [path stringByAppendingPathComponent:self.picPath];
-   // return [path stringByAppendingPathComponent:@"cachedImage.png"];
 }
 
 - (NSDictionary *)getTotalContentInRecipe{

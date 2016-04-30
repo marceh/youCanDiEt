@@ -20,8 +20,10 @@
 @property (nonatomic) NSMutableDictionary *dictionaryCurrentRecipe;
 @property (nonatomic) Recipe *comparableRecipeOne;
 @property (nonatomic) Recipe *comparableRecipeTwo;
+@property (nonatomic) Recipe *recipeForEditing;
 @property (nonatomic) NSMutableArray *selectedWeek;
 @property (nonatomic) BOOL fromClickedRecipes;
+@property (nonatomic) BOOL editingRecipe;
 @property (nonatomic) NSNumber *productNumber;
 
 +(id)getPARManager;
