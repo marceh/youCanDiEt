@@ -58,7 +58,7 @@
     UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.numberOfTouchesRequired = 1;
-    pressRecognizer.minimumPressDuration = 1.0;
+    pressRecognizer.minimumPressDuration = 0.5;
     cell.tag = indexPath.row;
     [cell addGestureRecognizer:tapRecognizer];
     [cell addGestureRecognizer:pressRecognizer];
@@ -87,7 +87,7 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.products.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-            [self displayAlert];
+            [self displayAlertSendingIndexPathRow:sender.view.tag];
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
@@ -98,17 +98,12 @@
 
 
 //Wanted to do this method DRY but didn't have the time...
--(void)displayAlert {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //Set Code...
-        [self.tableView reloadData];
-        [alertController dismissViewControllerAnimated:YES completion:nil];
-    }];
+-(void)displayAlertSendingIndexPathRow:(NSInteger)indexpathRow {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //Set Code...
+        [self.parManager.products removeObjectAtIndex:indexpathRow];
+        [self.parManager saveProducts];
         [self.tableView reloadData];
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -117,7 +112,6 @@
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    [alertController addAction:edit];
     [alertController addAction:delete];
     [alertController addAction:cancel];
     [self presentViewController:alertController animated:YES completion:nil];

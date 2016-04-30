@@ -54,7 +54,7 @@
     UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.numberOfTouchesRequired = 1;
-    pressRecognizer.minimumPressDuration = 1.0;
+    pressRecognizer.minimumPressDuration = 0.5;
     cell.tag = indexPath.row;
     [cell addGestureRecognizer:tapRecognizer];
     [cell addGestureRecognizer:pressRecognizer];
@@ -88,7 +88,7 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.recipes.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-            [self displayAlert];
+            [self displayAlertSendingIndexPathRow:sender.view.tag];
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
@@ -104,8 +104,8 @@
 }
 
 //Wanted to do this method DRY but didn't have the time...
--(void)displayAlert {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleActionSheet];
+-(void)displayAlertSendingIndexPathRow:(NSInteger)indexpathRow {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         //Set Code...
@@ -114,7 +114,8 @@
     }];
     
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //Set Code...
+        [self.parManager.recipes removeObjectAtIndex:indexpathRow];
+        [self.parManager saveRecipes];
         [self.tableView reloadData];
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
