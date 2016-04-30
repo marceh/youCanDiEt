@@ -36,7 +36,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="00x-Md-Ysi">
                             <connections>
-                                <segue destination="KHm-uW-acM" kind="show" id="bnI-7I-RYn"/>
+                                <action selector="toAddWeek:" destination="30S-Cj-5WH" id="npm-b9-sVh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -45,6 +45,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="cZe-4Q-Uba" kind="show" identifier="goToClickedWeek" id="2OX-Y9-Fyh"/>
+                        <segue destination="KHm-uW-acM" kind="show" identifier="toAddWeek" id="jI8-A6-mY3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pX3-ri-0us" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,6 +324,7 @@
                                 <state key="normal" title="Remove All Weeks"/>
                                 <connections>
                                     <action selector="removeAllProducts:" destination="seH-mh-1I7" eventType="touchUpInside" id="nSQ-mq-SgQ"/>
+                                    <action selector="removeAllWeeks:" destination="seH-mh-1I7" eventType="touchUpInside" id="FmK-D8-Cvm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -424,7 +426,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NP6-kA-NHS">
                             <connections>
-                                <segue destination="kVa-9A-WgY" kind="show" id="OXX-U7-Cop"/>
+                                <action selector="toAddProduct:" destination="2Xk-33-QnO" id="4Ye-RT-MA9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -432,6 +434,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="productTableView" destination="Gm1-zQ-Af3" id="E3U-o5-wRo"/>
+                        <segue destination="kVa-9A-WgY" kind="show" identifier="toAddProduct" id="MkC-J5-eyz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqo-83-pUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -956,7 +959,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mn8-l4-ue0">
                             <connections>
-                                <segue destination="dsT-n2-7pm" kind="show" id="n62-jq-w04"/>
+                                <action selector="toAddRecipe:" destination="XDf-Mi-vtE" id="udQ-oN-hb6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -965,6 +968,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="Wzb-CM-fcl" kind="show" identifier="FromRecipeTableView" id="2L9-AU-8tH"/>
+                        <segue destination="dsT-n2-7pm" kind="show" identifier="toAddRecipe" id="25J-r7-7xw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGj-AE-Zz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1182,12 +1186,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VAb-kc-oVW"/>
-        <segue reference="n62-jq-w04"/>
-        <segue reference="mkO-WE-LTn"/>
+        <segue reference="6DP-kI-Mhq"/>
         <segue reference="2L9-AU-8tH"/>
-        <segue reference="24S-E7-8s5"/>
+        <segue reference="25J-r7-7xw"/>
+        <segue reference="vIN-s0-iON"/>
         <segue reference="2OX-Y9-Fyh"/>
         <segue reference="VIt-XN-DsH"/>
+        <segue reference="dfR-es-UNj"/>
     </inferredMetricsTieBreakers>
 </document>

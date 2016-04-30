@@ -33,6 +33,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)toAddWeek:(id)sender {
+    [self performSegueWithIdentifier:@"toAddWeek" sender:self];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -64,16 +68,14 @@
     if (self.parManager.weeks.count > 0) {
         self.parManager.selectedWeek = [self.parManager.weeks[indexPath.row] recipes];
         [self performSegueWithIdentifier:@"goToClickedWeek" sender:self];
+    } else {
+        [self toAddWeek:self];
     }
 }
 
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"goToClickedWeek"])
-    {
-//        Inne i skiten
-    }
 }
 
 

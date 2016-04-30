@@ -21,25 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillAppear22222,,,");
     [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+- (IBAction)toAddRecipe:(id)sender {
+    [self performSegueWithIdentifier:@"toAddRecipe" sender:self];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -77,6 +71,8 @@
         [self.parManager thisIsComparableRecipe:self.parManager.recipes[indexPath.row] number:1];
         self.parManager.fromClickedRecipes = NO;
         [self performSegueWithIdentifier:@"FromRecipeTableView" sender:self];
+    } else {
+        [self toAddRecipe:self];
     }
 }
 

@@ -14,7 +14,6 @@
 @property (nonatomic) PARMananger *parManager;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (nonatomic) NSMutableArray *tempProducts;
-//@property (nonatomic) NSMutableDictionary *tempDictionary;
 @property (nonatomic) NSMutableArray *arrayDone;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 
@@ -26,7 +25,6 @@
     [super viewDidLoad];
     NSLog(@"ViewDidLoad");
     self.parManager = [PARMananger getPARManager];
-   //
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -34,10 +32,12 @@
     [self.productTableView reloadData];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)toAddProduct:(id)sender {
+    [self performSegueWithIdentifier:@"toAddProduct" sender:self];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -51,7 +51,6 @@
         return self.parManager.products.count;
     }
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellProduct"];
@@ -71,6 +70,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.parManager.products.count > 0) {
         //If a clickable action is added, put it here...
+    } else {
+        [self toAddProduct:self];
     }
 }
 

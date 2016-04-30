@@ -84,6 +84,11 @@
     [self.parManager deleteMyRecipes];
 }
 
+- (IBAction)removeAllWeeks:(id)sender {
+    [self.parManager deleteMyWeeks];
+}
+
+
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
