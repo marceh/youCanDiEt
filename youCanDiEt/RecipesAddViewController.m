@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNrOfPortions;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperPortions;
 @property (weak, nonatomic) IBOutlet UITableView *tabeViewIngredients;
-//@property (weak, nonatomic) IBOutlet UISlider *sliderInCell;s
-//@property (weak, nonatomic) IBOutlet UILabel *nameInCell;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (nonatomic) NSArray *arrayCategories;
 @property (nonatomic) NSString *categorySelected;
@@ -41,13 +39,10 @@
     self.haveTakenPic = NO;
     self.textFieldName.delegate = self;
     self.textViewDescription.delegate = self;
-    
-    //[self imagePath];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -164,6 +159,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellOfAddRecipe"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellOfAddRecipe"];
     
+    UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
+    pressRecognizer.minimumPressDuration = 0.5;
+    cell.tag = indexPath.row;
+    [cell addGestureRecognizer:pressRecognizer];
+    
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:8];
     cell.textLabel.text = [[self.parManager.arrayOfIngredients[indexPath.row] valueForKey:@"product"] valueForKey:@"name"];
@@ -171,13 +171,45 @@
     return cell;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField {
+-(void)pressedTheCell:(UITapGestureRecognizer*)sender {
+    if (self.parManager.arrayOfIngredients.count > 0) {
+        if (sender.state == UIGestureRecognizerStateBegan){
+            [self displayAlertSendingIndexPathRow:sender.view.tag];
+        }
+    } else {
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
+    }
+}
+
+//Wanted to do this method DRY but didn't have the time...
+-(void)displayAlertSendingIndexPathRow:(NSInteger)indexpathRow {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.parManager.arrayOfIngredients removeObjectAtIndex:indexpathRow];
+        [self.tableViewAddRecipe reloadData];
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:delete];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.textFieldName resignFirstResponder];
+    [self.textViewDescription resignFirstResponder];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

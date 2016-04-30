@@ -74,14 +74,4 @@
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MyTableViewCell *cell = sender;
-    if (cell.gramsInformation == nil) {
-        [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:@100];
-    } else {
-        [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:cell.gramsInformation];
-    }
-    
-}
-
 @end
