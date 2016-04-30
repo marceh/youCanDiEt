@@ -10,6 +10,4 @@
 
 @interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate>
 
-- (void)applicationDidEnterBackground:(UIApplication *)application;
-
 @end

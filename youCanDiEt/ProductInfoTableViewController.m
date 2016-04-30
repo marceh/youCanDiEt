@@ -40,13 +40,6 @@
     [super didReceiveMemoryWarning];
 }
 
-/*- (void)applicationDidEnterBackground:(UIApplication *)application{
-    NSLog(@"Inne i enter background");
-    //[self.parManager saveProducts];
-}*/
-
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -61,95 +54,24 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    static NSString *CellIdentifier = @"cellProduct";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellProduct"];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellProduct"];
     
-    if (self.parManager.products.count < 1) {
-        cell.textLabel.text = @"No products added yet";
-        
-        UILabel *label;
-        
-        label = (UILabel *) [cell viewWithTag:1];
-        label.text = @"";
-        
-        label = (UILabel *) [cell viewWithTag:2];
-        label.text = @"";
-        
-        label = (UILabel *) [cell viewWithTag:3];
-        label.text = @"";
-        
-        label = (UILabel *) [cell viewWithTag:4];
-        label.text = @"";
-        
-        label = (UILabel *) [cell viewWithTag:5];
-        label.text = @"";
-        
-    } else {
-        UILabel *label;
-        
-        label = (UILabel *) [cell viewWithTag:1];
-        Product *product = [self.parManager getProductInProductsAtIndex:indexPath.row];
-        label.text = product.name;
-        
-        label = (UILabel *) [cell viewWithTag:2];
-        label.text = [NSString stringWithFormat:@"Kcal: %@", product.kcal];
-        
-        label = (UILabel *) [cell viewWithTag:3];
-        label.text = [NSString stringWithFormat:@"Carbs: %@", product.carbs];
-        
-        label = (UILabel *) [cell viewWithTag:4];
-        label.text = [NSString stringWithFormat:@"Protein: %@", product.protein];
-        
-        label = (UILabel *) [cell viewWithTag:5];
-        label.text = [NSString stringWithFormat:@"Fat: %@", product.fat];
-    }
+            if (self.parManager.products.count < 1) {
+                cell.textLabel.text = @"No products added yet";
+            } else {
+                Product *product = [self.parManager getProductInProductsAtIndex:indexPath.row];
+                cell.textLabel.text = product.name;
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"Kcal: %d, Protein: %.1f, Carbs: %.1f, Fat: %.1f", [product.kcal intValue], [product.protein doubleValue], [product.carbs doubleValue], [product.fat doubleValue]];
+            }
+
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.parManager.products.count > 0) {
+        //If a clickable action is added, put it here...
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
