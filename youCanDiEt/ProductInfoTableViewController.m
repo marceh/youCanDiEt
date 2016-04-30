@@ -74,8 +74,7 @@
     return cell;
 }
 
--(void)tappedTheCell:(UILongPressGestureRecognizer *)sender
-{
+-(void)tappedTheCell:(UILongPressGestureRecognizer *)sender {
     if (self.parManager.products.count > 0) {
         //If a clickable action is added, put it here...
         NSLog(@"Klickade");
@@ -88,7 +87,7 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.products.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-            [self performSegueWithIdentifier:@"popoverSegueMyProducts" sender:self];
+
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
@@ -97,19 +96,29 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"popoverSegueMyProducts"]) {
-        UIViewController *viewController = segue.destinationViewController;
-        UIPopoverPresentationController *controller = viewController.popoverPresentationController;
-        
-        if (controller != nil) {
-            controller.delegate = self;
-        }
-    }
-}
-
--(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
-    return UIModalPresentationNone;
+-(void)displayAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //Set Code...
+        [self.tableView reloadData];
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //Set Code...
+        [self.tableView reloadData];
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:edit];
+    [alertController addAction:delete];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

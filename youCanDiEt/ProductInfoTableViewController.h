@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate, UIPopoverPresentationControllerDelegate>
+@interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate>
 
 @end

@@ -35,7 +35,6 @@
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 		7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */; };
-		7FBA4D131CD4B117008A2246 /* PopoverEditDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA4D121CD4B117008A2246 /* PopoverEditDeleteViewController.m */; };
 		7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */; };
 		7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */; };
 /* End PBXBuildFile section */
@@ -90,8 +89,6 @@
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 		7FB3E2A91CD0DA1C00F21CCB /* WeekClickedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedTableViewController.h; sourceTree = "<group>"; };
 		7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedTableViewController.m; sourceTree = "<group>"; };
-		7FBA4D111CD4B117008A2246 /* PopoverEditDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverEditDeleteViewController.h; sourceTree = "<group>"; };
-		7FBA4D121CD4B117008A2246 /* PopoverEditDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverEditDeleteViewController.m; sourceTree = "<group>"; };
 		7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		7FD85FBA1CD36EE100F25B21 /* PopoverProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverProductViewController.h; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 				7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */,
 				7FD85FBA1CD36EE100F25B21 /* PopoverProductViewController.h */,
 				7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */,
-				7FBA4D111CD4B117008A2246 /* PopoverEditDeleteViewController.h */,
-				7FBA4D121CD4B117008A2246 /* PopoverEditDeleteViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -373,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FBA4D131CD4B117008A2246 /* PopoverEditDeleteViewController.m in Sources */,
 				7F16352C1C81C8AB00D08CE7 /* WeekPlanner.m in Sources */,
 				7F8D63881CAD81B3002EFB3F /* RecipesTableViewCell.m in Sources */,
 				7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */,
