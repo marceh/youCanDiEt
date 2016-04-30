@@ -103,6 +103,7 @@
     }
 }
 
+//Wanted to do this method DRY but didn't have the time...
 -(void)displayAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleActionSheet];
     

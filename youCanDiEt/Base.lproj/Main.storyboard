@@ -445,9 +445,6 @@
                     <connections>
                         <outlet property="productTableView" destination="Gm1-zQ-Af3" id="E3U-o5-wRo"/>
                         <segue destination="kVa-9A-WgY" kind="show" identifier="toAddProduct" id="MkC-J5-eyz"/>
-                        <segue destination="hzc-fc-Kft" kind="popoverPresentation" identifier="popoverSegueMyProducts" popoverAnchorBarButtonItem="NP6-kA-NHS" id="mJi-Ir-z0G">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
-                        </segue>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqo-83-pUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -655,86 +652,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxb-yr-9bh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2485" y="-1244"/>
-        </scene>
-        <!--action-->
-        <scene sceneID="8SV-fq-M6n">
-            <objects>
-                <viewController title="action" modalPresentationStyle="overCurrentContext" id="hzc-fc-Kft" customClass="PopoverEditDeleteViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mdv-9Q-Kjo"/>
-                        <viewControllerLayoutGuide type="bottom" id="uaY-iz-NFL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vYM-Gj-lOb">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af3-Wg-xud">
-                                <rect key="frame" x="20" y="28" width="110" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="aKl-8l-41N"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvt-sF-85J">
-                                <rect key="frame" x="20" y="84" width="110" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="21X-ai-fEb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Delete"/>
-                                <connections>
-                                    <action selector="clickedDelete:" destination="hzc-fc-Kft" eventType="touchUpInside" id="QS9-iu-ekZ"/>
-                                    <action selector="goBack:" destination="aHG-RT-cZ3" eventType="touchUpInside" id="r4S-sJ-Z6p"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05V-hN-kKS">
-                                <rect key="frame" x="20" y="56" width="110" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="bxV-fN-bFw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="clickedEdit:" destination="hzc-fc-Kft" eventType="touchUpInside" id="mZz-ln-TAc"/>
-                                    <action selector="goBack:" destination="aHG-RT-cZ3" eventType="touchUpInside" id="ldk-BL-3WY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKb-uD-oMb">
-                                <rect key="frame" x="20" y="112" width="110" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="clickedBack:" destination="hzc-fc-Kft" eventType="touchUpInside" id="cDu-Iz-eQ3"/>
-                                    <action selector="goBack:" destination="aHG-RT-cZ3" eventType="touchUpInside" id="fL4-SN-pDL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="leading" secondItem="05V-hN-kKS" secondAttribute="leading" id="0F5-S2-MB3"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="centerX" secondItem="vYM-Gj-lOb" secondAttribute="centerX" id="53F-w0-7eI"/>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="top" secondItem="05V-hN-kKS" secondAttribute="bottom" constant="8" symbolic="YES" id="AKb-7v-IjO"/>
-                            <constraint firstItem="05V-hN-kKS" firstAttribute="top" secondItem="af3-Wg-xud" secondAttribute="bottom" constant="8" symbolic="YES" id="F4s-DQ-7j8"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="leading" secondItem="05V-hN-kKS" secondAttribute="leading" id="KHC-yd-qRf"/>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="trailing" secondItem="05V-hN-kKS" secondAttribute="trailing" id="OcS-5k-ouk"/>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="trailing" secondItem="TKb-uD-oMb" secondAttribute="trailing" id="PWP-IR-tGW"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="leading" secondItem="vYM-Gj-lOb" secondAttribute="leadingMargin" constant="4" id="cNJ-uB-qWh"/>
-                            <constraint firstItem="TKb-uD-oMb" firstAttribute="top" secondItem="Vvt-sF-85J" secondAttribute="bottom" constant="8" symbolic="YES" id="eod-Ur-uIg"/>
-                            <constraint firstItem="TKb-uD-oMb" firstAttribute="leading" secondItem="Vvt-sF-85J" secondAttribute="leading" id="oxN-8a-yXi"/>
-                            <constraint firstItem="uaY-iz-NFL" firstAttribute="top" secondItem="TKb-uD-oMb" secondAttribute="bottom" constant="18" id="qSQ-Pb-Y7E"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="top" secondItem="mdv-9Q-Kjo" secondAttribute="bottom" constant="8" symbolic="YES" id="qgZ-lc-QT3"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="trailing" secondItem="05V-hN-kKS" secondAttribute="trailing" id="sVR-eo-g9S"/>
-                        </constraints>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="150"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="150" height="150"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mJZ-QG-OgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2030" y="-1513"/>
         </scene>
         <!--New recipe-->
         <scene sceneID="373-rg-M9J">
@@ -1211,9 +1128,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SMD-BO-ldu" kind="relationship" relationship="viewControllers" id="3wH-0F-Iy2"/>
-                        <segue destination="9BA-Ru-Qxc" kind="relationship" relationship="viewControllers" id="p86-KE-fOT"/>
                         <segue destination="mjj-ZC-v9C" kind="relationship" relationship="viewControllers" id="mde-Ba-DLn"/>
+                        <segue destination="9BA-Ru-Qxc" kind="relationship" relationship="viewControllers" id="p86-KE-fOT"/>
+                        <segue destination="SMD-BO-ldu" kind="relationship" relationship="viewControllers" id="3wH-0F-Iy2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZA-H6-ydS" userLabel="First Responder" sceneMemberID="firstResponder"/>

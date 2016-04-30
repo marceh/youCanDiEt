@@ -87,7 +87,7 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.products.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-
+            [self displayAlert];
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
@@ -96,6 +96,8 @@
     }
 }
 
+
+//Wanted to do this method DRY but didn't have the time...
 -(void)displayAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleActionSheet];
     
