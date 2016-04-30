@@ -36,6 +36,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)longPressOnCell:(id)sender {
+    NSLog(@"long pressed");
+}
+
 - (IBAction)toAddProduct:(id)sender {
     [self performSegueWithIdentifier:@"toAddProduct" sender:self];
 }

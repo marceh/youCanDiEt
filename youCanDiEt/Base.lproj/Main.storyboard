@@ -423,6 +423,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ar2-vh-8wS" appends="YES" id="Xh6-8q-TDo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -447,6 +451,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqo-83-pUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Ar2-vh-8wS">
+                    <connections>
+                        <action selector="longPressOnCell:" destination="2Xk-33-QnO" id="Jnt-3e-g8L"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1683" y="-1060"/>
         </scene>
