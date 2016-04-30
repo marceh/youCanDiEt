@@ -9,10 +9,11 @@
 #import "MyTableViewCell.h"
 
 @implementation MyTableViewCell
-@synthesize labelName, labelGrams, sliderGrams, gramsInformation;
+@synthesize labelName, labelGrams, sliderGrams, gramsInformation, textFieldGrams, buttonAddRecipe, productInformation, parManager;
 
 - (void)awakeFromNib {
-    
+    textFieldGrams.delegate = self;
+    parManager = [PARMananger getPARManager];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,9 +23,24 @@
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)slider {
-    labelGrams.text = [NSString stringWithFormat:@"Grams: %d",(int)sliderGrams.value];
-    gramsInformation = [NSNumber numberWithInt:(int)sliderGrams.value];
+    textFieldGrams.text = [NSString stringWithFormat:@"%d",(int)sliderGrams.value];
+    gramsInformation = [NSNumber numberWithInt:[textFieldGrams.text intValue]];
 }
 
+- (IBAction)clickedAdd:(UIButton *)sender {
+    [textFieldGrams resignFirstResponder];
+    
+    if (gramsInformation == nil) {
+        [parManager addProductToArrayOfIngredients:productInformation andGrams:@100];
+    } else {
+        [parManager addProductToArrayOfIngredients:productInformation andGrams:gramsInformation];
+    }
+    
+    sender.enabled = NO;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [textFieldGrams resignFirstResponder];
+}
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate>
+@interface ProductInfoTableViewController : UITableViewController <UIApplicationDelegate, UITextFieldDelegate>
 
 @end

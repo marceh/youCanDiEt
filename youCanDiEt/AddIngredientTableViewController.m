@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"inne i addIner");
     self.parManager = [PARMananger getPARManager];
     self.myProducts = self.parManager.products;
     self.searchContoller = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -33,12 +32,10 @@
     self.definesPresentationContext = YES;
     self.searchContoller.dimsBackgroundDuringPresentation = NO;
     self.tableView.tableHeaderView = self.searchContoller.searchBar;
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
@@ -67,7 +64,6 @@
     NSArray *activeData;
     
     if (self.searchContoller.isActive && self.searchContoller.searchBar.text.length > 0) {
-        //cell.textLabel.text = [self.searchResult[indexPath.row] name];
         activeData = self.searchResult;
     } else {
         activeData = self.myProducts;
@@ -85,7 +81,7 @@
     } else {
         [self.parManager addProductToArrayOfIngredients:cell.productInformation andGrams:cell.gramsInformation];
     }
+    
 }
-
 
 @end
