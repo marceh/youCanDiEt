@@ -668,14 +668,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af3-Wg-xud">
-                                <rect key="frame" x="20" y="28" width="110" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af3-Wg-xud">
+                                <rect key="frame" x="20" y="28" width="110" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="aKl-8l-41N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvt-sF-85J">
-                                <rect key="frame" x="20" y="79" width="110" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvt-sF-85J">
+                                <rect key="frame" x="20" y="84" width="110" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="21X-ai-fEb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
@@ -683,8 +689,11 @@
                                     <action selector="goBack:" destination="aHG-RT-cZ3" eventType="touchUpInside" id="r4S-sJ-Z6p"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05V-hN-kKS">
-                                <rect key="frame" x="20" y="51" width="110" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05V-hN-kKS">
+                                <rect key="frame" x="20" y="56" width="110" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="bxV-fN-bFw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -692,8 +701,8 @@
                                     <action selector="goBack:" destination="aHG-RT-cZ3" eventType="touchUpInside" id="ldk-BL-3WY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKb-uD-oMb">
-                                <rect key="frame" x="20" y="107" width="110" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKb-uD-oMb">
+                                <rect key="frame" x="20" y="112" width="110" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -704,22 +713,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TKb-uD-oMb" firstAttribute="top" secondItem="05V-hN-kKS" secondAttribute="bottom" constant="18" id="3MR-iz-yX0"/>
-                            <constraint firstItem="05V-hN-kKS" firstAttribute="leading" secondItem="af3-Wg-xud" secondAttribute="leading" id="7pe-V8-9yz"/>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="baseline" secondItem="05V-hN-kKS" secondAttribute="baseline" id="KjG-vv-QHx"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="top" secondItem="mdv-9Q-Kjo" secondAttribute="bottom" constant="8" symbolic="YES" id="Rbm-je-qJH"/>
-                            <constraint firstItem="Vvt-sF-85J" firstAttribute="leading" secondItem="05V-hN-kKS" secondAttribute="trailing" id="Tqi-aR-wuf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TKb-uD-oMb" secondAttribute="trailing" constant="59" id="WDU-Cg-BsD"/>
-                            <constraint firstItem="05V-hN-kKS" firstAttribute="trailing" secondItem="TKb-uD-oMb" secondAttribute="trailing" id="Zo8-YT-tO8"/>
-                            <constraint firstItem="05V-hN-kKS" firstAttribute="centerY" secondItem="vYM-Gj-lOb" secondAttribute="centerY" id="c1p-yK-In4"/>
-                            <constraint firstItem="TKb-uD-oMb" firstAttribute="leading" secondItem="vYM-Gj-lOb" secondAttribute="leading" id="hfF-iQ-EEo"/>
-                            <constraint firstItem="TKb-uD-oMb" firstAttribute="bottom" secondItem="uaY-iz-NFL" secondAttribute="top" id="sa8-OM-P0b"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="leading" secondItem="vYM-Gj-lOb" secondAttribute="leadingMargin" constant="4" id="tPE-RZ-m7U"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="centerX" secondItem="vYM-Gj-lOb" secondAttribute="centerX" id="ts0-V0-UhA"/>
-                            <constraint firstItem="af3-Wg-xud" firstAttribute="trailing" secondItem="Vvt-sF-85J" secondAttribute="trailing" id="yOy-fR-7LK"/>
+                            <constraint firstItem="Vvt-sF-85J" firstAttribute="leading" secondItem="05V-hN-kKS" secondAttribute="leading" id="0F5-S2-MB3"/>
+                            <constraint firstItem="af3-Wg-xud" firstAttribute="centerX" secondItem="vYM-Gj-lOb" secondAttribute="centerX" id="53F-w0-7eI"/>
+                            <constraint firstItem="Vvt-sF-85J" firstAttribute="top" secondItem="05V-hN-kKS" secondAttribute="bottom" constant="8" symbolic="YES" id="AKb-7v-IjO"/>
+                            <constraint firstItem="05V-hN-kKS" firstAttribute="top" secondItem="af3-Wg-xud" secondAttribute="bottom" constant="8" symbolic="YES" id="F4s-DQ-7j8"/>
+                            <constraint firstItem="af3-Wg-xud" firstAttribute="leading" secondItem="05V-hN-kKS" secondAttribute="leading" id="KHC-yd-qRf"/>
+                            <constraint firstItem="Vvt-sF-85J" firstAttribute="trailing" secondItem="05V-hN-kKS" secondAttribute="trailing" id="OcS-5k-ouk"/>
+                            <constraint firstItem="Vvt-sF-85J" firstAttribute="trailing" secondItem="TKb-uD-oMb" secondAttribute="trailing" id="PWP-IR-tGW"/>
+                            <constraint firstItem="af3-Wg-xud" firstAttribute="leading" secondItem="vYM-Gj-lOb" secondAttribute="leadingMargin" constant="4" id="cNJ-uB-qWh"/>
+                            <constraint firstItem="TKb-uD-oMb" firstAttribute="top" secondItem="Vvt-sF-85J" secondAttribute="bottom" constant="8" symbolic="YES" id="eod-Ur-uIg"/>
+                            <constraint firstItem="TKb-uD-oMb" firstAttribute="leading" secondItem="Vvt-sF-85J" secondAttribute="leading" id="oxN-8a-yXi"/>
+                            <constraint firstItem="uaY-iz-NFL" firstAttribute="top" secondItem="TKb-uD-oMb" secondAttribute="bottom" constant="18" id="qSQ-Pb-Y7E"/>
+                            <constraint firstItem="af3-Wg-xud" firstAttribute="top" secondItem="mdv-9Q-Kjo" secondAttribute="bottom" constant="8" symbolic="YES" id="qgZ-lc-QT3"/>
+                            <constraint firstItem="af3-Wg-xud" firstAttribute="trailing" secondItem="05V-hN-kKS" secondAttribute="trailing" id="sVR-eo-g9S"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="180"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="150"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="150" height="150"/>
                 </viewController>
