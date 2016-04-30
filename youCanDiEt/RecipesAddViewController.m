@@ -43,6 +43,36 @@
     if (!self.parManager.recipeForEditing) {
         self.parManager.recipeForEditing = [[Recipe alloc] init];
     }
+    if (self.parManager.editingRecipe) {
+        
+        self.textFieldName.text = self.parManager.recipeForEditing.name;
+        
+        int pickerIndex;
+        if ([self.parManager.recipeForEditing.category isEqualToString:@"Breakfast"]) {
+            self.categorySelected = @"Breakfast";
+            pickerIndex = 0;
+        } else if ([self.parManager.recipeForEditing.category isEqualToString:@"Snack"]) {
+            self.categorySelected = @"Snack";
+            pickerIndex = 1;
+        } else if ([self.parManager.recipeForEditing.category isEqualToString:@"Lunch"]) {
+            self.categorySelected = @"Lunch";
+            pickerIndex = 2;
+        } else if ([self.parManager.recipeForEditing.category isEqualToString:@"Dinner"]) {
+            self.categorySelected = @"Dinner";
+            pickerIndex = 3;
+        } else if ([self.parManager.recipeForEditing.category isEqualToString:@"Supper"]) {
+            self.categorySelected = @"Supper";
+            pickerIndex = 4;
+        }
+        [self.pickerViewCategory selectRow:pickerIndex inComponent:0 animated:YES];
+        
+        self.labelNrOfPortions.text = [self.parManager.recipeForEditing.portions stringValue];
+        self.stepperPortions.value = [self.parManager.recipeForEditing.portions doubleValue];
+        
+        self.textViewDescription.text = self.parManager.recipeForEditing.howTo;
+        
+        [self changePicOfButton];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,24 +107,33 @@
             NSLog(@"lika med empty shit");
         }
         if (!self.haveTakenPic){
+            if (self.parManager.editingRecipe && self.parManager.recipeForEditing.picPath != nil) {
+                [self.parManager addPicPath2CurrentRecipe:self.parManager.recipeForEditing.picPath];
+                [self theActualSaving];
+            }
             NSLog(@"No picture");
         }
         if (self.parManager.arrayOfIngredients.count == 0) {
             NSLog(@"No ingredient added");
         }
     } else {
-        
+        [self theActualSaving];
+    }
+    
+}
+
+- (void)theActualSaving {
     //1. Already saved latest PicPath...
     
     //2. Add recipe name...
     [self.parManager addName2CurrentRecipe:self.textFieldName.text];
     
     //3. Add recipe category...
-        if (self.categorySelected == nil) {
-            [self.parManager addCategory2CurrentRecipe:@"Lunch"];
-        } else {
-            [self.parManager addCategory2CurrentRecipe:self.categorySelected];
-        }
+    if (self.categorySelected == nil) {
+        [self.parManager addCategory2CurrentRecipe:@"Lunch"];
+    } else {
+        [self.parManager addCategory2CurrentRecipe:self.categorySelected];
+    }
     
     //4. Add recipe portions...
     [self.parManager addPortions2CurrentRecipe:[NSNumber numberWithInt:[self.labelNrOfPortions.text intValue]]];
@@ -104,9 +143,6 @@
     
     //7. Convert recipe dictionary to actual recipe and save it in PAR...
     [self.parManager convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager];
-        
-    }
-    
 }
 
 - (IBAction)takePicture:(UIButton *)sender {
@@ -137,9 +173,6 @@
         [self changePicOfButton];
     }
 }
-
-
-
 
 - (void)changePicOfButton {
     UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipeForEditing getTheRightFolderAndImagePath]];
@@ -210,11 +243,10 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"toArrayOfIngredientsAdder"]) {
-        
-        
-        
-        //self.parManager.recipeForEditing
-    
+        self.parManager.recipeForEditing.name = self.textFieldName.text;
+        self.parManager.recipeForEditing.category = self.categorySelected;
+        self.parManager.recipeForEditing.portions = [NSNumber numberWithInt:[self.labelNrOfPortions.text intValue]];
+        self.parManager.recipeForEditing.howTo = self.textViewDescription.text;
     }
 }
 
@@ -257,15 +289,5 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.textFieldName resignFirstResponder];
     [self.textViewDescription resignFirstResponder];
-}
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    
-    return YES;
 }
 @end

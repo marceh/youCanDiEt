@@ -24,7 +24,9 @@
 @property (nonatomic) NSMutableArray *selectedWeek;
 @property (nonatomic) BOOL fromClickedRecipes;
 @property (nonatomic) BOOL editingRecipe;
+@property (nonatomic) BOOL fromAlertContoller;
 @property (nonatomic) NSNumber *productNumber;
+@property (nonatomic) NSInteger indexPathFromEditRecipe;
 
 +(id)getPARManager;
 

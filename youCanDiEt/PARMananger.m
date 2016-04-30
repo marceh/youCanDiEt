@@ -128,7 +128,6 @@
 
 //will clear when entring add recipe from my recipe segue...
 -(void)clearCurrentRecipe {
-    NSLog(@"cleared dictionary");
     [self.dictionaryCurrentRecipe removeAllObjects];
 }
 
@@ -159,8 +158,13 @@
 -(void)convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager {
     [self addProducts2CurrentRecipe:self.arrayOfIngredients];
     Recipe *newRecipe = [[Recipe alloc]initWithDictionary:self.dictionaryCurrentRecipe];
-    [self addRecipeToMyRecipes:newRecipe];
-    [self saveRecipes];     
+    
+    if (self.fromAlertContoller) {
+        [self.recipes replaceObjectAtIndex:self.indexPathFromEditRecipe withObject:newRecipe];
+    } else {
+        [self addRecipeToMyRecipes:newRecipe];
+    }
+    [self saveRecipes];
 }
 
 -(void)deleteMyProducts {

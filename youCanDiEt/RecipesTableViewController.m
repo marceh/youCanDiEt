@@ -98,8 +98,11 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"SegueToAddRecipe"]){
+    if ([segue.identifier isEqualToString:@"toAddRecipe"]){
         [self.parManager clearCurrentRecipe];
+        self.parManager.arrayOfIngredients = [NSMutableArray new];
+        self.parManager.editingRecipe = NO;
+        self.parManager.fromAlertContoller = NO;
     }
 }
 
@@ -109,7 +112,13 @@
     
     UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         //Set Code...
-        [self.tableView reloadData];
+        //glöm inte att sätta alla producter till self.parmanager..arrayofingredients... se nedan...
+        self.parManager.arrayOfIngredients = [self.parManager.recipes[indexpathRow] products];
+        self.parManager.editingRecipe = YES;
+        self.parManager.fromAlertContoller = YES;
+        self.parManager.indexPathFromEditRecipe = indexpathRow;
+        self.parManager.recipeForEditing = self.parManager.recipes[indexpathRow];
+        [self performSegueWithIdentifier:@"ToAddRecipeByEdit" sender:self];
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
     
