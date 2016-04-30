@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"inne i view did load");
     self.parManager = [PARMananger getPARManager];
     self.theRecipe = self.parManager.comparableRecipeOne;
     self.imageViewPic.image = [UIImage imageWithContentsOfFile:[self.theRecipe getTheRightFolderAndImagePath]];
@@ -37,13 +36,11 @@
     self.labelCarbs.text = [NSString stringWithFormat:@"Total Carbs: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"carbs"]];
     self.labelProtein.text = [NSString stringWithFormat:@"Total Protein: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"protein"]];
     self.labelFat.text = [NSString stringWithFormat:@"Total Fat: %@", [self.theRecipe.dictionaryOfRecipeContent valueForKey:@"fat"]];
-    NSLog(@"%d",[self.theRecipe getDietValue]);
     self.labelDietValue.text = [NSString stringWithFormat:@"%d", [self.theRecipe getDietValue]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)clickedBack:(id)sender {
@@ -53,15 +50,5 @@
         [self performSegueWithIdentifier:@"FromRecipesClickedToRecipes" sender:self];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -49,10 +49,18 @@
     }
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"theCellInWeekPlannerTableViewController"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"theCellInWeekPlannerTableViewController"];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTheCell:)];
+    UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    pressRecognizer.minimumPressDuration = 1.0;
+    cell.tag = indexPath.row;
+    [cell addGestureRecognizer:tapRecognizer];
+    [cell addGestureRecognizer:pressRecognizer];
     
     if (self.parManager.weeks.count < 1) {
         cell.textLabel.text = @"No weeks created yet.";
@@ -64,19 +72,25 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tappedTheCell:(UITapGestureRecognizer *)sender {
     if (self.parManager.weeks.count > 0) {
-        self.parManager.selectedWeek = [self.parManager.weeks[indexPath.row] recipes];
+        self.parManager.selectedWeek = [self.parManager.weeks[sender.view.tag] recipes];
         [self performSegueWithIdentifier:@"goToClickedWeek" sender:self];
     } else {
         [self toAddWeek:self];
     }
 }
 
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)pressedTheCell:(UITapGestureRecognizer*)sender {
+    if (self.parManager.weeks.count > 0) {
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
+    } else {
+        if (sender.state == UIGestureRecognizerStateBegan){
+             NSLog(@"Pressade");
+        }
+    }
 }
-
 
 @end

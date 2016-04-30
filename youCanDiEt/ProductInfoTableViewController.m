@@ -74,7 +74,7 @@
     return cell;
 }
 
--(void)tappedTheCell:(UILongPressGestureRecognizer *)longPress
+-(void)tappedTheCell:(UILongPressGestureRecognizer *)sender
 {
     if (self.parManager.products.count > 0) {
         //If a clickable action is added, put it here...
@@ -85,13 +85,15 @@
     }
 }
 
--(void)pressedTheCell:(UITapGestureRecognizer*)tap
-{
+-(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.products.count > 0) {
-        //If a clickable action is added, put it here...
-        NSLog(@"Pressade");
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
     } else {
-        NSLog(@"Pressade");
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
     }
 }
 

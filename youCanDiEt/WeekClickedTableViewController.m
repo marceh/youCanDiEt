@@ -257,6 +257,8 @@
     return cell;
 }
 
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"klickade på indexpath: %ld, %ld",(long)indexPath.section, (long)indexPath.row);
     

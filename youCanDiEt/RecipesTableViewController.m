@@ -50,6 +50,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell" forIndexPath:indexPath];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTheCell:)];
+    UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    pressRecognizer.minimumPressDuration = 1.0;
+    cell.tag = indexPath.row;
+    [cell addGestureRecognizer:tapRecognizer];
+    [cell addGestureRecognizer:pressRecognizer];
+    
     if (self.parManager.recipes.count < 1) {
         cell.labelRecipeName.text = @"No Recipes added yet";
         cell.imageRecipePicture.image = Nil;
@@ -66,9 +75,9 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tappedTheCell:(UITapGestureRecognizer *)sender {
     if (self.parManager.recipes.count > 0) {
-        [self.parManager thisIsComparableRecipe:self.parManager.recipes[indexPath.row] number:1];
+        [self.parManager thisIsComparableRecipe:self.parManager.recipes[sender.view.tag] number:1];
         self.parManager.fromClickedRecipes = NO;
         [self performSegueWithIdentifier:@"FromRecipeTableView" sender:self];
     } else {
@@ -76,6 +85,17 @@
     }
 }
 
+-(void)pressedTheCell:(UITapGestureRecognizer*)sender {
+    if (self.parManager.recipes.count > 0) {
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
+    } else {
+        if (sender.state == UIGestureRecognizerStateBegan){
+            NSLog(@"Pressade");
+        }
+    }
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SegueToAddRecipe"]){
