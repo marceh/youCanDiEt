@@ -66,6 +66,8 @@
 
 -(void)deleteMyRecipes;
 
+-(void)deleteMyWeeks;
+
 -(void)thisIsComparableRecipe:(Recipe *)recipe number:(int)number;
 
 @end

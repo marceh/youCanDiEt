@@ -58,18 +58,14 @@
     
     if (self.parManager.recipes.count < 1) {
         cell.labelRecipeName.text = @"No Recipes added yet";
+        cell.imageRecipePicture.image = Nil;
     } else {
         cell.labelRecipeName.text = [self.parManager.recipes[indexPath.row] name];
-        
-        //NSLog(@"the picPath of the image = %@ at indexpath.row = %d",[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath], indexPath.row);
-        
         UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath]];
-        
-        //NSLog(@"cached image = %@", cachedImage);
         if (cachedImage) {
             cell.imageRecipePicture.image = cachedImage;
         } else {
-            //NSLog(@"didn't find the picPath of the recipe");
+            cell.imageRecipePicture.image = Nil;
         }
     }
     
@@ -80,6 +76,7 @@
     if (self.parManager.recipes.count > 0) {
         [self.parManager thisIsComparableRecipe:self.parManager.recipes[indexPath.row] number:1];
         self.parManager.fromClickedRecipes = NO;
+        [self performSegueWithIdentifier:@"FromRecipeTableView" sender:self];
     }
 }
 
@@ -87,12 +84,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SegueToAddRecipe"]){
         [self.parManager clearCurrentRecipe];
-    } else if ([segue.identifier isEqualToString:@"segueClickRecipe"]){
-        NSLog(@"inne i seguen...");
-        //RecipesTableViewCell *cell = sender;
-        //self.parManager thisIsComparableRecipe:self.parManager.recipes[cell.] number:<#(int)#>
     }
-    
 }
 
 

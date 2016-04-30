@@ -165,10 +165,17 @@
 
 -(void)deleteMyProducts {
     [self.products removeAllObjects];
+    [self saveProducts];
 }
 
 -(void)deleteMyRecipes {
     [self.recipes removeAllObjects];
+    [self saveRecipes];
+}
+
+-(void)deleteMyWeeks {
+    [self.weeks removeAllObjects];
+    [self saveWeeks];
 }
 
 -(void)thisIsComparableRecipe:(Recipe *)recipe number:(int)number {
