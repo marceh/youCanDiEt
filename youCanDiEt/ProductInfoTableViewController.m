@@ -23,21 +23,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"ViewDidLoad");
     self.parManager = [PARMananger getPARManager];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillAppear,,,");
     [self.productTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (IBAction)longPressOnCell:(id)sender {
-    NSLog(@"long pressed");
 }
 
 - (IBAction)toAddProduct:(id)sender {
@@ -60,6 +54,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellProduct"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellProduct"];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTheCell:)];
+    UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    pressRecognizer.minimumPressDuration = 1.0;
+    cell.tag = indexPath.row;
+    [cell addGestureRecognizer:tapRecognizer];
+    [cell addGestureRecognizer:pressRecognizer];
+    
             if (self.parManager.products.count < 1) {
                 cell.textLabel.text = @"No products added yet";
             } else {
@@ -71,11 +74,24 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tappedTheCell:(UILongPressGestureRecognizer *)longPress
+{
     if (self.parManager.products.count > 0) {
         //If a clickable action is added, put it here...
+        NSLog(@"Klickade");
     } else {
+        NSLog(@"Klickade");
         [self toAddProduct:self];
+    }
+}
+
+-(void)pressedTheCell:(UITapGestureRecognizer*)tap
+{
+    if (self.parManager.products.count > 0) {
+        //If a clickable action is added, put it here...
+        NSLog(@"Pressade");
+    } else {
+        NSLog(@"Pressade");
     }
 }
 
