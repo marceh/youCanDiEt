@@ -53,6 +53,7 @@
 }
 
 - (IBAction)calculateButtonClicked:(UIButton *)sender {
+    [self tappedBackground:self];
     if ([self checkIfAllFieldsAreValid]) {
         int age = [self.ageTextField.text intValue];
         int height = [self.heightTextField.text intValue];
@@ -63,13 +64,22 @@
         [self updateKcalLabel];
         [self.settingsManager saveKcalNeed];
     } else {
-        self.kcalLabel.text = @"Input not valid!";
+        self.kcalLabel.text = @"Input not valid...";
     }
 }
 
 - (BOOL)checkIfAllFieldsAreValid {
-    //TODO: implement the checkmethod...
-    return YES;
+    BOOL tempBool = YES;
+    if ([self.ageTextField.text isEqualToString:@""]) {
+        tempBool = NO;
+    } else if ([self.heightTextField.text isEqualToString:@""]) {
+        tempBool = NO;
+    } else if ([self.weightTextView.text isEqualToString:@""]) {
+        tempBool = NO;
+    } else if ([self.trainingSessionsTextView.text isEqualToString:@""]) {
+        tempBool = NO;
+    }
+    return tempBool;
 }
 
 -(void)updateKcalLabel{
@@ -94,14 +104,11 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)tappedBackground:(id)sender {
+    [self.ageTextField resignFirstResponder];
+    [self.heightTextField resignFirstResponder];
+    [self.weightTextView resignFirstResponder];
+    [self.trainingSessionsTextView resignFirstResponder];
 }
-*/
 
 @end

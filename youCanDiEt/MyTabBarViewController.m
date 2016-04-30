@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setSelectedIndex:2];
     // Do any additional setup after loading the view.
 }
 
