@@ -38,7 +38,6 @@
 }
 
 -(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
-//    [self.arrayDone removeAllObjects];
     self.arrayDone = [NSMutableArray new];
     [self.tableView reloadData];
     self.textFieldSearch.text = @"Searching... Please wait!";
@@ -66,7 +65,6 @@
                                                                        [self.arrayDone addObject:@"No product matched your search..."];
                                                                    } else {
                                                                        self.arrayDone = [nameArray copy];
-                                                                       //[self giveCorrespondingDictionaryBasedOnNumber:[self.tempProducts[0] stringValue] andIndex:0];
                                                                    }
                                                                    [self.tableView reloadData];
                                                                    self.textFieldSearch.text = @"";
@@ -77,10 +75,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -90,7 +85,6 @@
     return self.arrayDone.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellAddTheProducts";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -99,7 +93,6 @@
     label.text = self.arrayDone[indexPath.row];
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.parManager.productNumber = self.tempProducts[indexPath.row];
@@ -122,72 +115,9 @@
     return UIModalPresentationNone;
 }
 
--(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
-    
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"Add";
-}
-
-/*- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleInsert;
-}
-*/
-
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
-
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
-     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://matapi.se/foodstuff/%@",self.tempProducts[indexPath.row]]];
-     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-     NSURLSession *session = [NSURLSession sharedSession];
-     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                 NSError *parseError;
-                                                 NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
-                                                 dispatch_async(dispatch_get_main_queue(),
-                                                                ^{
-                                                                    NSDictionary *nutrientValuesInJSON = [json valueForKey:@"nutrientValues"];
-                                                                    [tempDictionary setValue:[json valueForKey:@"name"] forKey:@"name"];
-                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"energyKcal"] stringValue] forKey:@"kcal"];
-                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"carbohydrates"] stringValue] forKey:@"carbs"];
-                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"protein"] stringValue] forKey:@"protein"];
-                                                                    [tempDictionary setValue:[[nutrientValuesInJSON valueForKey:@"fat"] stringValue] forKey:@"fat"];
-                                                                    
-                                                                    if (editingStyle == UITableViewCellEditingStyleDelete) {
-                                                                        [self.parManager addProductToMyProducts:[[Product alloc]initWithDictionary:tempDictionary]];
-                                                                        [self.parManager saveProducts];
-                                                                    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-                                                                    }
-                                                                    
-                                                                });
-                                             }];
-     [task resume];
- }
-
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 @end

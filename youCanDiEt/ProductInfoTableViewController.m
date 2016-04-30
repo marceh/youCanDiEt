@@ -88,13 +88,28 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.products.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-            NSLog(@"Pressade");
+            [self performSegueWithIdentifier:@"popoverSegueMyProducts" sender:self];
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
             NSLog(@"Pressade");
         }
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"popoverSegueMyProducts"]) {
+        UIViewController *viewController = segue.destinationViewController;
+        UIPopoverPresentationController *controller = viewController.popoverPresentationController;
+        
+        if (controller != nil) {
+            controller.delegate = self;
+        }
+    }
+}
+
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end

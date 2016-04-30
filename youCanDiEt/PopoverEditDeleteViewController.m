@@ -22,7 +22,17 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)clickedEdit:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
+- (IBAction)clickedDelete:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)clickedBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 @end
