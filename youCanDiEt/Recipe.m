@@ -96,4 +96,16 @@
     return [NSNumber numberWithDouble: ([[self getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"] intValue] / [self.portions intValue])];
 }
 
+-(id)copyWithZone:(NSZone *)zone{
+    NSDictionary *tempDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+    [self.howTo mutableCopy], @"howTo",
+    [self.category mutableCopy], @"category",
+    [self.name mutableCopy], @"name",
+    [self.picPath mutableCopy], @"picPath",
+    self.portions, @"portions",
+    nil];
+    Recipe *copy = [[Recipe allocWithZone:zone]initWithDictionary:tempDictionary];
+    return(copy);
+}
+
 @end

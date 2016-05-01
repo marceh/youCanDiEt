@@ -108,7 +108,7 @@
         
         self.parManager.editingWeek = YES;
         self.parManager.indexPathFromEditWeek = indexpathRow;
-        self.parManager.weekForEditing = self.parManager.weeks[indexpathRow];
+        self.parManager.weekForEditing = [self.parManager.weeks[indexpathRow] copy];
         [self performSegueWithIdentifier:@"toAddWeek" sender:self];
     }];
     

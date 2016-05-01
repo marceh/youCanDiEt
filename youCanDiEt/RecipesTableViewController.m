@@ -119,7 +119,7 @@
         self.parManager.editingRecipe = YES;
         self.parManager.fromAlertContoller = YES;
         self.parManager.indexPathFromEditRecipe = indexpathRow;
-        self.parManager.recipeForEditing = self.parManager.recipes[indexpathRow];
+        self.parManager.recipeForEditing = [self.parManager.recipes[indexpathRow] copy];
         [self performSegueWithIdentifier:@"ToAddRecipeByEdit" sender:self];
     }];
     

@@ -44,4 +44,10 @@
     [encoder encodeObject:self.recipes forKey:@"recipes"];
 }
 
+-(id)copyWithZone:(NSZone *)zone{
+    WeekPlanner *copy = [[WeekPlanner allocWithZone:zone]initWithWeekName:[self.weekName mutableCopy] andRecipes:[self.recipes mutableCopy]];
+    
+    return(copy);
+}
+
 @end

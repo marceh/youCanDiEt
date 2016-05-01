@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Recipe : NSObject <NSCoding>
+@interface Recipe : NSObject <NSCoding, NSCopying>
 
 //Array of Dictionaries...
 @property (nonatomic) NSMutableArray *products;
@@ -36,5 +36,7 @@
 - (NSNumber *)getTotalKeyWordContentInRecipeBasedOnKeyWord:(NSString *)keyWord;
 
 - (NSNumber *)getKcalsPerPortions;
+
+-(id)copyWithZone:(NSZone *)zone;
 
 @end

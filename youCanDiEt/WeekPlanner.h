@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WeekPlanner : NSObject <NSCoding>
+@interface WeekPlanner : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic) NSMutableArray *recipes;
 @property (nonatomic) NSString *weekName;
@@ -19,5 +19,7 @@
 - (id)initWithCoder:(NSCoder *)decoder;
 
 - (void)encodeWithCoder:(NSCoder *)encoder;
+
+-(id)copyWithZone:(NSZone *)zone;
 
 @end

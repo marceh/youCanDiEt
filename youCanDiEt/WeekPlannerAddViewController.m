@@ -108,6 +108,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInTwoTables"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellInTwoTables"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (tableView == self.recipesToChooseFromTableView) {
         if (self.arrayChangableBasedOnCategory.count < 1) {
@@ -152,13 +153,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.recipesToChooseFromTableView) {
-        NSDictionary *tempDictionary = @{@"recipe" : [self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row], @"category" : self.categoryChosen, @"weekday" : self.weekdayChosen};
-        [self.arrayOfDictionariesWithAddedRecipes insertObject:tempDictionary atIndex:0];
-        [self.chosenRecipesTableView reloadData];
-        
+        if (self.arrayChangableBasedOnCategory.count > 0) {
+            NSDictionary *tempDictionary = @{@"recipe" : [self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row], @"category" : self.categoryChosen, @"weekday" : self.weekdayChosen};
+            [self.arrayOfDictionariesWithAddedRecipes insertObject:tempDictionary atIndex:0];
+            [self.chosenRecipesTableView reloadData];
+        }
     } else {
-        [self.arrayOfDictionariesWithAddedRecipes removeObjectAtIndex:indexPath.row];
-        [self.chosenRecipesTableView reloadData];
+        if (self.arrayOfDictionariesWithAddedRecipes.count > 0) {
+            [self.arrayOfDictionariesWithAddedRecipes removeObjectAtIndex:indexPath.row];
+            [self.chosenRecipesTableView reloadData];
+        }
     }
 }
 
@@ -199,11 +203,11 @@
     switch (component) {
         case 0:
             //This is when the weekdayComponent is changed...
-            self.weekdayChosen = [self.weekdays objectAtIndex:[self.weekdaysAndCategoryPickerView selectedRowInComponent:0]];
+            self.weekdayChosen = [self.weekdays objectAtIndex:[self.weekdaysAndCategoryPickerView  selectedRowInComponent:0]];
             break;
         case 1:
             //This is when the categoryComponent is changed...
-            self.categoryChosen = [self.categories objectAtIndex:[self.weekdaysAndCategoryPickerView selectedRowInComponent:1]];
+            self.categoryChosen = [self.categories objectAtIndex:[self.weekdaysAndCategoryPickerView   selectedRowInComponent:1]];
             [self setChangableArrayBasedOnCategory];
             [self.recipesToChooseFromTableView reloadData];
             break;
