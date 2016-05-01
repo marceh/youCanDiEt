@@ -17,12 +17,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setSelectedIndex:0];
-    // Do any additional setup after loading the view.
+    
+    UISwipeGestureRecognizer *leftToRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftToRight)];
+    leftToRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:leftToRightGestureRecognizer];
+    
+    UISwipeGestureRecognizer *rightToLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightToLeft)];
+    rightToLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:rightToLeftGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)leftToRight {
+    UITabBar *tabBar = self.tabBar;
+    NSInteger index = [tabBar.items indexOfObject:tabBar.selectedItem];
+    if (index > 0) {
+        self.selectedIndex = index - 1;
+    } else {
+        return;
+    }
+}
+
+- (void)rightToLeft{
+    UITabBar *tabBar = self.tabBar;
+    NSInteger index = [tabBar.items indexOfObject:tabBar.selectedItem];
+    if (index < tabBar.items.count - 1) {
+        self.selectedIndex = index + 1;
+    } else {
+        return;
+    }
 }
 
 /*

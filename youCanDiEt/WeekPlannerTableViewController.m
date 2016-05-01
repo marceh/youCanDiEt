@@ -68,7 +68,6 @@
         cell.textLabel.text = [self.parManager.weeks[indexPath.row] weekName];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Estimated weigthloss: %.2fkg", ((([[self.parManager.weeks[indexPath.row] kcalInWeek] doubleValue]) - ([[self.settingsManager kcalNeed] doubleValue] * 7)) / 7000)];
     }
-    
     return cell;
 }
 

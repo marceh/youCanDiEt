@@ -245,8 +245,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-v2-aER">
-                                <rect key="frame" x="20" y="338" width="280" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-v2-aER">
+                                <rect key="frame" x="20" y="316" width="280" height="39"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -284,8 +284,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-g1-mhM">
-                                <rect key="frame" x="20" y="260" width="280" height="70"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-g1-mhM">
+                                <rect key="frame" x="20" y="260" width="280" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="zAY-ri-H8y"/>
                                 </constraints>
@@ -294,40 +294,23 @@
                                     <action selector="calculateButtonClicked:" destination="seH-mh-1I7" eventType="touchUpInside" id="w2V-cK-bhw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMe-GR-UTe">
-                                <rect key="frame" x="158" y="481" width="142" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="mwC-wr-1yE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Remove All Recipes"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Ub0-l1-Ilb">
+                                <rect key="frame" x="20" y="483" width="280" height="29"/>
+                                <segments>
+                                    <segment title="Pantry"/>
+                                    <segment title="Cookbook"/>
+                                    <segment title="Planner"/>
+                                </segments>
                                 <connections>
-                                    <action selector="removeAllRecipes:" destination="seH-mh-1I7" eventType="touchUpInside" id="deJ-ac-OpT"/>
+                                    <action selector="clickedSegmentedControll:" destination="seH-mh-1I7" eventType="valueChanged" id="srk-xL-4sD"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rir-Xr-0nX">
-                                <rect key="frame" x="20" y="481" width="142" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yxk-wq-w9M"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Remove All Products"/>
-                                <connections>
-                                    <action selector="removeAllProducts:" destination="seH-mh-1I7" eventType="touchUpInside" id="PEZ-ci-3gc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41o-do-Aw6">
-                                <rect key="frame" x="20" y="443" width="142" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3hH-JE-d9z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Remove All Weeks"/>
-                                <connections>
-                                    <action selector="removeAllProducts:" destination="seH-mh-1I7" eventType="touchUpInside" id="nSQ-mq-SgQ"/>
-                                    <action selector="removeAllWeeks:" destination="seH-mh-1I7" eventType="touchUpInside" id="FmK-D8-Cvm"/>
-                                </connections>
-                            </button>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remove all objects from" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-AN-N1f">
+                                <rect key="frame" x="20" y="454" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -338,23 +321,17 @@
                             <constraint firstItem="VL8-iW-a1B" firstAttribute="top" secondItem="sqZ-q9-1kh" secondAttribute="bottom" constant="15" id="4nl-eo-zfv"/>
                             <constraint firstItem="97E-N3-DJN" firstAttribute="trailing" secondItem="QI4-Wd-7Uj" secondAttribute="trailing" id="5e3-fk-uJ5"/>
                             <constraint firstItem="bwh-g8-rCE" firstAttribute="trailing" secondItem="QI4-Wd-7Uj" secondAttribute="trailing" id="6hg-md-Vko"/>
-                            <constraint firstItem="qMe-GR-UTe" firstAttribute="trailing" secondItem="Moa-v2-aER" secondAttribute="trailing" id="7UW-Gz-i5f"/>
                             <constraint firstItem="V5S-Th-WQI" firstAttribute="top" secondItem="BCa-j4-nu9" secondAttribute="bottom" constant="17" id="8a9-76-SHA"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="top" secondItem="41o-do-Aw6" secondAttribute="bottom" constant="8" symbolic="YES" id="9DP-ez-JR4"/>
                             <constraint firstItem="NmM-DC-90z" firstAttribute="top" secondItem="W76-Md-zSQ" secondAttribute="bottom" constant="8" symbolic="YES" id="9ch-HB-eiZ"/>
-                            <constraint firstItem="qMe-GR-UTe" firstAttribute="baseline" secondItem="Rir-Xr-0nX" secondAttribute="firstBaseline" id="CQC-u2-ub1"/>
                             <constraint firstItem="rhD-E7-J6P" firstAttribute="top" secondItem="V5S-Th-WQI" secondAttribute="bottom" constant="17" id="DLg-Rz-JsO"/>
                             <constraint firstItem="97E-N3-DJN" firstAttribute="leading" secondItem="W76-Md-zSQ" secondAttribute="leading" id="DOM-mN-cXK"/>
                             <constraint firstItem="W76-Md-zSQ" firstAttribute="leading" secondItem="NmM-DC-90z" secondAttribute="leading" id="Ded-yU-SEU"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="baseline" secondItem="qMe-GR-UTe" secondAttribute="firstBaseline" id="J3r-sP-bQo"/>
                             <constraint firstItem="vwd-g1-mhM" firstAttribute="top" secondItem="NmM-DC-90z" secondAttribute="bottom" constant="8" symbolic="YES" id="JbG-7E-9ky"/>
                             <constraint firstItem="bwh-g8-rCE" firstAttribute="top" secondItem="sqZ-q9-1kh" secondAttribute="bottom" constant="8" symbolic="YES" id="NYH-6S-JQD"/>
                             <constraint firstItem="vwd-g1-mhM" firstAttribute="trailing" secondItem="Moa-v2-aER" secondAttribute="trailing" id="PYa-BV-cDk"/>
                             <constraint firstItem="97E-N3-DJN" firstAttribute="trailing" secondItem="W76-Md-zSQ" secondAttribute="trailing" id="Puz-4x-w4o"/>
                             <constraint firstItem="97E-N3-DJN" firstAttribute="top" secondItem="QI4-Wd-7Uj" secondAttribute="bottom" constant="8" symbolic="YES" id="TOA-0m-BQb"/>
                             <constraint firstItem="Moa-v2-aER" firstAttribute="leading" secondItem="vwd-g1-mhM" secondAttribute="leading" id="URC-4m-tUK"/>
-                            <constraint firstItem="41o-do-Aw6" firstAttribute="top" secondItem="Moa-v2-aER" secondAttribute="bottom" constant="35" id="WNa-wT-GxV"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="top" secondItem="qMe-GR-UTe" secondAttribute="top" id="X8G-sH-nUf"/>
                             <constraint firstItem="vwd-g1-mhM" firstAttribute="trailing" secondItem="NmM-DC-90z" secondAttribute="trailing" id="Xnx-bk-c41"/>
                             <constraint firstItem="bwh-g8-rCE" firstAttribute="leading" secondItem="VL8-iW-a1B" secondAttribute="trailing" constant="8" symbolic="YES" id="ZK7-dZ-uie"/>
                             <constraint firstItem="V5S-Th-WQI" firstAttribute="leading" secondItem="BCa-j4-nu9" secondAttribute="leading" id="ZfT-N7-XG0"/>
@@ -362,21 +339,16 @@
                             <constraint firstItem="W76-Md-zSQ" firstAttribute="top" secondItem="97E-N3-DJN" secondAttribute="bottom" constant="8" symbolic="YES" id="bhe-jL-i1r"/>
                             <constraint firstItem="BCa-j4-nu9" firstAttribute="leading" secondItem="aPA-iX-5Nu" secondAttribute="leading" id="cnI-pa-F8r"/>
                             <constraint firstItem="NmM-DC-90z" firstAttribute="leading" secondItem="rhD-E7-J6P" secondAttribute="trailing" constant="8" symbolic="YES" id="crm-CT-1qK"/>
-                            <constraint firstItem="41o-do-Aw6" firstAttribute="trailing" secondItem="Rir-Xr-0nX" secondAttribute="trailing" id="fYR-eN-kK6"/>
                             <constraint firstItem="W76-Md-zSQ" firstAttribute="leading" secondItem="V5S-Th-WQI" secondAttribute="trailing" constant="8" symbolic="YES" id="gEu-Re-EdL"/>
                             <constraint firstItem="Moa-v2-aER" firstAttribute="centerX" secondItem="27d-ed-tJm" secondAttribute="centerX" id="gIb-4j-FV9"/>
                             <constraint firstItem="vwd-g1-mhM" firstAttribute="top" secondItem="rhD-E7-J6P" secondAttribute="bottom" constant="8" symbolic="YES" id="hS8-zC-pgs"/>
                             <constraint firstItem="W76-Md-zSQ" firstAttribute="trailing" secondItem="NmM-DC-90z" secondAttribute="trailing" id="lAw-DA-uM1"/>
                             <constraint firstItem="rhD-E7-J6P" firstAttribute="leading" secondItem="vwd-g1-mhM" secondAttribute="leading" id="pA7-wK-FJr"/>
-                            <constraint firstItem="T4l-em-tlJ" firstAttribute="top" secondItem="Rir-Xr-0nX" secondAttribute="bottom" constant="8" symbolic="YES" id="pvy-fR-r8S"/>
-                            <constraint firstItem="rhD-E7-J6P" firstAttribute="trailing" secondItem="41o-do-Aw6" secondAttribute="trailing" id="rrO-Sy-hgc"/>
                             <constraint firstItem="V5S-Th-WQI" firstAttribute="leading" secondItem="rhD-E7-J6P" secondAttribute="leading" id="rwo-a3-iFo"/>
-                            <constraint firstItem="Moa-v2-aER" firstAttribute="leading" secondItem="41o-do-Aw6" secondAttribute="leading" id="sRf-Vb-CTi"/>
                             <constraint firstItem="VL8-iW-a1B" firstAttribute="leading" secondItem="27d-ed-tJm" secondAttribute="leadingMargin" constant="4" id="sef-4h-r2S"/>
                             <constraint firstItem="QI4-Wd-7Uj" firstAttribute="leading" secondItem="aPA-iX-5Nu" secondAttribute="trailing" constant="8" symbolic="YES" id="t3R-Tb-fq2"/>
                             <constraint firstItem="QI4-Wd-7Uj" firstAttribute="leading" secondItem="97E-N3-DJN" secondAttribute="leading" id="td3-fO-Rcz"/>
                             <constraint firstItem="Moa-v2-aER" firstAttribute="top" secondItem="vwd-g1-mhM" secondAttribute="bottom" constant="8" symbolic="YES" id="vG3-jD-I7r"/>
-                            <constraint firstItem="Rir-Xr-0nX" firstAttribute="leading" secondItem="41o-do-Aw6" secondAttribute="leading" id="w3r-Rm-tAB"/>
                             <constraint firstItem="bwh-g8-rCE" firstAttribute="leading" secondItem="QI4-Wd-7Uj" secondAttribute="leading" id="wHE-NU-lzv"/>
                             <constraint firstItem="97E-N3-DJN" firstAttribute="leading" secondItem="BCa-j4-nu9" secondAttribute="trailing" constant="8" symbolic="YES" id="xat-l8-Nt3"/>
                         </constraints>
@@ -393,6 +365,7 @@
                         <outlet property="genderSegmentedControl" destination="bwh-g8-rCE" id="wjB-5K-3qS"/>
                         <outlet property="heightTextField" destination="97E-N3-DJN" id="bRa-9R-pHt"/>
                         <outlet property="kcalLabel" destination="Moa-v2-aER" id="8j4-KC-5Es"/>
+                        <outlet property="removeSegmentedControll" destination="Ub0-l1-Ilb" id="V3e-tK-szJ"/>
                         <outlet property="trainingSessionsTextView" destination="NmM-DC-90z" id="L7W-iG-VZY"/>
                         <outlet property="weightTextView" destination="W76-Md-zSQ" id="tlK-Qy-hoV"/>
                     </connections>
@@ -1275,9 +1248,9 @@
         <segue reference="2OX-Y9-Fyh"/>
         <segue reference="2lX-Tz-Y6j"/>
         <segue reference="3sx-gg-osV"/>
-        <segue reference="0PC-8k-cHf"/>
         <segue reference="VIt-XN-DsH"/>
         <segue reference="NqK-yx-eF7"/>
-        <segue reference="s6d-83-QEY"/>
+        <segue reference="aIh-GQ-PNf"/>
+        <segue reference="2L9-AU-8tH"/>
     </inferredMetricsTieBreakers>
 </document>

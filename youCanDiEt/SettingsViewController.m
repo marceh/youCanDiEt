@@ -15,6 +15,7 @@
 @property (nonatomic) PARMananger *parManager;
 @property (nonatomic) Settings *settingsManager;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *removeSegmentedControll;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *heightTextField;
 @property (weak, nonatomic) IBOutlet UITextField *weightTextView;
@@ -87,17 +88,62 @@
 }
 
 - (IBAction)removeAllProducts:(id)sender {
-    [self.parManager deleteMyProducts];
+    [self safetyCehckWithObjectType:1];
 }
 
 - (IBAction)removeAllRecipes:(id)sender {
-    [self.parManager deleteMyRecipes];
+    [self safetyCehckWithObjectType:2];
 }
 
 - (IBAction)removeAllWeeks:(id)sender {
-    [self.parManager deleteMyWeeks];
+    [self safetyCehckWithObjectType:3];
 }
 
+- (IBAction)clickedSegmentedControll:(UISegmentedControl *)sender {
+    NSInteger index = self.removeSegmentedControll.selectedSegmentIndex;
+    
+    switch(index)
+    {
+        case 0:
+            [self safetyCehckWithObjectType:1];
+            break;
+        case 1:
+            [self safetyCehckWithObjectType:2];
+            break;
+        case 2:
+            [self safetyCehckWithObjectType:3];
+            break;
+        default : break;
+    }
+}
+
+- (void)safetyCehckWithObjectType:(int)objectType {
+
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Remove" message:@"This will erase all objects!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *remove = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        if (objectType == 1) {
+            [self.parManager deleteMyProducts];
+        } else if (objectType == 2) {
+            [self.parManager deleteMyRecipes];
+        } else {
+            [self.parManager deleteMyWeeks];
+        }
+        self.removeSegmentedControll.selectedSegmentIndex = -1;
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.removeSegmentedControll.selectedSegmentIndex = -1;
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:remove];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

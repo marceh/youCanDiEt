@@ -117,6 +117,7 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [self clickedButtonSearch:self];
     return YES;
 }
 
