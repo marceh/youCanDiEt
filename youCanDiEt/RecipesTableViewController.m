@@ -50,6 +50,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell" forIndexPath:indexPath];
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell"];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"RecipesTableViewCell"];
+    
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedTheCell:)];
     UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressedTheCell:)];
     tapRecognizer.numberOfTapsRequired = 1;
@@ -103,6 +106,7 @@
         self.parManager.arrayOfIngredients = [NSMutableArray new];
         self.parManager.editingRecipe = NO;
         self.parManager.fromAlertContoller = NO;
+        self.parManager.recipeForEditing = [[Recipe alloc] init];
     }
 }
 

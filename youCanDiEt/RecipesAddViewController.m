@@ -101,21 +101,37 @@
 
 - (IBAction)saveRecipe:(id)sender {
     
+    if (!self.haveTakenPic){
+        if (self.parManager.editingRecipe && self.parManager.recipeForEditing.picPath != nil) {
+            [self.parManager addPicPath2CurrentRecipe:self.parManager.recipeForEditing.picPath];
+            self.haveTakenPic = YES;
+        }
+    }
+    
     //Recipe must have Name, Pic and ingreedients...
     if ([self.textFieldName.text isEqualToString:@""] || !self.haveTakenPic || self.parManager.arrayOfIngredients.count == 0) {
+        
+        NSString *errorMessage = @"Please fix the following errors:";
+        
         if ([self.textFieldName.text isEqualToString:@""]) {
-            NSLog(@"lika med empty shit");
+            errorMessage = [errorMessage stringByAppendingString:@" Enter name."];
         }
         if (!self.haveTakenPic){
-            if (self.parManager.editingRecipe && self.parManager.recipeForEditing.picPath != nil) {
-                [self.parManager addPicPath2CurrentRecipe:self.parManager.recipeForEditing.picPath];
-                [self theActualSaving];
-            }
-            NSLog(@"No picture");
+            errorMessage = [errorMessage stringByAppendingString:@" Take picture."];
         }
         if (self.parManager.arrayOfIngredients.count == 0) {
-            NSLog(@"No ingredient added");
+            errorMessage = [errorMessage stringByAppendingString:@" Add ingredients."];
         }
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+
     } else {
         [self theActualSaving];
     }
@@ -143,6 +159,23 @@
     
     //7. Convert recipe dictionary to actual recipe and save it in PAR...
     [self.parManager convertDictionaryCurrentRecipe2RecipeAndAdd2PARManager];
+    
+    [self performSegueWithIdentifier:@"exitAddRecipe" sender:self];
+}
+- (IBAction)exitAddRecipe:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Exit" message:@"The recipe has not been saved..." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *exit = [UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self performSegueWithIdentifier:@"exitAddRecipe" sender:self];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:exit];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)takePicture:(UIButton *)sender {

@@ -33,20 +33,20 @@
 }
 
 -(void)addProductToMyProducts:(Product *)product{
-    [self.products addObject:product];
+    [self.products insertObject:product atIndex:0];
 }
 
 -(void)addRecipeToMyRecipes:(Recipe *)recipe{
-    [self.recipes addObject:recipe];
+    [self.recipes insertObject:recipe atIndex:0];
 }
 
 -(void)addWeekToMyWeeks:(WeekPlanner *)week{
-    [self.weeks addObject:week];
+    [self.weeks insertObject:week atIndex:0];
 }
 
 -(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams{
     NSDictionary *tempDictionary = @{@"product" : product, @"grams" : grams};
-    [self.arrayOfIngredients addObject:tempDictionary];
+    [self.arrayOfIngredients insertObject:tempDictionary atIndex:0];
 }
 
 -(Product *)getProductInProductsAtIndex:(int)index{

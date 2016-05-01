@@ -813,7 +813,7 @@
                     <navigationItem key="navigationItem" title="New recipe" id="0uP-5g-scX">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="XpV-5w-Z4t">
                             <connections>
-                                <segue destination="XDf-Mi-vtE" kind="show" id="VAb-kc-oVW"/>
+                                <action selector="exitAddRecipe:" destination="dsT-n2-7pm" id="bwr-o7-ckL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="H3w-TS-BwH">
@@ -834,6 +834,7 @@
                         <outlet property="tableViewAddRecipe" destination="0XT-Do-Wha" id="GAM-Di-Wb4"/>
                         <outlet property="textFieldName" destination="UZ6-ZL-eZW" id="VMU-aX-Fj6"/>
                         <outlet property="textViewDescription" destination="Rkm-bq-d3D" id="Swb-oL-1Ip"/>
+                        <segue destination="XDf-Mi-vtE" kind="show" identifier="exitAddRecipe" id="s6d-83-QEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNB-za-CXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1301,7 +1302,7 @@
         <segue reference="24S-E7-8s5"/>
         <segue reference="VIt-XN-DsH"/>
         <segue reference="NqK-yx-eF7"/>
-        <segue reference="VAb-kc-oVW"/>
+        <segue reference="s6d-83-QEY"/>
         <segue reference="mkO-WE-LTn"/>
         <segue reference="2L9-AU-8tH"/>
     </inferredMetricsTieBreakers>
