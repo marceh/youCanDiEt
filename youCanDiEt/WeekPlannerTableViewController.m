@@ -63,7 +63,7 @@
     [cell addGestureRecognizer:pressRecognizer];
     
     if (self.parManager.weeks.count < 1) {
-        cell.textLabel.text = @"No weeks created yet.";
+        cell.textLabel.text = @"No weeks added yet.";
     } else {
         cell.textLabel.text = [self.parManager.weeks[indexPath.row] weekName];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Estimated weigthloss: %.2fkg", ((([[self.parManager.weeks[indexPath.row] kcalInWeek] doubleValue]) - ([[self.settingsManager kcalNeed] doubleValue] * 7)) / 7000)];

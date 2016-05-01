@@ -84,7 +84,7 @@
 }
 
 -(void)updateKcalLabel{
-    self.kcalLabel.text = [self.settingsManager.kcalNeed stringValue];
+    self.kcalLabel.text = [NSString stringWithFormat:@"Kcal need: %@",[self.settingsManager.kcalNeed stringValue]];
 }
 
 - (IBAction)removeAllProducts:(id)sender {

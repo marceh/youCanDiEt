@@ -18,8 +18,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)slider {
@@ -41,6 +39,18 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [textFieldGrams resignFirstResponder];
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *tempString;
+    if (![string isEqualToString:@""]) {
+        tempString = [textField.text stringByAppendingString:string];
+    } else {
+        tempString = [textField.text substringWithRange:NSMakeRange(0, ([textField.text length] -1))];
+    }
+    [sliderGrams setValue:[tempString doubleValue] animated:YES];
+    gramsInformation = [NSNumber numberWithInt:[tempString intValue]];
+    return YES;
 }
 
 @end

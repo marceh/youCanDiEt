@@ -11,7 +11,7 @@
 #import "Recipe.h"
 #import "WeekPlanner.h"
 
-@interface PARMananger : NSObject <NSCoding>
+@interface PARMananger : NSObject
 
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSMutableArray *recipes;
@@ -42,8 +42,6 @@
 -(Product *)getProductInProductsAtIndex:(int)index;
 
 -(Product *)getProductInArrayOfIngredientsAtIndex:(int)index;
-
--(void)logProductsArray;
 
 -(void)saveProducts;
 

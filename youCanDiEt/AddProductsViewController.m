@@ -33,14 +33,14 @@
     self.textFieldSearch.delegate = self;
 }
 
-- (IBAction)clickedButtonSearch:(id)sender {
+- (void)clickedButtonSearch {
     [self updateTheTableWithItemsMatchingSearchItem:self.textFieldSearch.text];
 }
 
 -(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
     self.arrayDone = [NSMutableArray new];
     [self.tableView reloadData];
-    self.textFieldSearch.text = @"Searching... Please wait!";
+    self.textFieldSearch.text = @"Searching...";
     [self searchedItemGetApiNumbers:item];
 }
 
@@ -62,7 +62,7 @@
                                                                    }
                                                                    self.tempProducts = [tempArray copy];
                                                                    if (self.tempProducts.count == 0) {
-                                                                       [self.arrayDone addObject:@"No product matched your search..."];
+                                                                       [self.arrayDone addObject:@"No match"];
                                                                    } else {
                                                                        self.arrayDone = [nameArray copy];
                                                                    }
@@ -86,11 +86,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"CellAddTheProducts";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    UILabel *label;
-    label = (UILabel *) [cell viewWithTag:1];
-    label.text = self.arrayDone[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellAddTheProducts"];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellAddTheProducts"];
+    cell.textLabel.text = self.arrayDone[indexPath.row];
+    
     return cell;
 }
 
@@ -117,7 +116,7 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    [self clickedButtonSearch:self];
+    [self clickedButtonSearch];
     return YES;
 }
 

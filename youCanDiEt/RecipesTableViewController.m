@@ -7,7 +7,6 @@
 //
 
 #import "RecipesTableViewController.h"
-#import "RecipesTableViewCell.h"
 #import "PARMananger.h"
 
 @interface RecipesTableViewController ()
@@ -61,17 +60,11 @@
     [cell addGestureRecognizer:pressRecognizer];
     
     if (self.parManager.recipes.count < 1) {
-        cell.textLabel.text = @"No Recipes added yet";
+        cell.textLabel.text = @"No recipes added yet";
         cell.imageView.image = Nil;
     } else {
         cell.textLabel.text = [self.parManager.recipes[indexPath.row] name];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ containing %@ kcals/portion", [self.parManager.recipes[indexPath.row] category], [self.parManager.recipes[indexPath.row] getKcalsPerPortions]];
-        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath]];
-        if (cachedImage) {
-            cell.imageView.image = cachedImage;
-        } else {
-            cell.imageView.image = Nil;
-        }
     }
     
     return cell;

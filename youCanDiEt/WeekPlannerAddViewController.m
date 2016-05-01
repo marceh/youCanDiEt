@@ -91,7 +91,11 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
    
     if (tableView == self.recipesToChooseFromTableView) {
+        if (self.arrayChangableBasedOnCategory.count < 1) {
+            return 1;
+        } else {
         return self.arrayChangableBasedOnCategory.count;
+        }
     } else {
         if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
             return 1;
@@ -99,7 +103,6 @@
             return self.arrayOfDictionariesWithAddedRecipes.count;
         }
     }
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,15 +110,19 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellInTwoTables"];
     
     if (tableView == self.recipesToChooseFromTableView) {
-        cell.textLabel.text = [self.arrayChangableBasedOnCategory[indexPath.row] name];
-        int kcal = [[self.arrayChangableBasedOnCategory[indexPath.row] getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"] intValue];
-        int portions = [[self.arrayChangableBasedOnCategory[indexPath.row] portions] intValue];
-        int kcalPerPortions = (int)kcal/portions;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d kcal per portions", kcalPerPortions];
+        if (self.arrayChangableBasedOnCategory.count < 1) {
+            cell.textLabel.text = [NSString stringWithFormat:@"No %@ recipes exists", self.categoryChosen];
+        } else {
+            cell.textLabel.text = [self.arrayChangableBasedOnCategory[indexPath.row] name];
+            int kcal = [[self.arrayChangableBasedOnCategory[indexPath.row] getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"] intValue];
+            int portions = [[self.arrayChangableBasedOnCategory[indexPath.row] portions] intValue];
+            int kcalPerPortions = (int)kcal/portions;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d kcal per portions", kcalPerPortions];
         
-        UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.arrayChangableBasedOnCategory[indexPath.row] getTheRightFolderAndImagePath]];
-        if (cachedImage) {
-            cell.imageView.image = cachedImage;
+            UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.arrayChangableBasedOnCategory[indexPath.row] getTheRightFolderAndImagePath]];
+            if (cachedImage) {
+                cell.imageView.image = cachedImage;
+            }
         }
     } else {
         if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
