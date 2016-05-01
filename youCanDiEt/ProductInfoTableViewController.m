@@ -62,7 +62,7 @@
     cell.tag = indexPath.row;
     [cell addGestureRecognizer:tapRecognizer];
     [cell addGestureRecognizer:pressRecognizer];
-    
+
             if (self.parManager.products.count < 1) {
                 cell.textLabel.text = @"No products added yet";
             } else {
@@ -72,6 +72,14 @@
             }
 
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor whiteColor];
+    } else {
+        cell.backgroundColor = [UIColor colorWithRed:0.753 green:0.925 blue:0.98 alpha:1.0];
+    }
 }
 
 -(void)tappedTheCell:(UILongPressGestureRecognizer *)sender {
