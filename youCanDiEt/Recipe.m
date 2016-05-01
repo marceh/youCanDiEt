@@ -92,4 +92,8 @@
     }
 }
 
+- (NSNumber *)getKcalsPerPortions{
+    return [NSNumber numberWithDouble: ([[self getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"] intValue] / [self.portions intValue])];
+}
+
 @end

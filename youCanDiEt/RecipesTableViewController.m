@@ -48,8 +48,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecipesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell" forIndexPath:indexPath];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell"];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"RecipesTableViewCell"];
     
@@ -63,15 +61,16 @@
     [cell addGestureRecognizer:pressRecognizer];
     
     if (self.parManager.recipes.count < 1) {
-        cell.labelRecipeName.text = @"No Recipes added yet";
-        cell.imageRecipePicture.image = Nil;
+        cell.textLabel.text = @"No Recipes added yet";
+        cell.imageView.image = Nil;
     } else {
-        cell.labelRecipeName.text = [self.parManager.recipes[indexPath.row] name];
+        cell.textLabel.text = [self.parManager.recipes[indexPath.row] name];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ containing %@ kcals/portion", [self.parManager.recipes[indexPath.row] category], [self.parManager.recipes[indexPath.row] getKcalsPerPortions]];
         UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.parManager.recipes[indexPath.row] getTheRightFolderAndImagePath]];
         if (cachedImage) {
-            cell.imageRecipePicture.image = cachedImage;
+            cell.imageView.image = cachedImage;
         } else {
-            cell.imageRecipePicture.image = Nil;
+            cell.imageView.image = Nil;
         }
     }
     

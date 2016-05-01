@@ -35,4 +35,6 @@
 
 - (NSNumber *)getTotalKeyWordContentInRecipeBasedOnKeyWord:(NSString *)keyWord;
 
+- (NSNumber *)getKcalsPerPortions;
+
 @end
