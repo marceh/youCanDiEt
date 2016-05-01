@@ -84,7 +84,7 @@
 -(void)pressedTheCell:(UITapGestureRecognizer*)sender {
     if (self.parManager.weeks.count > 0) {
         if (sender.state == UIGestureRecognizerStateBegan){
-            NSLog(@"Pressade");
+            [self displayAlertSendingIndexPathRow:sender.view.tag];
         }
     } else {
         if (sender.state == UIGestureRecognizerStateBegan){
@@ -98,9 +98,11 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //Set Code...
-        [self.tableView reloadData];
-        [alertController dismissViewControllerAnimated:YES completion:nil];
+        
+        self.parManager.editingWeek = YES;
+        self.parManager.indexPathFromEditWeek = indexpathRow;
+        self.parManager.weekForEditing = self.parManager.weeks[indexpathRow];
+        [self performSegueWithIdentifier:@"toAddWeek" sender:self];
     }];
     
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

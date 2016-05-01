@@ -114,15 +114,12 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Measure" message:@"Select your measure" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *edit = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //Set Code...
-        //glöm inte att sätta alla producter till self.parmanager..arrayofingredients... se nedan...
         self.parManager.arrayOfIngredients = [self.parManager.recipes[indexpathRow] products];
         self.parManager.editingRecipe = YES;
         self.parManager.fromAlertContoller = YES;
         self.parManager.indexPathFromEditRecipe = indexpathRow;
         self.parManager.recipeForEditing = self.parManager.recipes[indexpathRow];
         [self performSegueWithIdentifier:@"ToAddRecipeByEdit" sender:self];
-        [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
     
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

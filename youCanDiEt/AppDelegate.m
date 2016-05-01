@@ -27,12 +27,6 @@
     self.settingsManager = [Settings getSetting];
     [self.parManager loadProductsAndRecipesAndWeeks];
     [self.settingsManager loadKcalNeed];
-/*  
-    for (Recipe *recipe in self.parManager.recipes) {
-        [recipe getTotalKeyWordContentInRecipeBasedOnKeyWord:@"kcal"];
-    }
-*/
-    
     return YES;
 }
 

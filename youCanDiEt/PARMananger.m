@@ -41,7 +41,12 @@
 }
 
 -(void)addWeekToMyWeeks:(WeekPlanner *)week{
-    [self.weeks insertObject:week atIndex:0];
+    if (self.editingWeek) {
+        [self.weeks replaceObjectAtIndex:self.indexPathFromEditWeek withObject:week];
+    } else {
+        [self.weeks insertObject:week atIndex:0];
+    }
+    self.editingWeek = NO;
 }
 
 -(void)addProductToArrayOfIngredients:(Product *)product andGrams:(NSNumber *)grams{
@@ -59,13 +64,6 @@
 
 -(NSNumber *)getProductGramsInArrayOfIngredientsAtIndex:(int)index{
     return [[self.arrayOfIngredients objectAtIndex:index] valueForKey:@"grams"];
-}
-
--(void)logProductsArray{
-    
-    for(Product *product in self.products){
-        NSLog([product description]);
-    }
 }
 
 -(void)saveProducts{
@@ -105,22 +103,22 @@
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     NSInteger productsCount = [settings integerForKey:@"productsCount"];
     
-    for (int i = 0; i<productsCount; i++) {
-        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"products[%d]",i]];
+    for (int i = productsCount; i>0; i--) {
+        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"products[%d]",i-1]];
         [self addProductToMyProducts:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     }
     
     NSInteger recipesCount = [settings integerForKey:@"recipesCount"];
     
-    for (int i = 0; i<recipesCount; i++) {
-        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"recipes[%d]",i]];
+    for (int i = recipesCount; i>0; i--) {
+        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"recipes[%d]",i-1]];
         [self addRecipeToMyRecipes:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     }
     
     NSInteger weeksCount = [settings integerForKey:@"weeksCount"];
     
-    for (int i = 0; i<weeksCount; i++) {
-        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"weeks[%d]",i]];
+    for (int i = weeksCount; i>0; i--) {
+        NSData *data = [settings objectForKey:[NSString stringWithFormat:@"weeks[%d]",i-1]];
         [self addWeekToMyWeeks:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     }
 

@@ -41,13 +41,20 @@
     self.weekdayChosen = @"Monday";
     self.categoryChosen = @"Breakfast";
     [self initArraysAndBreakUpTheRecipesIntoOwnArraysBasedOnCategory];
-
+    self.weekNameTextField.delegate = self;
+    if (self.parManager.editingWeek) {
+        [self comingFromEdit];
+    }
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)comingFromEdit{
+    self.arrayOfDictionariesWithAddedRecipes = self.parManager.weekForEditing.recipes;
+    self.weekNameTextField.text = self.parManager.weekForEditing.weekName;
 }
 
 -(void)initArraysAndBreakUpTheRecipesIntoOwnArraysBasedOnCategory {
@@ -109,8 +116,6 @@
         UIImage *cachedImage = [UIImage imageWithContentsOfFile:[self.arrayChangableBasedOnCategory[indexPath.row] getTheRightFolderAndImagePath]];
         if (cachedImage) {
             cell.imageView.image = cachedImage;
-        } else {
-            NSLog(@"didn't find the picPath of the recipe");
         }
     } else {
         if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
@@ -122,8 +127,6 @@
             UIImage *cachedImage = [UIImage imageWithContentsOfFile:[[self.arrayOfDictionariesWithAddedRecipes[indexPath.row] valueForKey:@"recipe" ] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
         }
     }
@@ -133,19 +136,15 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Inne här");
     if (tableView == self.recipesToChooseFromTableView) {
-        NSLog([NSString stringWithFormat:@"tounched row: %d",indexPath.row]);
-        NSLog([[self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row] name]);
         NSDictionary *tempDictionary = @{@"recipe" : [self.arrayChangableBasedOnCategory objectAtIndex:indexPath.row], @"category" : self.categoryChosen, @"weekday" : self.weekdayChosen};
-        
         [self.arrayOfDictionariesWithAddedRecipes insertObject:tempDictionary atIndex:0];
         [self.chosenRecipesTableView reloadData];
         
     } else {
-       //TODO: If clicked remove recipe but warn first...
+        [self.arrayOfDictionariesWithAddedRecipes removeObjectAtIndex:indexPath.row];
+        [self.chosenRecipesTableView reloadData];
     }
-    
 }
 
 //PickerView Implementation below...
@@ -186,13 +185,10 @@
         case 0:
             //This is when the weekdayComponent is changed...
             self.weekdayChosen = [self.weekdays objectAtIndex:[self.weekdaysAndCategoryPickerView selectedRowInComponent:0]];
-            NSLog(self.weekdayChosen);
-            
             break;
         case 1:
             //This is when the categoryComponent is changed...
             self.categoryChosen = [self.categories objectAtIndex:[self.weekdaysAndCategoryPickerView selectedRowInComponent:1]];
-            NSLog(self.categoryChosen);
             [self setChangableArrayBasedOnCategory];
             [self.recipesToChooseFromTableView reloadData];
             break;
@@ -220,29 +216,49 @@
 }
 
 - (IBAction)saveTheWeek:(id)sender {
-    if (self.arrayOfDictionariesWithAddedRecipes.count < 1) {
-        //TODO: Fix the felhantering... Och inget namn...
+    if ([self.weekNameTextField.text isEqualToString:@""] || self.arrayOfDictionariesWithAddedRecipes.count == 0) {
+            
+        NSString *errorMessage = @"Please fix the following errors:";
+            
+        if ([self.weekNameTextField.text isEqualToString:@""]) {
+            errorMessage = [errorMessage stringByAppendingString:@" Enter name."];
+        }
+        if (self.arrayOfDictionariesWithAddedRecipes.count == 0) {
+            errorMessage = [errorMessage stringByAppendingString:@" Add ingredients."];
+        }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
     } else {
         WeekPlanner *plannedWeek = [[WeekPlanner alloc] initWithWeekName:self.weekNameTextField.text andRecipes:self.arrayOfDictionariesWithAddedRecipes];
         [self.parManager addWeekToMyWeeks:plannedWeek];
         [self.parManager saveWeeks];
+        [self performSegueWithIdentifier:@"exitAddWeek" sender:self];
     }
 }
 
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)exitAddWeek:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Exit" message:@"The week has not been saved..." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *exit = [UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self performSegueWithIdentifier:@"exitAddWeek" sender:self];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:exit];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
-*/
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

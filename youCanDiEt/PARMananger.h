@@ -25,8 +25,11 @@
 @property (nonatomic) BOOL fromClickedRecipes;
 @property (nonatomic) BOOL editingRecipe;
 @property (nonatomic) BOOL fromAlertContoller;
+@property (nonatomic) BOOL editingWeek;
 @property (nonatomic) NSNumber *productNumber;
 @property (nonatomic) NSInteger indexPathFromEditRecipe;
+@property (nonatomic) NSInteger indexPathFromEditWeek;
+@property (nonatomic) WeekPlanner *weekForEditing;
 
 +(id)getPARManager;
 

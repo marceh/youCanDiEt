@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeekPlannerAddViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface WeekPlannerAddViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @end

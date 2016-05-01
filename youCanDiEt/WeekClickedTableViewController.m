@@ -175,8 +175,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.mondaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -187,8 +185,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.tuesdaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -199,8 +195,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.wednesdaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -211,8 +205,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.thursdaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -223,8 +215,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.fridaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -235,8 +225,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.saturdaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             
             break;
@@ -247,8 +235,6 @@
             cachedImage = [UIImage imageWithContentsOfFile:[self.sundaysRecipes[indexPath.row] getTheRightFolderAndImagePath]];
             if (cachedImage) {
                 cell.imageView.image = cachedImage;
-            } else {
-                NSLog(@"didn't find the picPath of the recipe");
             }
             break;
         default:
@@ -257,11 +243,7 @@
     return cell;
 }
 
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"klickade på indexpath: %ld, %ld",(long)indexPath.section, (long)indexPath.row);
-    
     if (indexPath.section == 0) {
         [self.parmanager thisIsComparableRecipe:self.mondaysRecipes[indexPath.row] number:1];
     } else if (indexPath.section == 1) {
@@ -277,7 +259,6 @@
     } else if (indexPath.section == 6) {
         [self.parmanager thisIsComparableRecipe:self.sundaysRecipes[indexPath.row] number:1];
     } else {
-        NSLog(@"Something went wrong...");
     }
     self.parmanager.fromClickedRecipes = YES;
     [self performSegueWithIdentifier:@"FromClickedToInfo" sender:self];
