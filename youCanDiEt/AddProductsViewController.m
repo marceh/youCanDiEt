@@ -102,8 +102,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.parManager.productNumber = self.tempProducts[indexPath.row];
-    [self performSegueWithIdentifier:@"popoverSegueProduct" sender:self];
+    if (self.tempProducts.count > 0) {
+        self.parManager.productNumber = self.tempProducts[indexPath.row];
+        [self performSegueWithIdentifier:@"popoverSegueProduct" sender:self];
+    }
 }
 
 
