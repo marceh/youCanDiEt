@@ -10,6 +10,7 @@
 #import "PARMananger.h"
 #import "Product.h"
 #import "ProductInfoClickViewController.h"
+#import "Reach"
 
 @interface AddProductsViewController ()
 

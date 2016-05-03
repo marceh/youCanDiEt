@@ -110,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7F1635091C8181FC00D08CE7 /* youCanDiEt */,
+				7FD345E51CD90D80004A42AC /* Reachability */,
 				7F1635081C8181FC00D08CE7 /* Products */,
 				B6DF41D1DBD5C53AF65CDAF3 /* Pods */,
 				E4E5702138B7EF3A8FDA6784 /* Frameworks */,
@@ -218,6 +219,14 @@
 				7F1635311C81C8D900D08CE7 /* PARMananger.m */,
 			);
 			name = Singletons;
+			sourceTree = "<group>";
+		};
+		7FD345E51CD90D80004A42AC /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reachability;
+			path = youCanDiEt;
 			sourceTree = "<group>";
 		};
 		B6DF41D1DBD5C53AF65CDAF3 /* Pods */ = {

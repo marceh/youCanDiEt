@@ -64,7 +64,7 @@
 
 -(void)loadKcalNeed{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    self.kcalNeed = [NSNumber numberWithInt:[settings integerForKey:@"kcalNeed"]];
+    self.kcalNeed = [NSNumber numberWithInt:(int32_t)[settings integerForKey:@"kcalNeed"]];
     if ([self.kcalNeed intValue] == 0) {
         self.kcalNeed = [NSNumber numberWithInt:2500];
     }

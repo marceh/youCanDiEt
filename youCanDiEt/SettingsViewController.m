@@ -105,13 +105,13 @@
     switch(index)
     {
         case 0:
-            [self safetyCehckWithObjectType:1];
+            [self safetyCehckWithObjectType:3];
             break;
         case 1:
             [self safetyCehckWithObjectType:2];
             break;
         case 2:
-            [self safetyCehckWithObjectType:3];
+            [self safetyCehckWithObjectType:1];
             break;
         default : break;
     }

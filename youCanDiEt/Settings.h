@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Settings : NSObject <NSCoding>
+@interface Settings : NSObject
 
 @property (nonatomic) NSNumber *kcalNeed;
 

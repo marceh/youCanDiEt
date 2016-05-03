@@ -365,9 +365,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Ub0-l1-Ilb">
                                 <rect key="frame" x="20" y="483" width="280" height="29"/>
                                 <segments>
-                                    <segment title="Pantry"/>
-                                    <segment title="Cookbook"/>
                                     <segment title="Planner"/>
+                                    <segment title="Cookbook"/>
+                                    <segment title="Pantry"/>
                                 </segments>
                                 <connections>
                                     <action selector="clickedSegmentedControll:" destination="seH-mh-1I7" eventType="valueChanged" id="srk-xL-4sD"/>
