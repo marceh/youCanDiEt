@@ -45,7 +45,10 @@
     if (self.parManager.editingWeek) {
         [self comingFromEdit];
     }
-    
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:NO];
+
 }
 
 - (void)didReceiveMemoryWarning {

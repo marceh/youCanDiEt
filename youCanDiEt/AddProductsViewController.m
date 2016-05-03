@@ -11,6 +11,7 @@
 #import "Product.h"
 #import "ProductInfoClickViewController.h"
 #import "Reachability.h"
+#import "MyTabBarViewController.h"
 @import SystemConfiguration;
 
 @interface AddProductsViewController ()
@@ -22,6 +23,7 @@
 @property (nonatomic) NSMutableArray *tempProducts;
 @property (nonatomic) PARMananger *parManager;
 @property (nonatomic) NSNumber *rowSelsected;
+@property (strong, nonatomic) MyTabBarViewController *myTabBarViewController;
 
 @end
 
@@ -33,6 +35,9 @@
     self.tempProducts = [NSMutableArray new];
     self.arrayDone = [NSMutableArray new];
     self.textFieldSearch.delegate = self;
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:NO];
 }
 
 - (void)clickedButtonSearch {

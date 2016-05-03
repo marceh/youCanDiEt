@@ -52,6 +52,18 @@
     }
 }
 
+- (void)setNotEnabledTabBarItems{
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:NO];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:NO];
+}
+
+- (void)setEnabledTabBarItems{
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:YES];
+}
+
 /*
 #pragma mark - Navigation
 

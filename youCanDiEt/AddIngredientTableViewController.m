@@ -42,6 +42,7 @@
     NSString *searchText = searchController.searchBar.text;
     NSPredicate *findProducts = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
     
+    
     self.searchResult = [self.myProducts filteredArrayUsingPredicate:findProducts];
     [self.tableView reloadData];
 }
@@ -68,7 +69,7 @@
     } else {
         activeData = self.myProducts;
     }
-    
+
     cell.labelName.text = [activeData[indexPath.row] name];
     cell.productInformation = activeData[indexPath.row];
     return cell;

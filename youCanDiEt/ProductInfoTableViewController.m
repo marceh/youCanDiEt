@@ -9,6 +9,8 @@
 #import "ProductInfoTableViewController.h"
 #import "PARMananger.h"
 #import "Product.h"
+#import "MyTabBarViewController.h"
+
 
 @interface ProductInfoTableViewController ()
 @property (nonatomic) PARMananger *parManager;
@@ -16,6 +18,7 @@
 @property (nonatomic) NSMutableArray *tempProducts;
 @property (nonatomic) NSMutableArray *arrayDone;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
+@property (strong, nonatomic) MyTabBarViewController *myTabBarViewController;
 
 @end
 
@@ -24,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

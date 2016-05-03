@@ -10,4 +10,8 @@
 
 @interface MyTabBarViewController : UITabBarController
 
+- (void)setNotEnabledTabBarItems;
+
+- (void)setEnabledTabBarItems;
+
 @end

@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.parManager = [PARMananger getPARManager];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:YES];
+    [[[[self.tabBarController tabBar] items] objectAtIndex:2] setEnabled:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
