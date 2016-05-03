@@ -34,6 +34,9 @@
 		7F8D63A01CAEE6A2002EFB3F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8D639F1CAEE6A2002EFB3F /* Icon-Small.png */; };
 		7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE50A21C899A890065049C /* AddProductsViewController.m */; };
 		7FB3E2AB1CD0DA1C00F21CCB /* WeekClickedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */; };
+		7FD345EC1CD90E33004A42AC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD345E71CD90E33004A42AC /* Reachability.m */; };
+		7FD345ED1CD90E33004A42AC /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD345E91CD90E33004A42AC /* APLViewController.m */; };
+		7FD345EE1CD90E33004A42AC /* APLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD345EB1CD90E33004A42AC /* APLAppDelegate.m */; };
 		7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */; };
 		7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85FBB1CD36EE100F25B21 /* PopoverProductViewController.m */; };
 /* End PBXBuildFile section */
@@ -86,6 +89,12 @@
 		7FAE50A21C899A890065049C /* AddProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductsViewController.m; sourceTree = "<group>"; };
 		7FB3E2A91CD0DA1C00F21CCB /* WeekClickedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClickedTableViewController.h; sourceTree = "<group>"; };
 		7FB3E2AA1CD0DA1C00F21CCB /* WeekClickedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClickedTableViewController.m; sourceTree = "<group>"; };
+		7FD345E61CD90E33004A42AC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7FD345E71CD90E33004A42AC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7FD345E81CD90E33004A42AC /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
+		7FD345E91CD90E33004A42AC /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
+		7FD345EA1CD90E33004A42AC /* APLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLAppDelegate.h; sourceTree = "<group>"; };
+		7FD345EB1CD90E33004A42AC /* APLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLAppDelegate.m; sourceTree = "<group>"; };
 		7FD85FB41CD348F000F25B21 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
 		7FD85FB51CD348F000F25B21 /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		7FD85FBA1CD36EE100F25B21 /* PopoverProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverProductViewController.h; sourceTree = "<group>"; };
@@ -224,6 +233,12 @@
 		7FD345E51CD90D80004A42AC /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
+				7FD345E61CD90E33004A42AC /* Reachability.h */,
+				7FD345E71CD90E33004A42AC /* Reachability.m */,
+				7FD345E81CD90E33004A42AC /* APLViewController.h */,
+				7FD345E91CD90E33004A42AC /* APLViewController.m */,
+				7FD345EA1CD90E33004A42AC /* APLAppDelegate.h */,
+				7FD345EB1CD90E33004A42AC /* APLAppDelegate.m */,
 			);
 			name = Reachability;
 			path = youCanDiEt;
@@ -376,6 +391,7 @@
 				7FD85FBC1CD36EE100F25B21 /* PopoverProductViewController.m in Sources */,
 				7F1635531C81CC5A00D08CE7 /* SettingsViewController.m in Sources */,
 				7F1635291C81C89E00D08CE7 /* Recipe.m in Sources */,
+				7FD345EE1CD90E33004A42AC /* APLAppDelegate.m in Sources */,
 				7F8D638B1CAEAB2B002EFB3F /* RecipesClickedViewController.m in Sources */,
 				7F1635441C81CB8E00D08CE7 /* ProductInfoTableViewController.m in Sources */,
 				7F1635261C81BBD000D08CE7 /* Product.m in Sources */,
@@ -386,6 +402,8 @@
 				7F16350F1C8181FC00D08CE7 /* AppDelegate.m in Sources */,
 				7F8D63821CABB4B9002EFB3F /* MyTableViewCell.m in Sources */,
 				7F16350C1C8181FC00D08CE7 /* main.m in Sources */,
+				7FD345ED1CD90E33004A42AC /* APLViewController.m in Sources */,
+				7FD345EC1CD90E33004A42AC /* Reachability.m in Sources */,
 				7FD85FB61CD348F100F25B21 /* MyTabBarViewController.m in Sources */,
 				7FAE50A31C899A890065049C /* AddProductsViewController.m in Sources */,
 				7F1635411C81CB6700D08CE7 /* RecipesAddViewController.m in Sources */,

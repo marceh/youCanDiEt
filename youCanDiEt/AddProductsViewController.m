@@ -10,7 +10,8 @@
 #import "PARMananger.h"
 #import "Product.h"
 #import "ProductInfoClickViewController.h"
-#import "Reach"
+#import "Reachability.h"
+@import SystemConfiguration;
 
 @interface AddProductsViewController ()
 
@@ -35,7 +36,13 @@
 }
 
 - (void)clickedButtonSearch {
-    [self updateTheTableWithItemsMatchingSearchItem:self.textFieldSearch.text];
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        [self displayAlert];
+    } else {
+        [self updateTheTableWithItemsMatchingSearchItem:self.textFieldSearch.text];
+    }
 }
 
 -(void)updateTheTableWithItemsMatchingSearchItem:(NSString *)item{
@@ -129,6 +136,17 @@
     [textField resignFirstResponder];
     [self clickedButtonSearch];
     return YES;
+}
+
+-(void)displayAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No Internet" message:@"Please check your connection" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:ok];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
