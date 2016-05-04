@@ -17,6 +17,7 @@
 @property (nonatomic) NSMutableArray *recipes;
 @property (nonatomic) NSMutableArray *weeks;
 @property (nonatomic) NSMutableArray *arrayOfIngredients;
+@property (nonatomic) NSMutableArray *arrayOfNamesOfAddedIngredients;
 @property (nonatomic) NSMutableDictionary *dictionaryCurrentRecipe;
 @property (nonatomic) Recipe *comparableRecipeOne;
 @property (nonatomic) Recipe *comparableRecipeTwo;

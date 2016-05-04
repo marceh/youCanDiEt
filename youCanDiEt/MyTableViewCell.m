@@ -33,8 +33,9 @@
     } else {
         [parManager addProductToArrayOfIngredients:productInformation andGrams:gramsInformation];
     }
-    
+    [parManager.arrayOfNamesOfAddedIngredients addObject:labelName.text];
     sender.enabled = NO;
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

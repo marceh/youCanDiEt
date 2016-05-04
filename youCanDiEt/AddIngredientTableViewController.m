@@ -32,11 +32,14 @@
     self.definesPresentationContext = YES;
     self.searchContoller.dimsBackgroundDuringPresentation = NO;
     self.tableView.tableHeaderView = self.searchContoller.searchBar;
+    self.parManager.arrayOfNamesOfAddedIngredients = [NSMutableArray new];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString *searchText = searchController.searchBar.text;
@@ -69,6 +72,12 @@
     } else {
         activeData = self.myProducts;
     }
+    
+    if ([self checkIfAlreadyAddedBasedOnName:[activeData[indexPath.row] name]]) {
+        cell.buttonAddRecipe.enabled = NO;
+    } else {
+        cell.buttonAddRecipe.enabled = YES;
+    }
 
     cell.labelName.text = [activeData[indexPath.row] name];
     cell.productInformation = activeData[indexPath.row];
@@ -87,6 +96,16 @@
     if ([segue.identifier isEqualToString:@"BackFromChooseIngredients"]) {
         self.parManager.editingRecipe = YES;
     }
+}
+
+-(BOOL)checkIfAlreadyAddedBasedOnName:(NSString *)name {
+    BOOL tempBool = NO;
+    for (NSString *string in self.parManager.arrayOfNamesOfAddedIngredients) {
+        if ([string isEqualToString:name]) {
+            tempBool = YES;
+        }
+    }
+    return tempBool;
 }
 
 @end
